@@ -10,10 +10,12 @@ function PrimaryButton({
   text,
   className,
   href,
+  isLight,
 }: {
   readonly text: string
   readonly className?: string
   readonly href: string
+  readonly isLight?: boolean
 }) {
   const containerVariants = {
     initial: {y: 0},
@@ -31,13 +33,19 @@ function PrimaryButton({
     },
   }
   const textVariant = {
-    initial: {color: '#2A1B04'},
-    hover: {color: '#FFFCF6'},
+    initial: {color: isLight ? '#FFFCF6' : '#2A1B04'},
+    hover: {color: isLight ? '#2A1B04' : '#FFFCF6'},
   }
 
   const iconVariant = {
-    initial: {color: '#FFFCF6', backgroundColor: '#2A1B04'},
-    hover: {color: '#2A1B04', backgroundColor: '#FFFCF6'},
+    initial: {
+      color: isLight ? '#2A1B04' : '#FFFCF6',
+      backgroundColor: isLight ? '#FFFCF6' : '#2A1B04',
+    },
+    hover: {
+      color: isLight ? '#FFFCF6' : '#2A1B04',
+      backgroundColor: isLight ? '#2A1B04' : '#FFFCF6',
+    },
   }
 
   const iconMoveVariant = {
@@ -57,7 +65,10 @@ function PrimaryButton({
         )}
       >
         <motion.div
-          className="rounded-full absolute top-0 left-0 h-full w-full bg-foreground"
+          className={cn(
+            'rounded-full absolute top-0 left-0 h-full w-full',
+            isLight ? 'bg-background' : 'bg-foreground',
+          )}
           variants={bgVariant}
         ></motion.div>
         <div className="z-[2] flex items-center">
@@ -66,7 +77,10 @@ function PrimaryButton({
           </motion.button>
           <motion.div
             variants={iconVariant}
-            className=" overflow-hidden relative size-5 flex justify-end rounded-full bg-foreground text-background"
+            className={cn(
+              ' overflow-hidden relative size-5 flex justify-end rounded-full bg-foreground text-background',
+              isLight ? 'bg-background text-foreground' : 'bg-foreground text-background',
+            )}
           >
             <motion.div
               variants={iconMoveVariant}
