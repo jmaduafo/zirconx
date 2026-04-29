@@ -1,51 +1,81 @@
-import {OptimisticSortOrder} from '@/components/OptimisticSortOrder'
-import type {SettingsQueryResult} from '@/sanity.types'
-import {studioUrl} from '@/sanity/lib/api'
-import {resolveHref} from '@/sanity/lib/utils'
-import {createDataAttribute, stegaClean} from 'next-sanity'
-import Link from 'next/link'
+'use client'
 
-interface NavbarProps {
-  data: SettingsQueryResult
-}
-export function Navbar(props: NavbarProps) {
-  const {data} = props
-  const dataAttribute =
-    data?._id && data?._type
-      ? createDataAttribute({
-          baseUrl: studioUrl,
-          id: data._id,
-          type: data._type,
-        })
-      : null
+import Logo from '@/public/logo/zircon_logo.png'
+import {navigation} from '@/utils/data'
+import {ChevronDown} from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import {useState} from 'react'
+import {Fragment} from 'react/jsx-runtime'
+import {Button} from './ui/button'
+
+export function Navbar() {
   return (
-    <header
-      className="sticky top-0 z-10 flex flex-wrap items-center gap-x-5 bg-white/80 px-4 py-4 backdrop-blur md:px-16 md:py-5 lg:px-32"
-      data-sanity={dataAttribute?.('menuItems')}
-    >
-      <OptimisticSortOrder id={data?._id} path="menuItems">
-        {data?.menuItems?.map((menuItem) => {
-          const href = resolveHref(menuItem?._type, menuItem?.slug)
-          if (!href) {
-            return null
-          }
-          return (
-            <Link
-              key={menuItem._key}
-              className={`text-lg hover:text-black md:text-xl ${
-                menuItem?._type === 'home' ? 'font-extrabold text-black' : 'text-gray-600'
-              }`}
-              data-sanity={dataAttribute?.([
-                'menuItems',
-                {_key: menuItem._key as unknown as string},
-              ])}
-              href={href}
-            >
-              {stegaClean(menuItem.title)}
-            </Link>
-          )
-        })}
-      </OptimisticSortOrder>
+    <header className="z-[200] fixed top-0 w-full px-10 bg-background flex justify-between items-center">
+      <div className="w-[5em] h-[5em] object-cover object-bottom">
+        <Image src={Logo} alt="zircon logo" className="w-full h-full" />
+      </div>
+
+      <nav className="capitalize text-sm">
+        <ul className="flex items-center gap-5">
+          {navigation.map((nav) => {
+            return (
+              <Fragment key={nav.title}>
+                {!nav.button && !nav.dropdown && (
+                  <li>
+                    <Link href={`/${nav.link}`}>{nav.title}</Link>
+                  </li>
+                )}
+                {nav.dropdown && <DropDown nav={nav} />}
+                {nav.button && <Button>{nav.title}</Button>}
+              </Fragment>
+            )
+          })}
+        </ul>
+      </nav>
     </header>
+  )
+}
+
+type List = {
+  nav: {
+    title: string
+    link: string
+    dropdown: {
+      title: string
+      link: string
+    }[]
+  }
+}
+
+function DropDown({nav}: Readonly<List>) {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    <button
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="relative capitalize"
+    >
+      <span className="flex items-center gap-1">
+        <li>
+          <Link href={`/${nav.link}`}>{nav.title}</Link>
+        </li>
+        <ChevronDown strokeWidth={1.5} className="size-4" />
+      </span>
+      {isHovered && (
+        <span className="py-2 px-3 rounded-md shadow-md bg-background absolute top-full left-0 z-[210]">
+          <ul className="flex flex-col items-start gap-1 font-montrealBook">
+            {nav.dropdown.map((items) => {
+              return (
+                <li key={items.title} className="whitespace-nowrap py-1">
+                  <Link href={items.link}>{items.title}</Link>
+                </li>
+              )
+            })}
+          </ul>
+        </span>
+      )}
+    </button>
   )
 }

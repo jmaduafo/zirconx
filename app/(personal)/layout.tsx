@@ -14,6 +14,7 @@ import {Suspense} from 'react'
 import {Toaster} from 'sonner'
 import {handleError} from './client-functions'
 import {DraftModeToast} from './DraftModeToast'
+import Footer from '@/components/Footer'
 
 export async function generateMetadata(): Promise<Metadata> {
   const [{data: settings}, {data: homePage}] = await Promise.all([
@@ -41,47 +42,16 @@ export const viewport: Viewport = {
   themeColor: '#000',
 }
 
-export default async function IndexRoute({children}: {children: React.ReactNode}) {
+export default async function IndexRoute({children}: {readonly children: React.ReactNode}) {
   const {data} = await sanityFetch({query: settingsQuery})
   return (
     <>
-      <div className="flex min-h-screen flex-col bg-white text-black">
-        <Navbar data={data} />
-        <div className="mt-20 flex-grow px-4 md:px-16 lg:px-32">{children}</div>
-        <footer className="bottom-0 w-full bg-white py-12 text-center md:py-20">
-          {data?.footer && (
-            <CustomPortableText
-              id={data._id}
-              type={data._type}
-              path={['footer']}
-              paragraphClasses="text-md md:text-xl"
-              value={data.footer as unknown as PortableTextBlock[]}
-            />
-          )}
-        </footer>
-        <Suspense>
-          <IntroTemplate />
-        </Suspense>
+      <div className="min-h-screen font-montrealMedium bg-background text-foreground">
+        <Navbar />
+        <main className="">{children}</main>
+        <Footer/>
       </div>
       <Toaster />
-      <SanityLive onError={handleError} />
-      {(await draftMode()).isEnabled && (
-        <>
-          <DraftModeToast
-            action={async () => {
-              'use server'
-
-              await Promise.allSettled([
-                (await draftMode()).disable(),
-                // Simulate a delay to show the loading state
-                new Promise((resolve) => setTimeout(resolve, 1000)),
-              ])
-            }}
-          />
-          <VisualEditing />
-        </>
-      )}
-      <SpeedInsights />
     </>
   )
 }

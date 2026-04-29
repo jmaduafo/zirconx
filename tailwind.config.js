@@ -11,9 +11,13 @@ module.exports = {
     ...theme,
     // Overriding fontFamily to use @next/font loaded families
     fontFamily: {
-      mono: 'var(--font-mono)',
-      sans: 'var(--font-sans)',
+      montrealBook: 'var(--font-montrealBook)',
+      montrealMedium: 'var(--font-montrealMedium)',
       serif: 'var(--font-serif)',
+    },
+    colors: {
+      background: "#FFFCF6",
+      foreground: "#2A1B04"
     },
   },
   plugins: [require('@tailwindcss/typography')],
