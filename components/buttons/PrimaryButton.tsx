@@ -60,8 +60,9 @@ function PrimaryButton({
         animate="initial"
         whileHover="hover"
         className={cn(
-          'overflow-hidden relative py-1.5 px-2 font-montrealBook outline-none rounded-full border-[1.5px] border-foreground flex items-center',
+          'overflow-hidden relative py-1.5 px-2 font-montrealBook outline-none rounded-full border-[1.5px] flex items-center',
           className,
+          isLight ? "border-background" : "border-foreground"
         )}
       >
         <motion.div
@@ -78,7 +79,7 @@ function PrimaryButton({
           <motion.div
             variants={iconVariant}
             className={cn(
-              ' overflow-hidden relative size-5 flex justify-end rounded-full bg-foreground text-background',
+              ' overflow-hidden relative size-5 flex justify-end rounded-full',
               isLight ? 'bg-background text-foreground' : 'bg-foreground text-background',
             )}
           >

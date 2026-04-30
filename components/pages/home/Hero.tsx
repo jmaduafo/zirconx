@@ -1,17 +1,17 @@
 'use client'
 
+import Header1 from '@/components/headings/Header1'
 import {Carousel, CarouselContent, CarouselItem} from '@/components/ui/carousel'
 import {hero} from '@/utils/data'
 import Autoplay from 'embla-carousel-autoplay'
-import Image from 'next/image'
 import React from 'react'
 
 function Hero() {
   return (
     <div className="h-screen relative">
-        <div className='py-[8vh] font-serif text-background absolute w-full h-full inset-0 bg-foreground/50 z-20 flex justify-center items-center'>
-            <p className='text-[9vw] text-center leading-[.8] uppercase w-[70vw]'>The Zircon Xperience</p>
-        </div>
+      <div className="py-[8vh] font-serif text-background absolute w-full h-full inset-0 bg-foreground/50 z-20 flex justify-center items-center">
+        <Header1 className='uppercase text-center w-[90%]' text="The Zircon Xperience"/>
+      </div>
       <Carousel
         opts={{
           align: 'start',
@@ -25,17 +25,22 @@ function Hero() {
         className="h-full w-full"
       >
         <CarouselContent className="gap-0">
-          {hero.map((item) => {
+          {hero.map((image) => {
             return (
-              <CarouselItem key={item} className="h-screen object-cover object-bottom">
-                <Image
+              <CarouselItem key={image} className="h-screen">
+                <div
+                  className="w-full h-full object-cover object-bottom bg-cover bg-no-repeat bg-center"
+                  style={{backgroundImage: `url(${image})`}}
+                >
+                  {/* <Image
                   src={item}
                   alt={item}
                   className="w-full h-full"
                   width={1920}
                   height={1080}
                   loading="eager"
-                />
+                  /> */}
+                </div>
               </CarouselItem>
             )
           })}
