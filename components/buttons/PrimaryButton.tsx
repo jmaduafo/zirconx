@@ -60,7 +60,7 @@ function PrimaryButton({
         animate="initial"
         whileHover="hover"
         className={cn(
-          'overflow-hidden relative py-1.5 px-2 font-montrealBook outline-none rounded-full border-[1.5px] flex items-center',
+          'overflow-hidden w-fit relative py-1.5 px-2 font-montrealBook outline-none rounded-full border-[1.5px] flex items-center',
           className,
           isLight ? "border-background" : "border-foreground"
         )}

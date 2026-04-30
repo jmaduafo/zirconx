@@ -3,7 +3,6 @@ import Hero from '@/components/pages/home/Hero'
 import Services from '@/components/pages/home/Services'
 
 export default async function IndexRoute() {
-  // const {data} = await sanityFetch({query: homePageQuery})
 
   return (
     <>
