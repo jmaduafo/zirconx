@@ -1,5 +1,5 @@
 import {CogIcon} from '@sanity/icons'
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'settings',
@@ -9,61 +9,32 @@ export default defineType({
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
   fields: [
-    defineField({
-      name: 'menuItems',
-      title: 'Menu Item list',
-      description: 'Links displayed on the header of your site.',
+    {
+      name: 'socialLinks',
       type: 'array',
-      of: [
-        {
-          title: 'Reference',
-          type: 'reference',
-          to: [
-            {
-              type: 'home',
-            },
-            {
-              type: 'page',
-            },
-            {
-              type: 'project',
-            },
-          ],
-        },
+      title: 'Social Links',
+      of: [{type: 'socialLink'}],
+    },
+    defineField({
+      name: 'address',
+      type: 'object',
+      fields: [
+        {name: 'street', type: 'string'},
+        {name: 'city', type: 'string'},
+        {name: 'country', type: 'string'},
       ],
     }),
+    defineField({name: 'email', type: 'string', validation: (rule) => rule.required().email()}),
     defineField({
-      name: 'footer',
-      description: 'This is a block of text that will be displayed at the bottom of the page.',
-      title: 'Footer Info',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'block',
-          marks: {
-            annotations: [
-              {
-                name: 'link',
-                type: 'object',
-                title: 'Link',
-                fields: [
-                  {
-                    name: 'href',
-                    type: 'url',
-                    title: 'Url',
-                  },
-                ],
-              },
-            ],
-          },
-        }),
-      ],
+      name: 'phone',
+      type: 'number',
+      validation: (rule) => rule.required().integer().min(10),
     }),
     defineField({
-      name: 'ogImage',
-      title: 'Open Graph Image',
+      name: 'owner',
+      title: 'Owner Self Portrait',
       type: 'image',
-      description: 'Displayed on social cards and search engine results.',
+      description: "The client's image to be displayed on the about page",
       options: {
         hotspot: true,
       },
@@ -73,7 +44,7 @@ export default defineType({
     prepare() {
       return {
         title: 'Settings',
-        subtitle: 'Menu Items, Footer Info, and Open Graph Image',
+        subtitle: 'Client Info',
       }
     },
   },

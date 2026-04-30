@@ -19,6 +19,8 @@ import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
 import {presentationTool} from 'sanity/presentation'
 import {structureTool} from 'sanity/structure'
 
+import { socials } from './sanity/schemas/objects/client_settings'
+
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Personal Website with Sanity.io'
 
@@ -31,7 +33,7 @@ export default defineConfig({
     // If you want more content types, you can add them to this array
     types: [
       // Singletons
-      home,
+      // home,
       settings,
       // Documents
       duration,
@@ -40,18 +42,19 @@ export default defineConfig({
       // Objects
       milestone,
       timeline,
+      socials
     ],
   },
   plugins: [
     structureTool({
-      structure: pageStructure([home, settings]),
+      structure: pageStructure([settings]),
     }),
     presentationTool({
       resolve,
       previewUrl: {previewMode: {enable: '/api/draft-mode/enable'}},
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([home.name, settings.name]),
+    singletonPlugin([settings.name]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // Vision lets you query your content with GROQ in the studio

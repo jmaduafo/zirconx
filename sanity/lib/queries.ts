@@ -48,20 +48,19 @@ export const projectBySlugQuery = defineQuery(`
   }
 `)
 
+// EDIT HERE FOR CLIENT INFO
 export const settingsQuery = defineQuery(`
   *[_type == "settings"][0]{
     _id,
     _type,
-    footer,
-    menuItems[]{
-      _key,
-      ...@->{
-        _type,
-        "slug": slug.current,
-        title
-      }
-    },
-    ogImage,
+    socialLinks[] {
+    platform,
+    url
+  },
+  address,
+  phone,
+  email,
+  owner
   }
 `)
 

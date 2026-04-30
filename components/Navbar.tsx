@@ -15,8 +15,7 @@ export function Navbar() {
       <div className="w-[5em] h-[5em] object-cover object-bottom">
         <Image src={Logo} alt="zircon logo" className="w-full h-full" />
       </div>
-
-      <nav className="capitalize text-sm">
+      <nav className="capitalize text-sm font-montrealMedium">
         <ul className="flex items-center gap-5">
           {navigation.map((nav) => {
             return (

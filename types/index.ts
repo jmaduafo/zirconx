@@ -22,3 +22,16 @@ export interface ShowcaseProject {
   tags?: string[]
   title?: string
 }
+
+export interface Settings {
+  _id: string
+  _type: string
+  address: {
+    city: string
+    country: string
+    street: string
+  }
+  phone: string
+  email: string
+  socialLinks: {platform: string; url: string}[]
+}

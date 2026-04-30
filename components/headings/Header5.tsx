@@ -3,14 +3,14 @@ import React from 'react'
 
 function Header5({text, className}: {readonly text: string; readonly className?: string}) {
   return (
-    <h1
+    <h5
       className={cn(
         'leading-none text-lg xs:text-xl sm:text-2xl md:text-3xl xl:text-4xl font-serif',
         className,
       )}
     >
       {text}
-    </h1>
+    </h5>
   )
 }
 
