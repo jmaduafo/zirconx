@@ -1,7 +1,9 @@
+import ServicesCard from '@/components/cards/ServicesCard'
 import GridDisplay from '@/components/containers/GridDisplay'
 import Header4 from '@/components/headings/Header4'
 import Paragraph from '@/components/headings/Paragraph'
-import React from 'react'
+import {services} from '@/utils/data'
+import React, {Fragment} from 'react'
 
 function Services() {
   return (
@@ -15,8 +17,16 @@ function Services() {
           </div>
         </div>
       </GridDisplay>
-      <section>
-
+      <section className='py-[12vh]'>
+        <div className=" w-[80%] mx-auto flex flex-wrap justify-center gap-x-7 gap-y-7">
+          {services.map((service) => {
+            return (
+              <Fragment key={service.title}>
+                <ServicesCard item={service} />
+              </Fragment>
+            )
+          })}
+        </div>
       </section>
     </div>
   )

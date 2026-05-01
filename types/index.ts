@@ -1,4 +1,6 @@
+import {LucideProps} from 'lucide-react'
 import type {PortableTextBlock} from 'next-sanity'
+import {ForwardRefExoticComponent, RefAttributes} from 'react'
 import type {Image} from 'sanity'
 
 export interface MilestoneItem {
@@ -34,4 +36,12 @@ export interface Settings {
   phone: string
   email: string
   socialLinks: {platform: string; url: string}[]
+}
+
+export type Service = {
+  icon: ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>;
+  title: string;
+  desc:string;
+  details: string[];
+  note?: string[];
 }
