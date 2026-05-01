@@ -36,6 +36,7 @@ export interface Settings {
   phone: string
   email: string
   socialLinks: {platform: string; url: string}[]
+  statistics: {title: string; statistic: string}[]
 }
 
 export type Service = {

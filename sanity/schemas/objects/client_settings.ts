@@ -1,3 +1,4 @@
+
 export const address = {
   name: "address",
   type: "object",
@@ -25,6 +26,27 @@ export const socials = {
       name: "url",
       title: "URL",
       type: "url",
+    },
+  ],
+}
+
+export const statistics = {
+  name: "statistic",
+  title: "Statistic",
+  type: "object",
+  fields: [
+    {
+      name: "title",
+      title: "Title",
+      type: "string",
+      options: {
+        list: ["Years Active", "Events", "Specialties", "Clients"],
+      },
+    },
+    {
+      name: "statistic",
+      title: "Stat. Number",
+      type: "string",
     },
   ],
 }

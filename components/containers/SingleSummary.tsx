@@ -6,9 +6,9 @@ function SingleSummary({
   readonly children: React.ReactNode
 }) {
   return (
-    <div className="px-5 sm:px-[16vw] py-[8vh]">
+    <section className="px-5 sm:px-[16vw] py-[12vh]">
       {children}
-    </div>
+    </section>
   )
 }
 

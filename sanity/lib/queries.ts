@@ -57,6 +57,10 @@ export const settingsQuery = defineQuery(`
     platform,
     url
   },
+    statistics[] {
+    title,
+    statistic
+  },
   address,
   phone,
   email,

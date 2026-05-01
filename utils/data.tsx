@@ -33,11 +33,11 @@ export const navigation = [
   },
   {
     link: '#contacts',
-    title: 'contacts',
+    title: 'get in touch',
   },
   {
     link: 'contact',
-    title: 'get in touch',
+    title: 'contact us',
     button: true,
   },
 ]

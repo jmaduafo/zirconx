@@ -19,7 +19,7 @@ import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
 import {presentationTool} from 'sanity/presentation'
 import {structureTool} from 'sanity/structure'
 
-import { socials } from './sanity/schemas/objects/client_settings'
+import { socials, statistics } from './sanity/schemas/objects/client_settings'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Personal Website with Sanity.io'
@@ -42,7 +42,8 @@ export default defineConfig({
       // Objects
       milestone,
       timeline,
-      socials
+      socials,
+      statistics
     ],
   },
   plugins: [

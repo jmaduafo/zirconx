@@ -15,6 +15,12 @@ export default defineType({
       title: 'Social Links',
       of: [{type: 'socialLink'}],
     },
+    {
+      name: 'statistics',
+      type: 'array',
+      title: 'Statistics',
+      of: [{type: 'statistic'}],
+    },
     defineField({
       name: 'address',
       type: 'object',

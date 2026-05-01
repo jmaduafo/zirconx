@@ -1,4 +1,5 @@
 import React from 'react'
+import Parallax from '../animations/Parallax'
 
 function GridDisplay({
   isTextRight,
@@ -13,12 +14,7 @@ function GridDisplay({
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 h-[80vh]">
       {!isTextRight && textLayout}
-      <div className="h-full w-full">
-        <div
-          className="bg-cover bg-no-repeat bg-center h-full w-full"
-          style={{backgroundImage: `url(${url})`}}
-        ></div>
-      </div>
+      <Parallax image={url} height="h-full" scale='scale-110'/>
       {isTextRight && textLayout}
     </section>
   )

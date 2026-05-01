@@ -18,7 +18,7 @@ function Services() {
         </div>
       </GridDisplay>
       <section className='py-[12vh]'>
-        <div className=" w-[80%] mx-auto flex flex-wrap justify-center gap-x-7 gap-y-7">
+        <div className="w-[95%] sm:w-[85%] xl:w-[80%] mx-auto flex flex-wrap justify-center gap-x-7 gap-y-7">
           {services.map((service) => {
             return (
               <Fragment key={service.title}>
