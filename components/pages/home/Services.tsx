@@ -7,7 +7,7 @@ import React, {Fragment} from 'react'
 
 function Services() {
   return (
-    <div>
+    <div id="services">
       <GridDisplay url="/images/home/services/service.jpeg">
         <div className="h-full flex flex-col">
           <Header4 text="Our Services" />

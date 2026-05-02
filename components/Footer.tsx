@@ -13,7 +13,7 @@ function Footer({data}: Readonly<Contacts>) {
   return (
     <footer className="bg-foreground text-background px-[4vw] py-10 flex justify-between items-start">
       <div className="flex flex-col gap-5">
-        <Header2 className="italic w-[5em]" text="Want to contact us?" />
+        <Header2 className="italic w-[5em] !leading-[0.8]" text="Want to contact us?" />
         <PrimaryButton text="Inquire now" href="/contact" isLight />
       </div>
       <div className="grid grid-cols-4 gap-4">

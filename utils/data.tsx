@@ -20,14 +20,17 @@ export const navigation = [
       {
         link: 'events/social',
         title: 'social',
+        image: "/images/home/events/social.jpg"
       },
       {
         link: 'events/wedding-proposals',
         title: 'weddings & proposals',
+        image: "/images/home/events/wedding.jpeg"
       },
       {
         link: 'events/corporate',
         title: 'corporate',
+        image: "/images/home/events/corporate.JPG"
       },
     ],
   },
@@ -118,3 +121,4 @@ export const services = [
     ],
   },
 ]
+

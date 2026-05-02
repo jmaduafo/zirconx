@@ -92,7 +92,8 @@
     opacity: 0.8;
     transition-duration: 300ms;
   }
-  /* html {
-    @apply font-sans;
-  } */
+  html {
+    /* @apply font-sans; */
+    scroll-behavior: smooth;
+  }
 }

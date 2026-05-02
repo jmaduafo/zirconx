@@ -54,7 +54,7 @@ function PrimaryButton({
   }
 
   return (
-    <Link href={href}>
+    <Link href={href} className='w-fit'>
       <motion.div
         variants={containerVariants}
         animate="initial"

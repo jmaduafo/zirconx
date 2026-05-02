@@ -1,5 +1,5 @@
 import React from 'react'
-import Parallax from '../animations/Parallax'
+import ZoomImage from '../animations/ZoomImage'
 
 function GridDisplay({
   isTextRight,
@@ -14,7 +14,7 @@ function GridDisplay({
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 h-[80vh]">
       {!isTextRight && textLayout}
-      <Parallax image={url} height="h-full" scale='scale-110'/>
+      <ZoomImage url={url} />
       {isTextRight && textLayout}
     </section>
   )

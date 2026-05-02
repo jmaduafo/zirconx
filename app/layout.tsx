@@ -23,6 +23,7 @@ export default async function RootLayout({children}: {readonly children: React.R
         'font-sans',
         geist.variable,
       )}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body>{children}</body>
