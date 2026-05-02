@@ -61,6 +61,17 @@ export const settingsQuery = defineQuery(`
     title,
     statistic
   },
+    faqs[] {
+    question,
+    answer
+  },
+    testimonials[] {
+    client,
+    text
+  },
+  gallery[] {
+    img
+  }
   address,
   phone,
   email,

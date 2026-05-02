@@ -11,7 +11,6 @@ import project from '@/sanity/schemas/documents/project'
 import duration from '@/sanity/schemas/objects/duration'
 import milestone from '@/sanity/schemas/objects/milestone'
 import timeline from '@/sanity/schemas/objects/timeline'
-import home from '@/sanity/schemas/singletons/home'
 import settings from '@/sanity/schemas/singletons/settings'
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
@@ -19,7 +18,7 @@ import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
 import {presentationTool} from 'sanity/presentation'
 import {structureTool} from 'sanity/structure'
 
-import { socials, statistics } from './sanity/schemas/objects/client_settings'
+import { socials, statistics, faqs, testimonials } from './sanity/schemas/objects/client_settings'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Personal Website with Sanity.io'
@@ -33,7 +32,6 @@ export default defineConfig({
     // If you want more content types, you can add them to this array
     types: [
       // Singletons
-      // home,
       settings,
       // Documents
       duration,
@@ -43,7 +41,9 @@ export default defineConfig({
       milestone,
       timeline,
       socials,
-      statistics
+      statistics,
+      faqs,
+      testimonials
     ],
   },
   plugins: [

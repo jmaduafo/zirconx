@@ -18,7 +18,7 @@ function Events() {
           </div>
         </div>
       </GridDisplay>
-      <section className="border-t border-t-foreground">
+      <section className="border-t border-b border-t-foreground border-b-foreground">
         <div className="grid grid-cols-3">
           {navigation
             .find((item) => item.title.toLowerCase().includes('event'))

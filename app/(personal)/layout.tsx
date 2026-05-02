@@ -10,28 +10,29 @@ import {toPlainText, type PortableTextBlock} from 'next-sanity'
 import {Suspense} from 'react'
 import {Toaster} from 'sonner'
 import {handleError} from './client-functions'
+import { Settings } from '@/types'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const [{data: settings}, {data: homePage}] = await Promise.all([
-    sanityFetch({query: settingsQuery, stega: false}),
-    sanityFetch({query: homePageQuery, stega: false}),
-  ])
+// export async function generateMetadata(): Promise<Metadata> {
+//   const [{data: settings}, {data: homePage}] = await Promise.all([
+//     sanityFetch({query: settingsQuery, stega: false}),
+//     sanityFetch({query: homePageQuery, stega: false}),
+//   ])
 
-  // @ts-ignore the image type sometimes fails
-  const ogImage = urlForOpenGraphImage(settings?.ogImage)
-  return {
-    title: homePage?.title
-      ? {
-          template: `%s | ${homePage.title}`,
-          default: homePage.title || 'Personal website',
-        }
-      : undefined,
-    description: homePage?.overview ? toPlainText(homePage.overview) : undefined,
-    openGraph: {
-      images: ogImage ? [ogImage] : [],
-    },
-  }
-}
+//   @ts-ignore the image type sometimes fails
+//   const ogImage = urlForOpenGraphImage(settings?.ogImage)
+//   return {
+//     title: homePage?.title
+//       ? {
+//           template: `%s | ${homePage.title}`,
+//           default: homePage.title || 'Personal website',
+//         }
+//       : undefined,
+//     description: homePage?.overview ? toPlainText(homePage.overview) : undefined,
+//     openGraph: {
+//       images: ogImage ? [ogImage] : [],
+//     },
+//   }
+// }
 
 export const viewport: Viewport = {
   themeColor: '#000',

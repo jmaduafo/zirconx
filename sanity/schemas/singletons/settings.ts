@@ -21,6 +21,18 @@ export default defineType({
       title: 'Statistics',
       of: [{type: 'statistic'}],
     },
+    {
+      name: 'faqs',
+      type: 'array',
+      title: 'FAQ',
+      of: [{type: 'faq'}],
+    },
+    {
+      name: 'testimonials',
+      type: 'array',
+      title: 'Testimonials',
+      of: [{type: 'testimonial'}],
+    },
     defineField({
       name: 'address',
       type: 'object',
@@ -44,6 +56,20 @@ export default defineType({
       options: {
         hotspot: true,
       },
+    }),
+    defineField({
+      name: 'gallery',
+      title: 'Gallery Images',
+      type: 'array',
+      description: "Images for gallery in home page",
+      of: [{
+        name: "img",
+        type: "image",
+        title: "Image",
+        options: {
+          hotspot: true,
+        },
+      }]
     }),
   ],
   preview: {

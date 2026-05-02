@@ -25,7 +25,7 @@ export interface ShowcaseProject {
   title?: string
 }
 
-export interface Settings {
+export type Settings = {
   _id: string
   _type: string
   address: {
