@@ -122,3 +122,11 @@ export const services = [
   },
 ]
 
+export const eventMarquee = [
+  "Refined Experiences",
+  "Thoughtfully Curated",
+  "Designed to Impress",
+  "Luxury in Every Moment",
+  "Timeless Events"
+]
+
