@@ -61,7 +61,7 @@ export default defineType({
       name: 'gallery',
       title: 'Gallery Images',
       type: 'array',
-      description: "Images for gallery in home page",
+      description: "Images for gallery in home and about page",
       of: [{
         name: "img",
         type: "image",

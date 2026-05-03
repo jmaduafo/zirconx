@@ -53,29 +53,37 @@ export const settingsQuery = defineQuery(`
   *[_type == "settings"][0]{
     _id,
     _type,
-    socialLinks[] {
-    platform,
-    url
-  },
-    statistics[] {
-    title,
-    statistic
-  },
-    faqs[] {
-    question,
-    answer
-  },
-    testimonials[] {
-    client,
-    text
-  },
-  gallery[] {
-    img
-  }
-  address,
-  phone,
-  email,
-  owner
+    socialLinks[]{
+      platform,
+      url
+    },
+    statistics[]{
+      title,
+      statistic
+    },
+    faqs[]{
+      question,
+      answer
+    },
+    testimonials[]{
+      client,
+      text
+    },
+    gallery[]{
+      img{
+        asset->
+      }
+    },
+    address{
+      street,
+      city,
+      country
+    },
+    phone,
+    email,
+    owner{
+      asset->
+    }
   }
 `)
 

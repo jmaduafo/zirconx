@@ -1,12 +1,10 @@
 import SingleSummary from '@/components/containers/SingleSummary'
 import Header3 from '@/components/headings/Header3'
+import { SettingsQueryResult } from '@/sanity.types'
 import React from 'react'
 
-function Gallery() {
-    const gallery = [
-        ""
-    ]
-    
+function Gallery({ data }: { readonly data: SettingsQueryResult}) {
+
   return (
     <div>
       <SingleSummary>

@@ -25,20 +25,6 @@ export interface ShowcaseProject {
   title?: string
 }
 
-export type Settings = {
-  _id: string
-  _type: string
-  address: {
-    city: string
-    country: string
-    street: string
-  }
-  phone: string
-  email: string
-  socialLinks: {platform: string; url: string}[]
-  statistics: {title: string; statistic: string}[]
-}
-
 export type Service = {
   icon: ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>;
   title: string;
