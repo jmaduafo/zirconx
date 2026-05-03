@@ -1,5 +1,6 @@
 import About from '@/components/pages/home/About'
 import Events from '@/components/pages/home/Events'
+import Faq from '@/components/pages/home/Faq'
 import Gallery from '@/components/pages/home/Gallery'
 import Hero from '@/components/pages/home/Hero'
 import ImageTransition1 from '@/components/pages/home/ImageTransition1'
@@ -26,6 +27,7 @@ export default async function IndexRoute() {
       <Gallery data={data}/>
       <Testimonials data={data}/>
       <ImageTransition3/>
+      <Faq data={data}/>
     </>
   )
 }
