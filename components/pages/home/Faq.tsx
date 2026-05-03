@@ -12,14 +12,14 @@ import React from 'react'
 
 function Faq({data}: {readonly data: SettingsQueryResult}) {
   return (
-    <section className='my-6 px-8'>
-      <div className="flex flex-col md:flex-row justify-between gap-4">
+    <section className='my-6 px-4 md:px-8'>
+      <div className="flex flex-col lg:flex-row justify-between gap-4">
         <div className='flex flex-col gap-3'>
           <Header4 text="FAQ" />
           <SmallParagraph className='w-[12em]' text="Everything you need to know about working with us, from planning to execution." />
         </div>
         <div className="flex-1 flex justify-end">
-          <Accordion type="single" collapsible defaultValue={undefined} className="max-w-2xl">
+          <Accordion type="single" collapsible defaultValue={undefined} className="max-w-lg lg:max-w-2xl">
             {data
               ? data.faqs?.map((item, i) => {
                   return (
