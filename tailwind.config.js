@@ -19,6 +19,7 @@ module.exports = {
       background: "#FFFCF6",
       foreground: "#2A1B04",
       accent: "#F7F4ED",
+      transparent: "#00000000"
     },
   },
   plugins: [require('@tailwindcss/typography')],

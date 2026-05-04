@@ -26,7 +26,7 @@ export function Navbar() {
                   </li>
                 )}
                 {nav.dropdown && <DropDown nav={nav} />}
-                {nav.button && <Button>{nav.title}</Button>}
+                {nav.button && <Link href={`/${nav.link}`}><Button>{nav.title}</Button></Link>}
               </Fragment>
             )
           })}

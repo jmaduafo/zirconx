@@ -16,9 +16,9 @@ export default async function IndexRoute({children}: {readonly children: React.R
   const {data} = await sanityFetch({query: settingsQuery})
 
   return (
-    <div className="min-h-screen font-montrealBook bg-background text-foreground">
+    <div className="font-montrealBook bg-background text-foreground">
       <Navbar />
-      <main className="">{children}</main>
+      <main className="min-h-screen">{children}</main>
       <Footer data={data}/>
       <Toaster />
     </div>

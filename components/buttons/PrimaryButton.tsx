@@ -11,10 +11,12 @@ function PrimaryButton({
   className,
   href,
   isLight,
+  type
 }: {
   readonly text: string
   readonly className?: string
-  readonly href: string
+  readonly href?: string
+  readonly type?: "button" | "submit" | "reset" | undefined
   readonly isLight?: boolean
 }) {
   const containerVariants = {
@@ -54,7 +56,7 @@ function PrimaryButton({
   }
 
   return (
-    <Link href={href} className='w-fit'>
+    <Link href={href ?? ""} className='w-fit'>
       <motion.div
         variants={containerVariants}
         animate="initial"
@@ -73,7 +75,7 @@ function PrimaryButton({
           variants={bgVariant}
         ></motion.div>
         <div className="z-[2] flex items-center">
-          <motion.button variants={textVariant} className={'pl-3 pr-4 capitalize'}>
+          <motion.button type={type ?? "button"} variants={textVariant} className={'pl-3 pr-4 capitalize'}>
             {text}
           </motion.button>
           <motion.div
