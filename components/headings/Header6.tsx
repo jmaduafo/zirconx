@@ -5,7 +5,7 @@ function Header6({text, className}: {readonly text: string; readonly className?:
   return (
     <h6
       className={cn(
-        '!leading-none tracking-tighter text-2xl xl:text-3xl font-serif italic',
+        '!leading-none tracking-tighter text-xl sm:text-2xl xl:text-3xl font-serif italic',
         className,
       )}
     >

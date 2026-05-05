@@ -16,7 +16,7 @@ function PrimaryButton({
   readonly text: string
   readonly className?: string
   readonly href?: string
-  readonly type?: "button" | "submit" | "reset" | undefined
+  readonly type?: "button" | "submit" | "reset"
   readonly isLight?: boolean
 }) {
   const containerVariants = {

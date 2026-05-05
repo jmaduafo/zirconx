@@ -11,7 +11,7 @@ import {Button} from './ui/button'
 
 export function Navbar() {
   return (
-    <header className="z-[200] fixed top-0 w-full px-10 bg-background flex justify-between items-center">
+    <header className="z-[200] fixed top-0 w-full px-5 sm:px-10 bg-background flex justify-between items-center">
       <div className="w-[5em] h-[5em] object-cover object-bottom">
         <Image src={Logo} alt="zircon logo" className="w-full h-full" />
       </div>

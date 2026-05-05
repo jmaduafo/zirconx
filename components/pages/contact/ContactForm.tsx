@@ -29,8 +29,8 @@ import React, {useState} from 'react'
 function ContactForm() {
   const [date, setDate] = useState<Date>()
   return (
-    <InfoContainer>
-      <div className="flex flex-col md:flex-row justify-between items-start gap-4 mt-[12vh]">
+    <InfoContainer isMarginTop>
+      <div className="flex flex-col md:flex-row justify-between items-start gap-4">
         <div className="md:flex-1">
           <Header5 className="italic" text="Contact Us" />
         </div>
