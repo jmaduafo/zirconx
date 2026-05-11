@@ -1886,7 +1886,7 @@
                 "type": "objectAttribute",
                 "value": {
                   "type": "string",
-                  "value": "img"
+                  "value": "image"
                 }
               }
             },

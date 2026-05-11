@@ -61,15 +61,15 @@ export default defineType({
       name: 'gallery',
       title: 'Gallery Images',
       type: 'array',
-      description: "Images for gallery in home and about page",
-      of: [{
-        name: "img",
-        type: "image",
-        title: "Image",
-        options: {
-          hotspot: true,
+      description: 'Images for gallery in home and about page',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
         },
-      }]
+      ],
     }),
   ],
   preview: {

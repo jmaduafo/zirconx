@@ -69,11 +69,7 @@ export const settingsQuery = defineQuery(`
       client,
       text
     },
-    gallery[]{
-      img{
-        asset->
-      }
-    },
+    gallery,
     address{
       street,
       city,

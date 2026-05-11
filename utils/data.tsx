@@ -136,7 +136,7 @@ export const clientsImages = [
     image: "/images/clients/bono.png"
   },
   {
-    height: "",
+    height: "120px",
     image: "/images/clients/busha.png"
   },
   {
@@ -144,11 +144,11 @@ export const clientsImages = [
     image: "/images/clients/interswitch.png"
   },
   {
-    height: "",
+    height: "100px",
     image: "/images/clients/lafarge.png"
   },
   {
-    height: "120px",
+    height: "90px",
     image: "/images/clients/netflix.png"
   },
 

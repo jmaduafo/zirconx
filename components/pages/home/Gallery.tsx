@@ -1,10 +1,16 @@
+'use client'
+
 import InfoContainer from '@/components/containers/InfoContainer'
 import Header3 from '@/components/headings/Header3'
-import { SettingsQueryResult } from '@/sanity.types'
+import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from '@/components/ui/gallery'
+import {SettingsQueryResult} from '@/sanity.types'
+import {urlForImage} from '@/sanity/lib/utils'
+import Autoplay from 'embla-carousel-autoplay'
+import Image from 'next/image'
 import React from 'react'
+import {Image as SanityImage} from 'sanity'
 
-function Gallery({ data }: { readonly data: SettingsQueryResult}) {
-
+function Gallery({data}: {readonly data: SettingsQueryResult}) {
   return (
     <div>
       <InfoContainer>
@@ -13,9 +19,42 @@ function Gallery({ data }: { readonly data: SettingsQueryResult}) {
           text="No matter the occasion, we design experiences that leave a lasting impression."
         />
       </InfoContainer>
-      <section>
-        <div>
-
+      <section className="overflow-hidden">
+        <div className="">
+          <Carousel
+            className="max-w-[70%] ml-auto"
+            plugins={[
+              Autoplay({
+                delay: 4000,
+              }),
+            ]}
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+          >
+            <CarouselContent className='mb-5'>
+              {data?.gallery?.map((image, i) => (
+                <CarouselItem key={image.asset?._rev ?? i} className="basis-1/3 max-h-[60vh]">
+                  <Image
+                    key={i + 1}
+                    src={
+                      urlForImage(image as unknown as SanityImage)
+                        ?.width(800)
+                        .height(1000)
+                        .url() ?? ''
+                    }
+                    alt={`Gallery image ${i + 1}`}
+                    width={800}
+                    height={1000}
+                    className="object-cover"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious/>
+            <CarouselNext/>
+          </Carousel>
         </div>
       </section>
     </div>
