@@ -35,7 +35,7 @@ function Gallery({data}: {readonly data: SettingsQueryResult}) {
           >
             <CarouselContent className='mb-5'>
               {data?.gallery?.map((image, i) => (
-                <CarouselItem key={image.asset?._rev ?? i} className="basis-1/3 max-h-[60vh]">
+                <CarouselItem key={image.asset?._ref ?? i} className="basis-1/3 max-h-[60vh]">
                   <Image
                     key={i + 1}
                     src={

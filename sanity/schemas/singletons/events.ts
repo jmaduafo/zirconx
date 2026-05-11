@@ -1,5 +1,6 @@
 import {ConfettiIcon} from '@sanity/icons'
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import {defineField, defineType} from 'sanity'
+
 
 export default defineType({
   name: 'events',
@@ -10,74 +11,31 @@ export default defineType({
   // liveEdit: true,
   fields: [
     defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'string',
-      options: {
-        list: ['Social', 'Weddings & Proposals', 'Corporate'],
-      },
-    },),
-    defineField({
-      name: 'subcategory',
-      title: 'Subcategory',
+      name: 'social',
+      title: 'Social Events',
       type: 'array',
-      of: [
-        // Paragraphs
-        defineArrayMember({
-          lists: [],
-          marks: {
-            annotations: [
-              {
-                name: 'link',
-                type: 'object',
-                title: 'Link',
-                fields: [
-                  {
-                    name: 'href',
-                    type: 'url',
-                    title: 'Url',
-                  },
-                ],
-              },
-            ],
-            decorators: [
-              {
-                title: 'Italic',
-                value: 'em',
-              },
-              {
-                title: 'Strong',
-                value: 'strong',
-              },
-            ],
-          },
-          styles: [],
-          type: 'block',
-        }),
-      ],
-      validation: (rule) => rule.max(155).required(),
+      of: [{type: 'eventGallery'}],
     }),
+
     defineField({
-      name: 'showcaseProjects',
-      title: 'Showcase projects',
-      description: 'These are the projects that will appear first on your landing page.',
+      name: 'corporate',
+      title: 'Corporate Events',
       type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: [{type: 'project'}],
-        }),
-      ],
+      of: [{type: 'eventGallery'}],
+    }),
+
+    defineField({
+      name: 'weddings',
+      title: 'Weddings & Proposals',
+      type: 'array',
+      of: [{type: 'eventGallery'}],
     }),
   ],
   preview: {
-    select: {
-      title: 'title',
-    },
-    prepare({title}) {
+    prepare() {
       return {
-        subtitle: 'Home',
-        title,
+        title: 'Events',
+        subtitle: 'Event Galleries',
       }
     },
   },

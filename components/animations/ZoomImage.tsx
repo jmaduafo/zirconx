@@ -13,7 +13,7 @@ function ZoomImage({url}: {readonly url: string}) {
     },
   }
   return (
-    <div className="overflow-hidden h-full w-full">
+    <div className="overflow-hidden h-[55vh] md:h-full w-full">
       <motion.div
         variants={imageVariant}
         initial="initial"

@@ -12,7 +12,7 @@ function GridDisplay({
 }) {
   const textLayout = <div className="bg-accent py-[4vw] px-[8vw]">{children}</div>
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 h-[80vh]">
+    <section className="grid grid-cols-1 md:grid-cols-2 h-auto md:h-[80vh]">
       {!isTextRight && textLayout}
       <ZoomImage url={url} />
       {isTextRight && textLayout}

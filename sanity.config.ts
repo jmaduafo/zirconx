@@ -13,6 +13,7 @@ import milestone from '@/sanity/schemas/objects/milestone'
 import timeline from '@/sanity/schemas/objects/timeline'
 import settings from '@/sanity/schemas/singletons/settings'
 import home from '@/sanity/schemas/singletons/home'
+import events from './sanity/schemas/singletons/events'
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
@@ -20,6 +21,7 @@ import {presentationTool} from 'sanity/presentation'
 import {structureTool} from 'sanity/structure'
 
 import { socials, statistics, faqs, testimonials } from './sanity/schemas/objects/client_settings'
+import eventGallery from "@/sanity/schemas/objects/client_events"
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Personal Website with Sanity.io'
@@ -35,6 +37,7 @@ export default defineConfig({
       // Singletons
       settings,
       home,
+      events,
       // Documents
       duration,
       page,
@@ -45,19 +48,20 @@ export default defineConfig({
       socials,
       statistics,
       faqs,
-      testimonials
+      testimonials,
+      eventGallery
     ],
   },
   plugins: [
     structureTool({
-      structure: pageStructure([settings, home]),
+      structure: pageStructure([settings, home, events]),
     }),
     presentationTool({
       resolve,
       previewUrl: {previewMode: {enable: '/api/draft-mode/enable'}},
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([settings.name, home.name]),
+    singletonPlugin([settings.name, home.name, events.name]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // Vision lets you query your content with GROQ in the studio

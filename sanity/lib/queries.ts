@@ -83,6 +83,25 @@ export const settingsQuery = defineQuery(`
   }
 `)
 
+export const eventsQuery = defineQuery(`
+  *[_type == "events"][0]{
+    social[]{
+      subcategory,
+      images
+    },
+
+    corporate[]{
+      subcategory,
+      images
+    },
+
+    weddings[]{
+      subcategory,
+      images
+    }
+  }
+`)
+
 export const slugsByTypeQuery = defineQuery(`
   *[_type == $type && defined(slug.current)]{"slug": slug.current}
 `)

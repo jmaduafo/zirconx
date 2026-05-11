@@ -6,7 +6,7 @@ import React from 'react'
 function MeetOwner() {
   return (
     <GridDisplay url="/images/home/services/service.jpeg">
-        <div className='h-full flex flex-col'>
+        <div className='h-full flex flex-col gap-6'>
             <Header4 text='Meet the Owner'/>
             <div className='flex flex-col gap-3 mt-auto'>
                 <Paragraph text='Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.'/>

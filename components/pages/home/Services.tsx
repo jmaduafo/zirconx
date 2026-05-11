@@ -9,7 +9,7 @@ function Services() {
   return (
     <div id="services">
       <GridDisplay url="/images/home/services/service.jpeg">
-        <div className="h-full flex flex-col">
+        <div className="h-full flex flex-col gap-6">
           <Header4 text="Our Services" />
           <div className="grid gap-4 mt-auto">
             <Paragraph text="We specialize in corporate events, dinner galas, brand activations, private celebrations, and intimate gatherings—each thoughtfully designed and expertly executed." />
