@@ -1,4 +1,11 @@
 import React from 'react'
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '../ui/dialog'
 
 function TestimonialCard({
   testimonial,
@@ -11,6 +18,7 @@ function TestimonialCard({
   return (
     <div className="w-full h-[70vh] flex flex-col gap-4 py-5 px-6 bg-accent rounded-[20px]">
       <div>
+        {/* QUOTE ICON */}
         <div>
           <svg
             width="64"
@@ -28,7 +36,19 @@ function TestimonialCard({
             {testimonial?.text && testimonial?.text?.length > 400
               ? testimonial?.text.slice(0, 401) + '...'
               : testimonial?.text}
-            <span className='font-montrealMedium text-sm '>{testimonial?.text && testimonial?.text?.length > 400 && ' Read More'}</span>
+            <span className="font-montrealMedium text-sm ">
+              {testimonial?.text && testimonial?.text?.length > 400 && (
+                <Dialog>
+                  <DialogTrigger>Read More</DialogTrigger>
+                  <DialogContent aria-describedby={undefined}>
+                    <DialogHeader>
+                      <DialogTitle>{testimonial.client}</DialogTitle>
+                    </DialogHeader>
+                    <q>{testimonial.text}</q>
+                  </DialogContent>
+                </Dialog>
+              )}
+            </span>
           </p>
         </div>
       </div>

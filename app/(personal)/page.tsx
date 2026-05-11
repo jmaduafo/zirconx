@@ -1,4 +1,5 @@
 import About from '@/components/pages/home/About'
+import ClientMarquee from '@/components/pages/home/ClientMarquee'
 import Events from '@/components/pages/home/Events'
 import Faq from '@/components/pages/home/Faq'
 import Gallery from '@/components/pages/home/Gallery'
@@ -25,6 +26,7 @@ export default async function IndexRoute() {
       <TextTransition/>
       <Events/>
       <Gallery data={data}/>
+      <ClientMarquee/>
       <Testimonials data={data}/>
       <ImageTransition3/>
       <Faq data={data}/>
