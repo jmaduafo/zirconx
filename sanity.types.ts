@@ -231,6 +231,45 @@ export type Page = {
   >
 }
 
+export type ProjectReference = {
+  _ref: string
+  _type: 'reference'
+  _weak?: boolean
+  [internalGroqTypeReferenceTo]?: 'project'
+}
+
+export type Home = {
+  _id: string
+  _type: 'home'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+  overview?: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'normal'
+    listItem?: never
+    markDefs?: Array<{
+      href?: string
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }>
+  showcaseProjects?: Array<
+    {
+      _key: string
+    } & ProjectReference
+  >
+}
+
 export type Settings = {
   _id: string
   _type: 'settings'
@@ -392,6 +431,8 @@ export type AllSanitySchemaTypes =
   | Duration
   | Slug
   | Page
+  | ProjectReference
+  | Home
   | Settings
   | SanityImagePaletteSwatch
   | SanityImagePalette
@@ -405,7 +446,58 @@ export type AllSanitySchemaTypes =
 // Source: sanity/lib/queries.ts
 // Variable: homePageQuery
 // Query: *[_type == "home"][0]{    _id,    _type,    overview,    showcaseProjects[]{      _key,      ...@->{        _id,        _type,        coverImage,        overview,        "slug": slug.current,        tags,        title,      }    },    title,  }
-export type HomePageQueryResult = null
+export type HomePageQueryResult = {
+  _id: string
+  _type: 'home'
+  overview: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'normal'
+    listItem?: never
+    markDefs?: Array<{
+      href?: string
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }> | null
+  showcaseProjects: Array<{
+    _key: string
+    _id: string
+    _type: 'project'
+    coverImage: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    overview: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal'
+      listItem?: never
+      markDefs?: null
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    slug: string | null
+    tags: Array<string> | null
+    title: string | null
+  }> | null
+  title: string | null
+} | null
 
 // Source: sanity/lib/queries.ts
 // Variable: pagesBySlugQuery

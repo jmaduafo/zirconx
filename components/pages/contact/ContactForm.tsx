@@ -3,6 +3,7 @@
 import PrimaryButton from '@/components/buttons/PrimaryButton'
 import InfoContainer from '@/components/containers/InfoContainer'
 import Header5 from '@/components/headings/Header5'
+import SmallParagraph from '@/components/headings/SmallParagraph'
 import {Button} from '@/components/ui/button'
 import {Calendar} from '@/components/ui/calendar'
 import {Checkbox} from '@/components/ui/checkbox'
@@ -31,8 +32,12 @@ function ContactForm() {
   return (
     <InfoContainer isMarginTop>
       <div className="flex flex-col md:flex-row justify-between items-start gap-4">
-        <div className="md:flex-1">
+        <div className="md:flex-1 flex flex-col gap-2">
           <Header5 className="italic" text="Contact Us" />
+          <SmallParagraph
+            className="max-w-xs"
+            text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor"
+          />
         </div>
         <form className="w-full md:flex-[2]">
           <FieldGroup className="">
@@ -149,9 +154,9 @@ function ContactForm() {
                     )
                   })}
                 </FieldGroup>
-                <FieldGroup className='mt-5'>
+                <FieldGroup className="mt-5">
                   <Field>
-                    <PrimaryButton className='scale-90' text="Submit" type="submit" />
+                    <PrimaryButton className="scale-90" text="Submit" type="submit" />
                   </Field>
                 </FieldGroup>
               </FieldSet>

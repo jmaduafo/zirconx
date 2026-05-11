@@ -80,7 +80,10 @@ function EventCard({title, image, index, events}: Readonly<Event>) {
       <div className="p-4 mt-auto ">
         <div className="overflow-hidden h-fit flex justify-start">
           <motion.div variants={titleVariant} transition={{ease: 'easeOut'}}>
-            <Header6 className="capitalize" text={title} />
+            <Header6
+              className="capitalize"
+              text={title.toLowerCase().includes('wedding') ? title : `${title} events`}
+            />
           </motion.div>
         </div>
       </div>

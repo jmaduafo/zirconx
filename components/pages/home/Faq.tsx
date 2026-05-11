@@ -26,8 +26,8 @@ function Faq({data}: {readonly data: SettingsQueryResult}) {
                     <AccordionItem value={item.question ?? ""} key={item.question}>
                       <AccordionTrigger>
                         <div className='flex items-start gap-2'>
-                            <p className='text-sm'>0{i + 1} /</p>
-                            <Header6 text={item.question ?? ""}/>
+                            <p className='text-sm'>{(i + 1).toString().padStart(2, "0")} /</p>
+                            <Header6 className="not-italic" text={item.question ?? ""}/>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent>

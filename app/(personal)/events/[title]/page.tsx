@@ -1,8 +1,12 @@
+import EventDetail from '@/components/pages/events/title/EventDetail'
 import React from 'react'
 
-function page() {
+async function page({ params }: { params: { title: string }}) {
+
+  const { title } = await params
+
   return (
-    <div>page</div>
+    <EventDetail title={title}/>
   )
 }
 

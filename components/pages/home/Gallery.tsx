@@ -9,7 +9,7 @@ function Gallery({ data }: { readonly data: SettingsQueryResult}) {
     <div>
       <InfoContainer>
         <Header3
-          className="w-[80%]"
+          className="max-w-2xl"
           text="No matter the occasion, we design experiences that leave a lasting impression."
         />
       </InfoContainer>

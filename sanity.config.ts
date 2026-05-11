@@ -12,6 +12,7 @@ import duration from '@/sanity/schemas/objects/duration'
 import milestone from '@/sanity/schemas/objects/milestone'
 import timeline from '@/sanity/schemas/objects/timeline'
 import settings from '@/sanity/schemas/singletons/settings'
+import home from '@/sanity/schemas/singletons/home'
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
@@ -33,6 +34,7 @@ export default defineConfig({
     types: [
       // Singletons
       settings,
+      home,
       // Documents
       duration,
       page,
@@ -48,14 +50,14 @@ export default defineConfig({
   },
   plugins: [
     structureTool({
-      structure: pageStructure([settings]),
+      structure: pageStructure([settings, home]),
     }),
     presentationTool({
       resolve,
       previewUrl: {previewMode: {enable: '/api/draft-mode/enable'}},
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([settings.name]),
+    singletonPlugin([settings.name, home.name]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // Vision lets you query your content with GROQ in the studio

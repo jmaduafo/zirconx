@@ -14,7 +14,7 @@ function Events() {
           <Header4 text="Our Events" />
           <div className="grid gap-4 mt-auto">
             <Paragraph text="From intimate gatherings to large-scale celebrations, every event we plan is thoughtfully designed to reflect your vision and leave a lasting impression. We believe that no detail is too small when it comes to creating meaningful experiences." />
-            <PrimaryButton text="Discover more" href="/event" />
+            <PrimaryButton text="Discover more" href="/events" />
           </div>
         </div>
       </GridDisplay>
