@@ -10,16 +10,16 @@ function Events() {
   return (
     <div>
       <GridDisplay url="/images/home/events/event_opening.png" isTextRight>
-        <div className="flex flex-col gap-6 h-full">
+        <div className="flex flex-col gap-6 justify-center h-full">
           <Header4 text="Our Events" />
-          <div className="grid gap-4 mt-auto">
+          <div className="grid gap-4">
             <Paragraph text="From intimate gatherings to large-scale celebrations, every event we plan is thoughtfully designed to reflect your vision and leave a lasting impression. We believe that no detail is too small when it comes to creating meaningful experiences." />
             <PrimaryButton text="Discover more" href="/events" />
           </div>
         </div>
       </GridDisplay>
-      <section className="border-t border-b border-t-foreground border-b-foreground">
-        <div className="grid grid-cols-3">
+      <section className="border-t sm:border-b border-t-foreground sm:border-b-foreground">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3">
           {navigation
             .find((item) => item.title.toLowerCase().includes('event'))
             ?.dropdown?.map((event, i) => {

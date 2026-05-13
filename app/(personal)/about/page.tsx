@@ -13,7 +13,7 @@ async function page() {
   return (
     <>
       <Opening />
-      <MeetOwner/>
+      <MeetOwner data={data}/>
       <TeamSummary/>
       <ImageTransition/>
       <Motive/>

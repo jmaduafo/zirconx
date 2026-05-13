@@ -9,28 +9,15 @@ export default defineType({
   icon: ConfettiIcon,
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
-  fields: [
+ fields: [
     defineField({
-      name: 'social',
-      title: 'Social Events',
+      name: 'categories',
+      title: 'Event Categories',
       type: 'array',
-      of: [{type: 'eventGallery'}],
-    }),
-
-    defineField({
-      name: 'corporate',
-      title: 'Corporate Events',
-      type: 'array',
-      of: [{type: 'eventGallery'}],
-    }),
-
-    defineField({
-      name: 'weddings',
-      title: 'Weddings & Proposals',
-      type: 'array',
-      of: [{type: 'eventGallery'}],
+      of: [{type: 'eventCategory'}],
     }),
   ],
+
   preview: {
     prepare() {
       return {

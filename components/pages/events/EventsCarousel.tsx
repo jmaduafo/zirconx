@@ -23,7 +23,7 @@ function EventsCarousel() {
             .find((item) => item.title.toLowerCase().includes('event'))
             ?.dropdown?.map((item, index) => (
               <CarouselItem key={item.title}>
-                <GridDisplay url={item.image}>
+                <GridDisplay url={item.image} orderLast>
                   <div className='h-full flex flex-col justify-center items-center gap-4'>
                     <Header4 className='capitalize' text={`${item.title}${item.title.toLowerCase().includes("wedding") ? "" : " Events"}`}/>
                     <PrimaryButton text="View more" href={`/${item.link}`}/>

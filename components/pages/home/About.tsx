@@ -19,7 +19,7 @@ function About() {
           />
         </div>
         <div>
-            <PrimaryButton text='Discover more' href='/about'/>
+            <PrimaryButton text='Discover more' href='/about' id="services"/>
         </div>
       </div>
     </SingleSummary>

@@ -22,6 +22,7 @@ import {structureTool} from 'sanity/structure'
 
 import { socials, statistics, faqs, testimonials } from './sanity/schemas/objects/client_settings'
 import eventGallery from "@/sanity/schemas/objects/client_events"
+import eventCategory from './sanity/schemas/objects/eventCategory'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Personal Website with Sanity.io'
@@ -49,7 +50,8 @@ export default defineConfig({
       statistics,
       faqs,
       testimonials,
-      eventGallery
+      eventGallery,
+      eventCategory
     ],
   },
   plugins: [

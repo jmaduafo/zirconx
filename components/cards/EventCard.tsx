@@ -58,8 +58,9 @@ function EventCard({title, image, index, events}: Readonly<Event>) {
       initial="initial"
       whileHover="hover"
       className={cn(
-        'relative h-[35vh] overflow-hidden w-full flex flex-col border-l',
+        'relative h-[35vh] overflow-hidden w-full flex flex-col border-l border-b border-b-foreground md:border-b-0',
         index !== events.length - 1 && 'border-l-foreground',
+        title.toLowerCase().includes('social') && "sm:col-span-2 md:col-span-1 sm:border-b sm:border-b-foreground md:border-b-0"
       )}
     >
       <div className="absolute inset-0 overflow-hidden h-full w-full">
@@ -74,7 +75,7 @@ function EventCard({title, image, index, events}: Readonly<Event>) {
         transition={{ease: 'easeOut'}}
         className="flex justify-end"
       >
-        <ArrowUpRight strokeWidth={0.5} className="size-[4.5em]" />
+        <ArrowUpRight strokeWidth={0.5} className="size-[4em]" />
       </motion.div>
 
       <div className="p-4 mt-auto ">

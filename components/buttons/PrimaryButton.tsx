@@ -11,13 +11,15 @@ function PrimaryButton({
   className,
   href,
   isLight,
-  type
+  type,
+  id
 }: {
   readonly text: string
   readonly className?: string
   readonly href?: string
   readonly type?: "button" | "submit" | "reset"
   readonly isLight?: boolean
+  readonly id?: string
 }) {
   const containerVariants = {
     initial: {y: 0},
@@ -56,7 +58,7 @@ function PrimaryButton({
   }
 
   return (
-    <Link href={href ?? ""} className='w-fit'>
+    <Link href={href ?? ""} className='w-fit' id={id}>
       <motion.div
         variants={containerVariants}
         animate="initial"

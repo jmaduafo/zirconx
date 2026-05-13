@@ -77,27 +77,19 @@ export const settingsQuery = defineQuery(`
     },
     phone,
     email,
-    owner{
-      asset->
-    }
+    owner
   }
 `)
 
 export const eventsQuery = defineQuery(`
   *[_type == "events"][0]{
-    social[]{
-      subcategory,
-      images
-    },
-
-    corporate[]{
-      subcategory,
-      images
-    },
-
-    weddings[]{
-      subcategory,
-      images
+    categories[]{
+      title,
+      description,
+      subcategories[]{
+        subcategory,
+        images
+      }
     }
   }
 `)

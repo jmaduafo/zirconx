@@ -9,8 +9,8 @@ function EventInfo() {
         <div className='w-[90%] mx-auto'>
             <Header2 className='italic' text='Our Events'/>
             <div className='flex justify-end items-start flex-wrap gap-x-6 gap-y-3 mt-5'>
-                <SmallParagraph className="max-w-xs" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci nulla, tincidunt non quam eu, suscipit facilisis dolor. Vivamus egestas est orci, nec mollis velit lacinia at. Cras volutpat, urna sed elementum laoreet, turpis mauris faucibus felis."/>
-                <SmallParagraph className="max-w-xs" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci nulla, tincidunt non quam eu, suscipit facilisis dolor. Vivamus egestas est orci, nec mollis velit lacinia at. "/>
+                <SmallParagraph className="max-w-xs" text="At The Zircon Xperience, we create thoughtfully curated events designed to leave lasting impressions. From intimate celebrations to large-scale experiences, we blend creativity, elegance, and seamless execution to bring every vision to life."/>
+                <SmallParagraph className="max-w-xs" text=" Each event is tailored with intention, ensuring every detail feels like you or your brand, refined, and unforgettable."/>
             </div>
         </div>
     </InfoContainer>
