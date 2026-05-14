@@ -14,6 +14,7 @@
     "typegen": "sanity schema extract && sanity typegen generate"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^5.2.2",
     "@next/env": "16.2.2",
     "@sanity/client": "7.20.0",
@@ -42,6 +43,7 @@
     "react-fast-marquee": "^1.6.5",
     "react-hook-form": "^7.75.0",
     "react-live-transitions": "0.2.0",
+    "resend": "^6.12.3",
     "rxjs": "7.8.2",
     "sanity": "5.19.0",
     "sanity-plugin-asset-source-unsplash": "7.0.5",

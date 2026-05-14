@@ -26,6 +26,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import {Textarea} from '@/components/ui/textarea'
+import {sendEmail} from '@/emailjs/actions'
 import Logo from '@/public/logo/zircon_logo.png'
 import {navigation, services} from '@/utils/data'
 import {contactSchema} from '@/zod/validation'
@@ -49,30 +50,36 @@ function ContactForm() {
       email: '',
       phone: '',
       type: '',
-      date: '',
-      guests: "",
+      guests: '',
       address: '',
-      budget: "",
+      budget: '',
       additional: '',
       services: [],
     },
   })
 
-  function onSubmit(data: z.infer<typeof contactSchema>) {
-    date && console.log({...data, date: format(date, 'PPP')})
-    // const result = contactSchema.safeParse(data)
+  async function onSubmit(data: z.infer<typeof contactSchema>) {
+    const contact = {
+      ...data,
+      date: date ? format(date, 'PPP') : undefined,
+    }
 
-    // if (!result.success) {
-    //   toast('Whoops! Something went wrong', {
-    //     description: result.error.issues[0].message,
-    //   })
+    try {
+      const res = await sendEmail(contact as z.infer<typeof contactSchema>)
 
-    //   console.log(data.services)
-
-    //   return
-    // }
-
-    // const {first_name, last_name, email, phone, address, additional} = result.data
+      if (res.status === 200) {
+        toast('Message sent successfully!', {
+          description:
+            'Your message has been sent to our team. Please allow 1 to 2 business days for us to get back to you.',
+        })
+      }
+    } catch (err: any) {
+      console.log(err.message)
+      
+      toast('Whoops, something went wrong', {
+        description: err.message || 'An unexpected error occurred.',
+      })
+    }
 
     // toast('You submitted the following values:', {
     //   description: (
@@ -231,9 +238,11 @@ function ContactForm() {
                           <PopoverContent className="w-auto p-0" align="start">
                             <Calendar
                               mode="single"
-                              selected={date}
-                              onSelect={setDate}
-                              defaultMonth={date}
+                              selected={field.value ? new Date(field.value) : undefined}
+                              onSelect={(selectedDate) => {
+                                field.onChange(selectedDate ? format(selectedDate, 'PPP') : '')
+                                setDate(selectedDate)
+                              }}
                             />
                           </PopoverContent>
                         </Popover>
@@ -269,7 +278,7 @@ function ContactForm() {
                           id={field.name}
                           autoComplete="off"
                           min={1}
-                          type='number'
+                          type="number"
                         />
                         {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
                       </Field>
@@ -368,7 +377,7 @@ function ContactForm() {
                   )}
                 />
                 <FieldGroup className="mt-5">
-                  <Field className='w-fit'>
+                  <Field className="w-fit">
                     <PrimaryButton className="scale-90" text="Submit" type="submit" />
                   </Field>
                 </FieldGroup>
