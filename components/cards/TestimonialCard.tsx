@@ -16,7 +16,7 @@ function TestimonialCard({
   }
 }) {
   return (
-    <div className="w-full h-[70vh] flex flex-col gap-4 py-5 px-6 bg-accent rounded-[20px]">
+    <div className="w-full h-full min-h-[70vh] flex flex-col gap-4 py-5 px-6 bg-accent rounded-[20px]">
       <div>
         {/* QUOTE ICON */}
         <div>

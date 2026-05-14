@@ -61,7 +61,7 @@ function Testimonials({data}: {readonly data: SettingsQueryResult}) {
             loop: true,
           }}
         >
-          <CarouselContent className="overflow-x-visible">
+          <CarouselContent className="overflow-x-visible flex">
             {data
               ? data.testimonials?.map((testimonial) => {
                   return (

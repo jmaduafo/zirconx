@@ -4,6 +4,7 @@ import MeetOwner from '@/components/pages/about/MeetOwner'
 import Motive from '@/components/pages/about/Motive'
 import Opening from '@/components/pages/about/Opening'
 import TeamSummary from '@/components/pages/about/TeamSummary'
+import ClientMarquee from '@/components/pages/home/ClientMarquee'
 import { sanityFetch } from '@/sanity/lib/live'
 import { settingsQuery } from '@/sanity/lib/queries'
 import React from 'react'
@@ -16,6 +17,7 @@ async function page() {
       <MeetOwner data={data}/>
       <TeamSummary/>
       <ImageTransition/>
+      <ClientMarquee/>
       <Motive/>
       <Gallery data={data}/>
     </>
