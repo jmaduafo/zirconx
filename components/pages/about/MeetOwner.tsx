@@ -14,6 +14,7 @@ function MeetOwner({data}: {readonly data: SettingsQueryResult}) {
           .height(1920)
           .url() ?? ''
       }
+      orderLast
     >
       <div className="h-full flex flex-col justify-center gap-6">
         <Header4 text="Meet the Owner" />

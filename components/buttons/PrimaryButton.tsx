@@ -12,12 +12,12 @@ function PrimaryButton({
   href,
   isLight,
   type,
-  id
+  id,
 }: {
   readonly text: string
   readonly className?: string
   readonly href?: string
-  readonly type?: "button" | "submit" | "reset"
+  readonly type?: 'button' | 'submit' | 'reset'
   readonly isLight?: boolean
   readonly id?: string
 }) {
@@ -57,52 +57,62 @@ function PrimaryButton({
     hover: {x: '100%'},
   }
 
-  return (
-    <Link href={href ?? ""} className='w-fit' id={id}>
+  const button = (
+    <motion.div
+      variants={containerVariants}
+      animate="initial"
+      whileHover="hover"
+      className={cn(
+        'overflow-hidden w-fit relative py-1.5 px-2 font-montrealBook outline-none rounded-full border-[1.5px] flex items-center',
+        className,
+        isLight ? 'border-background' : 'border-foreground',
+      )}
+    >
       <motion.div
-        variants={containerVariants}
-        animate="initial"
-        whileHover="hover"
         className={cn(
-          'overflow-hidden w-fit relative py-1.5 px-2 font-montrealBook outline-none rounded-full border-[1.5px] flex items-center',
-          className,
-          isLight ? "border-background" : "border-foreground"
+          'rounded-full absolute top-0 left-0 h-full w-full',
+          isLight ? 'bg-background' : 'bg-foreground',
         )}
-      >
+        variants={bgVariant}
+      ></motion.div>
+      <div className="z-[2] flex items-center">
+        <motion.button
+          type={type ?? 'button'}
+          variants={textVariant}
+          className={'pl-3 pr-4 capitalize'}
+        >
+          {text}
+        </motion.button>
         <motion.div
+          variants={iconVariant}
           className={cn(
-            'rounded-full absolute top-0 left-0 h-full w-full',
-            isLight ? 'bg-background' : 'bg-foreground',
+            ' overflow-hidden relative size-5 flex justify-end rounded-full',
+            isLight ? 'bg-background text-foreground' : 'bg-foreground text-background',
           )}
-          variants={bgVariant}
-        ></motion.div>
-        <div className="z-[2] flex items-center">
-          <motion.button type={type ?? "button"} variants={textVariant} className={'pl-3 pr-4 capitalize'}>
-            {text}
-          </motion.button>
+        >
           <motion.div
-            variants={iconVariant}
-            className={cn(
-              ' overflow-hidden relative size-5 flex justify-end rounded-full',
-              isLight ? 'bg-background text-foreground' : 'bg-foreground text-background',
-            )}
+            variants={iconMoveVariant}
+            className="flex-none size-5 flex justify-center items-center"
           >
-            <motion.div
-              variants={iconMoveVariant}
-              className="flex-none size-5 flex justify-center items-center"
-            >
-              <ArrowRight className="size-4" />
-            </motion.div>
-            <motion.div
-              variants={iconMoveVariant}
-              className="flex-none size-5 flex justify-center items-center"
-            >
-              <ArrowRight className="size-4" />
-            </motion.div>
+            <ArrowRight className="size-4" />
           </motion.div>
-        </div>
-      </motion.div>
+          <motion.div
+            variants={iconMoveVariant}
+            className="flex-none size-5 flex justify-center items-center"
+          >
+            <ArrowRight className="size-4" />
+          </motion.div>
+        </motion.div>
+      </div>
+    </motion.div>
+  )
+
+  return href ? (
+    <Link href={href} className="w-fit" id={id}>
+      {button}
     </Link>
+  ) : (
+    button
   )
 }
 

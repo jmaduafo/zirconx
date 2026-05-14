@@ -19,17 +19,17 @@ export const navigation = [
     dropdown: [
       {
         link: 'events/social',
-        title: 'social',
+        title: 'Social',
         image: "/images/home/events/social.jpg"
       },
       {
         link: 'events/wedding-proposals',
-        title: 'weddings & proposals',
+        title: 'Weddings & Proposals',
         image: "/images/home/events/wedding.jpeg"
       },
       {
         link: 'events/corporate',
-        title: 'corporate',
+        title: 'Corporate',
         image: "/images/home/events/corporate.JPG"
       },
     ],
@@ -55,7 +55,7 @@ export const hero = [
 
 export const services = [
   {
-    title: 'full-service event planning',
+    title: 'Full-Service Event Planning',
     desc: 'For clients who want end-to-end support, meaning that we would be with them every step of the event process.',
     icon: NotebookText,
     details: [
@@ -70,7 +70,7 @@ export const services = [
     ],
   },
   {
-    title: 'event coordination',
+    title: 'Event Coordination',
     desc: 'For clients who have planned most of their event but need help bringing it all together.',
     icon: BringToFront,
     details: [
@@ -84,7 +84,7 @@ export const services = [
     note: ['Does not include planning, vendor sourcing, or venue booking.'],
   },
   {
-    title: 'vendor sourcing',
+    title: 'Vendor Sourcing',
     desc: 'For clients who want help finding and connecting with trusted service providers who are tailored to their needs.',
     icon: UsersRound,
     details: [
@@ -97,7 +97,7 @@ export const services = [
     note: ['Typically includes: Catering, entertainment, décor, rentals, photography, etc.'],
   },
   {
-    title: 'venue sourcing',
+    title: 'Venue Sourcing',
     desc: 'For clients who need help selecting the right space and choosing a venue that perfectly aligns with their vision.',
     icon: LandPlot,
     details: [
@@ -109,7 +109,7 @@ export const services = [
     ],
   },
   {
-    title: 'conceptualization of event',
+    title: 'Conceptualization of Event',
     desc: 'For clients who need creative direction  and help shaping their ideas before they start planning.',
     icon: Brain,
     details: [
