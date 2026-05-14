@@ -12,11 +12,11 @@ import React from 'react'
 
 function Faq({data}: {readonly data: SettingsQueryResult}) {
   return (
-    <section className='my-6 px-4 md:px-8'>
+    <section className='my-6 px-4 lg:px-8'>
       <div className="flex flex-col lg:flex-row justify-between gap-4">
         <MainHeader title="FAQ" subtitle='Everything you need to know about working with us, from planning to execution.'/>
         <div className="flex-1 flex justify-end">
-          <Accordion type="single" collapsible defaultValue={undefined} className="max-w-lg lg:max-w-2xl">
+          <Accordion type="single" collapsible defaultValue={undefined} className="lg:max-w-3xl">
             {data
               ? data.faqs?.map((item, i) => {
                   return (

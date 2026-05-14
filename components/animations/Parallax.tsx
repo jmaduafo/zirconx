@@ -24,7 +24,7 @@ function Parallax({
   const yScroll = useTransform(scrollYProgress, [0, 1], ['0%', '-10%'])
 
   return (
-    <div ref={containerRef} className={cn('overflow-hidden w-full h-auto md:h-screen', height)}>
+    <div ref={containerRef} className={cn('overflow-hidden w-full h-auto lg:h-screen', height)}>
       <motion.div style={{y: yScroll}} className={cn('w-full object-cover object-center', scale)}>
         <Image
           src={image}

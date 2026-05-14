@@ -8,7 +8,7 @@ import React, {Fragment} from 'react'
 function Services() {
   return (
     <div>
-      <GridDisplay url="/images/home/services/service.jpeg">
+      <GridDisplay url="/images/home/services/service.jpeg" orderLast>
         <div className="h-full flex flex-col justify-center gap-6">
           <Header4 text="Our Services" />
           <div className="grid gap-4">
@@ -18,7 +18,7 @@ function Services() {
         </div>
       </GridDisplay>
       <section className='py-[12vh]'>
-        <div className="w-[95%] sm:w-[85%] xl:w-[80%] mx-auto flex flex-wrap justify-center gap-x-7 gap-y-7">
+        <div className="w-full sm:w-[85%] xl:w-[80%] mx-auto flex flex-wrap justify-center gap-x-7 gap-y-7">
           {services.map((service) => {
             return (
               <Fragment key={service.title}>

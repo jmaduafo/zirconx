@@ -55,7 +55,7 @@ function Testimonials({data}: {readonly data: SettingsQueryResult}) {
       <div className="relative w-full overflow-hidden flex justify-center mt-6">
         <Carousel
           setApi={setApi}
-          className="w-[40%] static"
+          className="w-[80%] sm:w-[70%] md:w-[50%] lg:w-[40%] static"
           opts={{
             align: 'start',
             loop: true,
