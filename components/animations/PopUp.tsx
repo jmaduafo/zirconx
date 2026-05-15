@@ -19,7 +19,7 @@ function PopUp({children}: {readonly children: React.ReactNode}) {
         initial="initial"
         whileInView="animate"
         viewport={{once: true}}
-        transition={{delay: 0.3, ease: 'easeIn', duration: 0.3 }}
+        transition={{delay: 0.3, ease: 'easeOut', duration: 0.3 }}
         className=""
       >
         {children}

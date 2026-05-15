@@ -1,5 +1,6 @@
 import {cn} from '@/lib/utils'
 import React from 'react'
+import TextGenerateEffect from '../animations/TextGenerateEffect';
 
 function Header3({text, className}: {readonly text: string; readonly className?: string}) {
   return (
@@ -9,7 +10,7 @@ function Header3({text, className}: {readonly text: string; readonly className?:
         className,
       )}
     >
-      {text}
+      <TextGenerateEffect words={text}/>
     </h3>
   )
 }

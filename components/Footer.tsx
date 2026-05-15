@@ -4,6 +4,7 @@ import React from 'react'
 import PrimaryButton from './buttons/PrimaryButton'
 import Header2 from './headings/Header2'
 import { SettingsQueryResult } from '@/sanity.types'
+import BlurText from './animations/BlurText'
 
 type Contacts = {
   data: SettingsQueryResult
@@ -14,7 +15,9 @@ function Footer({data}: Readonly<Contacts>) {
     <footer className="bg-foreground text-background px-[4vw] py-10 flex flex-col md:flex-row justify-between items-start gap-6">
       {/* CALL TO ACTION TO CONTACT US PAGE */}
       <div className="flex flex-col gap-5">
-        <Header2 className="italic w-[5em] !leading-[0.8]" text="Want to contact us?" />
+        <Header2 className="italic w-[5em] !leading-[0.8]">
+          <BlurText text='Want to contact us?'/>
+        </Header2>
         <PrimaryButton text="Inquire now" href="/contact" isLight />
       </div>
       {/* FOOTER LINK LIST BY SECTION */}

@@ -1,3 +1,4 @@
+import SlidingNumber from '@/components/animations/SlidingNumber'
 import Header2 from '@/components/headings/Header2'
 import {SettingsQueryResult} from '@/sanity.types'
 import React, {Fragment} from 'react'
@@ -11,7 +12,17 @@ function Statistics({data}: {readonly data: SettingsQueryResult}) {
               return (
                 <Fragment key={stat.title}>
                   <div className="flex flex-col gap-3 items-center">
-                    <Header2 text={stat.statistic ?? ''} />
+                    {stat?.statistic?.includes('+') ? (
+                      <Header2 className='flex items-center'>
+                        <span>+</span>
+                        <SlidingNumber number={stat.statistic.replace("+", "") ?? ''} />
+                      </Header2>
+                    ) : (
+                      <Header2>
+                        <SlidingNumber number={stat.statistic ?? ''} />
+                      </Header2>
+                    )}
+                    {/* <Header2 text={stat.statistic ?? ''} /> */}
                     <p className="uppercase text-sm font-montrealMedium opacity-60">{stat.title}</p>
                   </div>
                   {data.statistics && i !== data.statistics?.length - 1 && (

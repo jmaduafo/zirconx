@@ -5,6 +5,7 @@ import {motion} from 'framer-motion'
 import {ArrowRight} from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
+import Appear from '../animations/Appear'
 
 function PrimaryButton({
   text,
@@ -58,53 +59,55 @@ function PrimaryButton({
   }
 
   const button = (
-    <motion.div
-      variants={containerVariants}
-      animate="initial"
-      whileHover="hover"
-      className={cn(
-        'overflow-hidden w-fit relative py-1.5 px-2 font-montrealBook outline-none rounded-full border-[1.5px] flex items-center',
-        className,
-        isLight ? 'border-background' : 'border-foreground',
-      )}
-    >
+    <Appear>
       <motion.div
+        variants={containerVariants}
+        animate="initial"
+        whileHover="hover"
         className={cn(
-          'rounded-full absolute top-0 left-0 h-full w-full',
-          isLight ? 'bg-background' : 'bg-foreground',
+          'overflow-hidden w-fit relative py-1.5 px-2 font-montrealBook outline-none rounded-full border-[1.5px] flex items-center',
+          className,
+          isLight ? 'border-background' : 'border-foreground',
         )}
-        variants={bgVariant}
-      ></motion.div>
-      <div className="z-[2] flex items-center">
-        <motion.button
-          type={type ?? 'button'}
-          variants={textVariant}
-          className={'pl-3 pr-4 capitalize'}
-        >
-          {text}
-        </motion.button>
+      >
         <motion.div
-          variants={iconVariant}
           className={cn(
-            ' overflow-hidden relative size-5 flex justify-end rounded-full',
-            isLight ? 'bg-background text-foreground' : 'bg-foreground text-background',
+            'rounded-full absolute top-0 left-0 h-full w-full',
+            isLight ? 'bg-background' : 'bg-foreground',
           )}
-        >
-          <motion.div
-            variants={iconMoveVariant}
-            className="flex-none size-5 flex justify-center items-center"
+          variants={bgVariant}
+        ></motion.div>
+        <div className="z-[2] flex items-center">
+          <motion.button
+            type={type ?? 'button'}
+            variants={textVariant}
+            className={'pl-3 pr-4 capitalize'}
           >
-            <ArrowRight className="size-4" />
-          </motion.div>
+            {text}
+          </motion.button>
           <motion.div
-            variants={iconMoveVariant}
-            className="flex-none size-5 flex justify-center items-center"
+            variants={iconVariant}
+            className={cn(
+              ' overflow-hidden relative size-5 flex justify-end rounded-full',
+              isLight ? 'bg-background text-foreground' : 'bg-foreground text-background',
+            )}
           >
-            <ArrowRight className="size-4" />
+            <motion.div
+              variants={iconMoveVariant}
+              className="flex-none size-5 flex justify-center items-center"
+            >
+              <ArrowRight className="size-4" />
+            </motion.div>
+            <motion.div
+              variants={iconMoveVariant}
+              className="flex-none size-5 flex justify-center items-center"
+            >
+              <ArrowRight className="size-4" />
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </div>
-    </motion.div>
+        </div>
+      </motion.div>
+    </Appear>
   )
 
   return href ? (

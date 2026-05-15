@@ -1,7 +1,7 @@
 import {cn} from '@/lib/utils'
 import React from 'react'
 
-function Header2({text, className}: {readonly text: string; readonly className?: string}) {
+function Header2({children, className}: {readonly children: React.ReactNode; readonly className?: string}) {
   return (
     <h2
       className={cn(
@@ -9,7 +9,7 @@ function Header2({text, className}: {readonly text: string; readonly className?:
         className,
       )}
     >
-      {text}
+      {children}
     </h2>
   )
 }
