@@ -13,7 +13,7 @@ function GridDisplay({
   readonly url: string
   readonly orderLast?: boolean
 }) {
-  const textLayout = <div className={cn("bg-accent py-[4vw] px-[8vw]", orderLast && "order-last lg:order-none")}>{children}</div>
+  const textLayout = <div className={cn("bg-accent py-[6vh] px-[8vw]", orderLast && "order-last lg:order-none")}>{children}</div>
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 h-auto lg:h-[80vh]">
       {!isTextRight && textLayout}

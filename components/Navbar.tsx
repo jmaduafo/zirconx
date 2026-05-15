@@ -112,7 +112,7 @@ function DropDown({nav}: Readonly<List>) {
             {nav.dropdown.map((items) => {
               return (
                 <li key={items.title} className="whitespace-nowrap py-1">
-                  <Link href={items.link}>{items.title}</Link>
+                  <Link href={`/${items.link}`}>{items.title}</Link>
                 </li>
               )
             })}

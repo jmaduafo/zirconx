@@ -9,7 +9,9 @@ function Opening() {
   return (
     <InfoContainer isMarginTop>
       <div className="mb-5">
-        <Header2 className="capitalize italic" text="About us" />
+        <Header2 className="capitalize italic">
+          <span>About Us</span>
+        </Header2>
       </div>
       <Parallax image="/images/about/opening.JPG" height="md:h-[70vh]" scale="scale-110" />
       <div className='flex flex-col gap-4 items-end mt-6'>

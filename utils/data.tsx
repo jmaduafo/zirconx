@@ -76,7 +76,7 @@ export const services = [
     details: [
       'Final walkthrough with client and vendors',
       'Review and refinement of event timeline',
-      'Point of contact for all vendors starting 2–4 weeks before event',
+      'Point of contact for all vendors starting 2 to 4 weeks before event',
       'Final confirmations with venue and suppliers',
       'On-site coordination on event day (setup, flow management,breakdown)',
       'Troubleshooting and guest assistance',

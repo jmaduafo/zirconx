@@ -39,6 +39,7 @@ function Events() {
                     title={event.title}
                     index={i}
                     image={event.image}
+                    link={event.link}
                   />
                 </Fragment>
               )
