@@ -1,9 +1,12 @@
+'use client'
+
 import ServicesCard from '@/components/cards/ServicesCard'
 import GridDisplay from '@/components/containers/GridDisplay'
 import Header4 from '@/components/headings/Header4'
 import Paragraph from '@/components/headings/Paragraph'
 import {services} from '@/utils/data'
-import React, {Fragment} from 'react'
+import {motion} from 'framer-motion'
+import React from 'react'
 
 function Services() {
   return (
@@ -17,13 +20,18 @@ function Services() {
           </div>
         </div>
       </GridDisplay>
-      <section className='py-[12vh]'>
+      <section className="py-[12vh]">
         <div className="w-full sm:w-[85%] xl:w-[80%] mx-auto flex flex-wrap justify-center gap-x-7 gap-y-7">
-          {services.map((service) => {
+          {services.map((service, i) => {
             return (
-              <Fragment key={service.title}>
+              <motion.div
+                initial={{opacity: 0}}
+                whileInView={{opacity: 1, transition: {delay: i * 0.2, ease: 'easeIn'}}}
+                viewport={{once: true}}
+                key={service.title}
+              >
                 <ServicesCard item={service} />
-              </Fragment>
+              </motion.div>
             )
           })}
         </div>

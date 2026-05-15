@@ -2,6 +2,7 @@
 
 import Logo from '@/public/logo/zircon_logo.png'
 import {navigation} from '@/utils/data'
+import {motion} from 'framer-motion'
 import {ChevronDown, Menu} from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,32 +11,72 @@ import {Fragment} from 'react/jsx-runtime'
 import {Button} from './ui/button'
 
 export function Navbar() {
+  const headerVariant = {
+    initial: {
+      y: '-100%',
+    },
+    animate: {
+      y: '0%',
+    },
+  }
+
+  const navVariant = {
+    initial: {
+      opacity: 0
+    },
+    animate: {
+      opacity: 1,
+    },
+  }
+
   return (
-    <header className="z-[200] fixed top-0 w-full px-5 sm:px-10 bg-background flex justify-between items-center">
-      <div className="w-[5em] h-[5em] object-cover object-bottom">
-        <Image src={Logo} alt="zircon logo" className="w-full h-full" />
-      </div>
-      <nav className="hidden lg:block capitalize text-sm font-montrealMedium">
-        <ul className="flex items-center gap-5">
-          {navigation.map((nav) => {
-            return (
-              <Fragment key={nav.title}>
-                {!nav.button && !nav.dropdown && (
-                  <li>
-                    <Link href={`/${nav.link}`}>{nav.title}</Link>
-                  </li>
-                )}
-                {nav.dropdown && <DropDown nav={nav} />}
-                {nav.button && <Link href={`/${nav.link}`}><Button>{nav.title}</Button></Link>}
-              </Fragment>
-            )
-          })}
-        </ul>
-      </nav>
-      <div className='block lg:hidden'>
-        <Menu/>
-      </div>
-    </header>
+    <motion.header
+      variants={headerVariant}
+      initial="initial"
+      animate="animate"
+      transition={{
+          ease: "easeOut"
+        }}
+      className="z-[200] fixed top-0 w-full px-5 sm:px-10 bg-background"
+    >
+      <motion.div
+        variants={navVariant}
+        initial="initial"
+        animate="animate"
+        transition={{
+          delay: 0.5
+        }}
+        className="flex justify-between items-center"
+      >
+        <div className="w-[5em] h-[5em] object-cover object-bottom">
+          <Image src={Logo} alt="zircon logo" className="w-full h-full" />
+        </div>
+        <nav className="hidden lg:block capitalize text-sm font-montrealMedium">
+          <ul className="flex items-center gap-5">
+            {navigation.map((nav) => {
+              return (
+                <Fragment key={nav.title}>
+                  {!nav.button && !nav.dropdown && (
+                    <li>
+                      <Link href={`/${nav.link}`}>{nav.title}</Link>
+                    </li>
+                  )}
+                  {nav.dropdown && <DropDown nav={nav} />}
+                  {nav.button && (
+                    <Link href={`/${nav.link}`}>
+                      <Button>{nav.title}</Button>
+                    </Link>
+                  )}
+                </Fragment>
+              )
+            })}
+          </ul>
+        </nav>
+        <div className="block lg:hidden">
+          <Menu />
+        </div>
+      </motion.div>
+    </motion.header>
   )
 }
 

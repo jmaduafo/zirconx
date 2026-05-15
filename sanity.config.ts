@@ -31,6 +31,7 @@ export default defineConfig({
   basePath: studioUrl,
   projectId: projectId || '',
   dataset: dataset || '',
+  // useCdn: false,
   title,
   schema: {
     // If you want more content types, you can add them to this array

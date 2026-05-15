@@ -1,3 +1,5 @@
+import Appear from '@/components/animations/Appear'
+import PopUp from '@/components/animations/PopUp'
 import PrimaryButton from '@/components/buttons/PrimaryButton'
 import EventCard from '@/components/cards/EventCard'
 import GridDisplay from '@/components/containers/GridDisplay'
@@ -11,11 +13,15 @@ function Events() {
     <div>
       <GridDisplay url="/images/home/events/event_opening.png" isTextRight>
         <div className="flex flex-col gap-6 justify-center h-full">
-          <Header4 text="Our Events" />
-          <div className="grid gap-4">
-            <Paragraph text="From intimate gatherings to large-scale celebrations, every event we plan is thoughtfully designed to reflect your vision and leave a lasting impression. We believe that no detail is too small when it comes to creating meaningful experiences." />
-            <PrimaryButton text="Discover more" href="/events" />
-          </div>
+          <PopUp>
+            <Header4 text="Our Events" />
+          </PopUp>
+          <Appear>
+            <div className="grid gap-4">
+              <Paragraph text="From intimate gatherings to large-scale celebrations, every event we plan is thoughtfully designed to reflect your vision and leave a lasting impression. We believe that no detail is too small when it comes to creating meaningful experiences." />
+              <PrimaryButton text="Discover more" href="/events" />
+            </div>
+          </Appear>
         </div>
       </GridDisplay>
       <section className="border-t sm:border-b border-t-foreground sm:border-b-foreground">
