@@ -1,5 +1,6 @@
 'use client'
 
+import {Tilt, TiltContent} from '@/components/animate-ui/primitives/effects/tilt'
 import InfoContainer from '@/components/containers/InfoContainer'
 import Header2 from '@/components/headings/Header2'
 import {Button} from '@/components/ui/button'
@@ -91,15 +92,19 @@ function EventSubcategory({
       <div className="w-[70%] mx-auto flex flex-col gap-6 mt-5">
         {currentEvent.images?.map((img) => {
           return (
-            <div key={img?.asset?._ref} className="w-full">
-              <Image
-                src={urlForImage(img)?.url() ?? ''}
-                alt={`${img.asset?._ref}`}
-                width={1920}
-                height={1500}
-                className="object-cover object-center w-full h-auto"
-              />
-            </div>
+            <Tilt key={img?.asset?._ref} maxTilt={5}>
+              <TiltContent>
+                <div className="w-full">
+                  <Image
+                    src={urlForImage(img)?.url() ?? ''}
+                    alt={`${img.asset?._ref}`}
+                    width={1920}
+                    height={1500}
+                    className="object-cover object-center w-full h-auto"
+                  />
+                </div>
+              </TiltContent>
+            </Tilt>
           )
         })}
       </div>
