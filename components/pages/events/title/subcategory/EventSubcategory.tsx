@@ -2,10 +2,13 @@
 
 import InfoContainer from '@/components/containers/InfoContainer'
 import Header2 from '@/components/headings/Header2'
+import {Button} from '@/components/ui/button'
+import {HoverCard, HoverCardContent, HoverCardTrigger} from '@/components/ui/hover-card'
 import {EventsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
+import {MoveLeft, MoveRight} from 'lucide-react'
 import Image from 'next/image'
-import {useParams} from 'next/navigation'
+import {useParams, useRouter} from 'next/navigation'
 import React from 'react'
 
 function EventSubcategory({
@@ -16,32 +19,85 @@ function EventSubcategory({
   readonly subcategory: string
 }) {
   const {title} = useParams()
+  const router = useRouter()
 
   const category = data?.categories?.find((item) =>
     item.title?.toLowerCase().includes((title as string)?.split('-')[0]),
   )
 
-  const event = category?.subcategories?.find(
+  const currentEvent = category?.subcategories?.find(
     (sub) => sub.subcategory?.toLowerCase() === subcategory.split('%20').join(' '),
   )
 
-  return event ? (
+  const currentIndex = category?.subcategories?.findIndex(
+    (sub) => sub.subcategory?.toLowerCase() === subcategory.split('%20').join(' '),
+  )
+
+  const prevEvent =
+    currentIndex && category?.subcategories
+      ? category?.subcategories[(currentIndex - 1) % category.subcategories.length]
+      : null
+
+  const nextEvent =
+    currentIndex && category?.subcategories
+      ? category?.subcategories[(currentIndex + 1) % category.subcategories.length]
+      : null
+
+  return currentEvent ? (
     <InfoContainer isMarginTop>
-      <div className=''>
+      <div className="">
         <Header2 className="text-center italic">
-          <span>{event.subcategory}</span>
+          <span>{currentEvent.subcategory}</span>
         </Header2>
       </div>
-      <div className="flex flex-col items-center gap-6 mt-5">
-        {event.images?.map((img) => {
+      <div className="fixed transform -translate-x-1/2 -translate-y-1/2 top-[50vh] left-1/2 w-[90%] flex items-center justify-between">
+        <HoverCard>
+          <HoverCardTrigger>
+            <Button
+              onClick={() =>
+                router.push(`/events/${title}/${prevEvent?.subcategory?.toLowerCase()}`)
+              }
+              className=""
+              size={'icon-sm'}
+              variant={'outline'}
+            >
+              <MoveLeft strokeWidth={1} />
+            </Button>
+          </HoverCardTrigger>
+          <HoverCardContent className="w-fit text-center">
+            <span className="uppercase opacity-70">Prev</span> <br />{' '}
+            {prevEvent ? prevEvent.subcategory : ''}
+          </HoverCardContent>
+        </HoverCard>
+        <HoverCard>
+          <HoverCardTrigger>
+            <Button
+              onClick={() =>
+                router.push(`/events/${title}/${nextEvent?.subcategory?.toLowerCase()}`)
+              }
+              className=""
+              size={'icon-sm'}
+              variant={'outline'}
+            >
+              <MoveRight strokeWidth={1} />
+            </Button>
+          </HoverCardTrigger>
+          <HoverCardContent className="w-fit text-center">
+            <span className="uppercase opacity-70">Next</span> <br />{' '}
+            {nextEvent ? nextEvent.subcategory : ''}
+          </HoverCardContent>
+        </HoverCard>
+      </div>
+      <div className="w-[70%] mx-auto flex flex-col gap-6 mt-5">
+        {currentEvent.images?.map((img) => {
           return (
-            <div key={img?.asset?._ref} className="w-[70%]">
+            <div key={img?.asset?._ref} className="w-full">
               <Image
                 src={urlForImage(img)?.url() ?? ''}
                 alt={`${img.asset?._ref}`}
                 width={1920}
                 height={1500}
-                className="object-cover object-center w-auto h-auto"
+                className="object-cover object-center w-full h-auto"
               />
             </div>
           )
