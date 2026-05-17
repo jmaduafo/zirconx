@@ -5,7 +5,7 @@ import SmallParagraph from './headings/SmallParagraph'
 function MainHeader({title, subtitle}: {readonly title: string; readonly subtitle: string}) {
   return (
     <div className="flex flex-col gap-3">
-      <Header4 className="capitalize" text={title} />
+      <Header4 className="capitalize max-w-xs" text={title} />
       <SmallParagraph className="max-w-[13em]" text={subtitle} />
     </div>
   )

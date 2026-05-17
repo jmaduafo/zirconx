@@ -13,9 +13,10 @@ type Event = {
   index: number
   events: any[]
   link: string
+  height?: string
 }
 
-function EventCard({title, image, index, events, link}: Readonly<Event>) {
+function EventCard({title, image, index, events, link, height}: Readonly<Event>) {
   const router = useRouter()
 
   const containerVariant = {
@@ -65,6 +66,7 @@ function EventCard({title, image, index, events, link}: Readonly<Event>) {
       className={cn(
         'relative h-[35vh] overflow-hidden w-full flex flex-col border-l border-b border-b-foreground md:border-b-0',
         index !== events.length - 1 && 'border-l-foreground',
+        height,
         title.toLowerCase().includes('social') && "sm:col-span-2 md:col-span-1 sm:border-b sm:border-b-foreground md:border-b-0"
       )}
       >

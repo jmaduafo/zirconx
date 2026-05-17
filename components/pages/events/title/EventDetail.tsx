@@ -24,8 +24,8 @@ function EventDetail({data, title}: {readonly data: EventsQueryResult; readonly 
     ?.dropdown?.find((event) => pathname.includes(event.link))
 
   return (
-    <InfoContainer isMarginTop className="flex">
-      <div className="sticky top-40 flex-1">
+    <InfoContainer isMarginTop className="relative flex flex-col md:flex-row gap-5">
+      <div className="self-start sticky top-28 flex-1 bg-background">
         <MainHeader
           title={event?.title ?? ''}
           subtitle={event?.description ? event.description.split('.')[0] + '.' : ''}

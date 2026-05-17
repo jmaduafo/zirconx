@@ -8,7 +8,7 @@ async function page({params}: {params: {subcategory: string}}) {
 
   const {data} = await sanityFetch({query: eventsQuery})
 
-  return <EventSubcategory data={data} subcategory={subcategory} />
+  return <EventSubcategory data={data} subcategory={decodeURIComponent(subcategory)} />
 }
 
 export default page
