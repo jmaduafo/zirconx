@@ -1,3 +1,4 @@
+import BlurText from '@/components/animations/BlurText'
 import InfoContainer from '@/components/containers/InfoContainer'
 import Header2 from '@/components/headings/Header2'
 import SmallParagraph from '@/components/headings/SmallParagraph'
@@ -8,7 +9,7 @@ function EventInfo() {
     <InfoContainer>
         <div className='w-[90%] mx-auto'>
             <Header2 className='italic'>
-              <span>Our Events</span>
+              <BlurText text='Our Events'/>
             </Header2>
             <div className='flex justify-end items-start flex-wrap gap-x-6 gap-y-3 mt-5'>
                 <SmallParagraph className="max-w-xs" text="At The Zircon Xperience, we create thoughtfully curated events designed to leave lasting impressions. From intimate celebrations to large-scale experiences, we blend creativity, elegance, and seamless execution to bring every vision to life."/>

@@ -1,10 +1,12 @@
 'use client'
 
+import PopUp from '@/components/animations/PopUp'
 import InfoContainer from '@/components/containers/InfoContainer'
 import Header6 from '@/components/headings/Header6'
 import MainHeader from '@/components/MainHeader'
 import {EventsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
+import { shimmerBlurDataURL } from '@/utils/blurDataUrl'
 import {navigation} from '@/utils/data'
 import {motion} from 'framer-motion'
 import Image from 'next/image'
@@ -24,10 +26,12 @@ function EventDetail({data, title}: {readonly data: EventsQueryResult; readonly 
     ?.dropdown?.find((event) => pathname.includes(event.link))
 
   return (
-    <InfoContainer isMarginTop className="relative flex flex-col md:flex-row gap-5">
-      <div className="self-start sticky top-28 flex-1 bg-background">
+    <InfoContainer isMarginTop className="relative flex flex-col items-center md:items-baseline md:flex-row gap-5">
+      <div className="md:self-start md:sticky md:top-28 flex-1 bg-background">
         <MainHeader
           title={event?.title ?? ''}
+          titleClassname='text-center md:text-left max-w-full md:max-w-xs'
+          subtitleClassname='text-center md:text-left max-w-sm md:max-w-xs'
           subtitle={event?.description ? event.description.split('.')[0] + '.' : ''}
         />
       </div>
@@ -39,19 +43,23 @@ function EventDetail({data, title}: {readonly data: EventsQueryResult; readonly 
                 <motion.div
                   initial={{borderRadius: '0%'}}
                   whileHover={{borderRadius: '50%'}}
-                  className="cursor-pointer w-full h-[65vh] overflow-hidden"
+                  className="cursor-pointer w-full max-h-[65vh] overflow-hidden"
                 >
                   {item?.images && (
                     <Image
                       src={urlForImage(item.images[0])?.width(800).height(1000).url() ?? ''}
                       alt={`${item.subcategory} image`}
-                      width={800}
-                      height={1000}
-                      className="object-cover object-center"
+                      width={1200}
+                      height={1600}
+                      className="object-cover object-center w-full h-auto"
+                      placeholder="blur"
+                      blurDataURL={shimmerBlurDataURL(1200, 1600)}
                     />
                   )}
                 </motion.div>
-                <Header6 text={item.subcategory ?? ''} />
+                <PopUp>
+                  <Header6 text={item.subcategory ?? ''} />
+                </PopUp>
               </div>
             </Link>
           )

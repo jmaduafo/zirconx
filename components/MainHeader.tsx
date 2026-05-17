@@ -1,12 +1,23 @@
+import {cn} from '@/lib/utils'
 import React from 'react'
 import Header4 from './headings/Header4'
 import SmallParagraph from './headings/SmallParagraph'
 
-function MainHeader({title, subtitle}: {readonly title: string; readonly subtitle: string}) {
+function MainHeader({
+  title,
+  subtitle,
+  titleClassname,
+  subtitleClassname,
+}: {
+  readonly title: string
+  readonly subtitle: string
+  readonly subtitleClassname?: string
+  readonly titleClassname?: string
+}) {
   return (
     <div className="flex flex-col gap-3">
-      <Header4 className="capitalize max-w-xs" text={title} />
-      <SmallParagraph className="max-w-[13em]" text={subtitle} />
+      <Header4 className={cn('capitalize max-w-xs', titleClassname)} text={title} />
+      <SmallParagraph className={cn('max-w-[13em]', subtitleClassname)} text={subtitle} />
     </div>
   )
 }

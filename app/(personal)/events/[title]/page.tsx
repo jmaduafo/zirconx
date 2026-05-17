@@ -8,7 +8,7 @@ async function page({params}: {params: {title: string}}) {
 
   const {data} = await sanityFetch({query: eventsQuery})
 
-  return <EventDetail data={data} title={title} />
+  return <EventDetail data={data} title={decodeURIComponent(title)} />
 }
 
 export default page

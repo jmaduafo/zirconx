@@ -1,6 +1,7 @@
 'use client'
 
 import {Tilt, TiltContent} from '@/components/animate-ui/primitives/effects/tilt'
+import TextGenerateEffect from '@/components/animations/TextGenerateEffect'
 import EventCard from '@/components/cards/EventCard'
 import InfoContainer from '@/components/containers/InfoContainer'
 import Header2 from '@/components/headings/Header2'
@@ -8,6 +9,7 @@ import {Button} from '@/components/ui/button'
 import {HoverCard, HoverCardContent, HoverCardTrigger} from '@/components/ui/hover-card'
 import {EventsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
+import { shimmerBlurDataURL } from '@/utils/blurDataUrl'
 import {navigation} from '@/utils/data'
 import {MoveLeft, MoveRight} from 'lucide-react'
 import Image from 'next/image'
@@ -36,15 +38,15 @@ function EventSubcategory({
     (sub) => sub.subcategory?.toLowerCase() === subcategory.split('%20').join(' '),
   )
 
-  console.log(subcategory)
-
   const prevEvent =
-    typeof currentIndex === "number" && category?.subcategories
-      ? category?.subcategories[(category.subcategories.length + (currentIndex - 1))  % category.subcategories.length]
+    typeof currentIndex === 'number' && category?.subcategories
+      ? category?.subcategories[
+          (category.subcategories.length + (currentIndex - 1)) % category.subcategories.length
+        ]
       : null
 
   const nextEvent =
-    typeof currentIndex === "number" && category?.subcategories
+    typeof currentIndex === 'number' && category?.subcategories
       ? category?.subcategories[(currentIndex + 1) % category.subcategories.length]
       : null
 
@@ -53,7 +55,7 @@ function EventSubcategory({
       <InfoContainer isMarginTop>
         <div className="">
           <Header2 className="text-center italic">
-            <span>{currentEvent.subcategory}</span>
+            <TextGenerateEffect words={currentEvent?.subcategory ?? ''} />
           </Header2>
         </div>
         <div className="z-50 fixed transform -translate-x-1/2 -translate-y-1/2 top-[50vh] left-1/2 w-[90%] flex items-center justify-between">
@@ -106,6 +108,8 @@ function EventSubcategory({
                       width={1920}
                       height={1500}
                       className="object-cover object-center w-full h-auto"
+                      placeholder="blur"
+                      blurDataURL={shimmerBlurDataURL(1920, 1500)}
                     />
                   </div>
                 </TiltContent>
@@ -114,7 +118,7 @@ function EventSubcategory({
           })}
         </div>
       </InfoContainer>
-      <div className='grid grid-cols-2 border-t border-t-foreground'>
+      <div className="grid grid-cols-2 border-t border-t-foreground">
         {navigation
           .find((item) => item.title === 'events')
           ?.dropdown?.filter((item) => item.link !== `events/${title}`)

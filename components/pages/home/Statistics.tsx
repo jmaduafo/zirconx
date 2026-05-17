@@ -1,4 +1,4 @@
-import SlidingNumber from '@/components/animations/SlidingNumber'
+import {CountingNumber} from '@/components/animate-ui/primitives/texts/counting-number'
 import Header2 from '@/components/headings/Header2'
 import {SettingsQueryResult} from '@/sanity.types'
 import React, {Fragment} from 'react'
@@ -13,13 +13,13 @@ function Statistics({data}: {readonly data: SettingsQueryResult}) {
                 <Fragment key={stat.title}>
                   <div className="flex flex-col gap-3 items-center">
                     {stat?.statistic?.includes('+') ? (
-                      <Header2 className='flex items-center'>
+                      <Header2 className="flex items-center">
                         <span>+</span>
-                        <SlidingNumber number={stat.statistic.replace("+", "") ?? ''} />
+                        <CountingNumber inView number={Number(stat.statistic.replace('+', ''))} />
                       </Header2>
                     ) : (
                       <Header2>
-                        <SlidingNumber number={stat.statistic ?? ''} />
+                        <CountingNumber inView number={Number(stat.statistic)} />
                       </Header2>
                     )}
                     {/* <Header2 text={stat.statistic ?? ''} /> */}

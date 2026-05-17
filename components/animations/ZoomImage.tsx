@@ -18,7 +18,7 @@ function ZoomImage({url}: {readonly url: string}) {
         variants={imageVariant}
         initial="initial"
         whileInView="animate"
-        transition={{delay: 0.3, duration: 0.5, ease: 'easeIn'}}
+        transition={{delay: 0.3}}
         viewport={{once: true}}
         className="h-full w-full bg-cover bg-no-repeat bg-center"
         style={{backgroundImage: `url(${url})`}}
