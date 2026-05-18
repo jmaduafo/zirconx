@@ -80,26 +80,11 @@ function ContactForm() {
         description: err.message || 'An unexpected error occurred.',
       })
     }
-
-    // toast('You submitted the following values:', {
-    //   description: (
-    //     <pre className="mt-2 w-[320px] overflow-x-auto rounded-md bg-code p-4 text-code-foreground">
-    //       <code>{JSON.stringify(data, null, 2)}</code>
-    //     </pre>
-    //   ),
-    //   position: 'bottom-right',
-    //   classNames: {
-    //     content: 'flex flex-col gap-2',
-    //   },
-    //   style: {
-    //     '--border-radius': 'calc(var(--radius)  + 4px)',
-    //   } as React.CSSProperties,
-    // })
   }
 
   return (
     <InfoContainer isMarginTop>
-      <div className="flex flex-col md:flex-row justify-between items-start gap-4">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-6">
         <div className="md:flex-1">
           <MainHeader
             title="Contact us"
@@ -321,8 +306,8 @@ function ContactForm() {
                 </div>
               </FieldGroup>
             </FieldSet>
-            <div className="flex flex-col sm:flex-row items-start gap-4">
-              <FieldSet className="flex-[2]">
+            <div className="flex flex-row items-start gap-4">
+              <FieldSet className="flex-1 sm:flex-[2]">
                 <Controller
                   name="services"
                   control={form.control}

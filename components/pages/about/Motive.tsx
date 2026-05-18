@@ -1,4 +1,5 @@
 import TranslateYScroll from '@/components/animations/TranslateYScroll'
+import ZoomIn from '@/components/animations/ZoomIn'
 import Header4 from '@/components/headings/Header4'
 import Paragraph from '@/components/headings/Paragraph'
 import Image from 'next/image'
@@ -9,16 +10,18 @@ function Motive() {
     <section className="px-[6vw] mt-[8vh] mb-[15vh]">
       <div className="flex flex-col-reverse lg:flex-row lg:items-center gap-x-5 gap-y-[10vh]">
         <div className="flex-1 relative">
-          <div className="w-full object-cover object-bottom">
-            <Image
-              src="/images/about/motive1.JPG"
-              width={1920}
-              height={1080}
-              alt="ceramic bowls display"
-              className="w-full h-full"
-            />
-          </div>
-          <TranslateYScroll>
+          <ZoomIn>
+            <div className="w-full">
+              <Image
+                src="/images/about/motive1.JPG"
+                width={1920}
+                height={1080}
+                alt="ceramic bowls display"
+                className="object-cover scale-110 w-full h-full"
+              />
+            </div>
+          </ZoomIn>
+          {/* <TranslateYScroll>
             <div className="absolute max-w-40 top-full left-3/4 transform -translate-x-1/2 -translate-y-1/2 object-cover object-bottom">
               <Image
                 src="/images/about/motive2.JPG"
@@ -28,7 +31,7 @@ function Motive() {
                 className="w-full h-full"
               />
             </div>
-          </TranslateYScroll>
+          </TranslateYScroll> */}
         </div>
         <div className="flex-1 flex justify-center items-center">
           <div className="flex flex-col gap-4">

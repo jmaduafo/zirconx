@@ -21,7 +21,7 @@ function Parallax({
     offset: ['start end', 'end start'],
   })
 
-  const yScroll = useTransform(scrollYProgress, [0, 1], ['0%', '-10%'])
+  const yScroll = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
 
   return (
     <div ref={containerRef} className={cn('overflow-hidden w-full h-auto lg:h-screen', height)}>
@@ -31,7 +31,7 @@ function Parallax({
           alt={image}
           width={1920}
           height={1080}
-          className="w-full h-full"
+          className="w-full h-full scale-125"
           loading="eager"
         />
       </motion.div>

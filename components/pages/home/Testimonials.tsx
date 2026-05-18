@@ -1,15 +1,11 @@
 'use client'
 
-import TestimonialCard from '@/components/cards/TestimonialCard'
+import { MotionCarousel } from '@/components/animate-ui/components/community/motion-carousel'
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
 } from '@/components/ui/carousel'
 import {SettingsQueryResult} from '@/sanity.types'
+import { EmblaOptionsType } from 'embla-carousel'
 import React, {useEffect, useState} from 'react'
 
 function Testimonials({data}: {readonly data: SettingsQueryResult}) {
@@ -29,6 +25,9 @@ function Testimonials({data}: {readonly data: SettingsQueryResult}) {
       setCurrent(api.selectedScrollSnap() + 1)
     })
   }, [api])
+
+  const OPTIONS: EmblaOptionsType = { loop: true };
+  const SLIDE_COUNT = 6;
 
   return (
     <section className="my-6">
@@ -53,33 +52,7 @@ function Testimonials({data}: {readonly data: SettingsQueryResult}) {
         })}
       </div>
       <div className="relative w-full overflow-hidden flex justify-center mt-6">
-        <Carousel
-          setApi={setApi}
-          className="w-[80%] sm:w-[70%] md:w-[50%] lg:w-[40%] static"
-          opts={{
-            align: 'start',
-            loop: true,
-          }}
-        >
-          <CarouselContent className="overflow-x-visible flex">
-            {data
-              ? data.testimonials?.map((testimonial) => {
-                  return (
-                    <CarouselItem className="" key={testimonial.client}>
-                      <TestimonialCard testimonial={testimonial} />
-                    </CarouselItem>
-                  )
-                })
-              : null}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </div>
-      <div className="mt-4">
-        <p className="text-center">
-          {current} / {count}
-        </p>
+        <MotionCarousel slides={data?.testimonials ?? []} options={OPTIONS} />
       </div>
     </section>
   )

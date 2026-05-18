@@ -22,5 +22,6 @@ module.exports = {
       transparent: "#00000000"
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography')],
 }
