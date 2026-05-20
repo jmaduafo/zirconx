@@ -1,4 +1,3 @@
-import TranslateYScroll from '@/components/animations/TranslateYScroll'
 import ZoomIn from '@/components/animations/ZoomIn'
 import Header4 from '@/components/headings/Header4'
 import Paragraph from '@/components/headings/Paragraph'

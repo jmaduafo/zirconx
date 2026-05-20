@@ -50,9 +50,11 @@ export function Navbar() {
           }}
           className="flex justify-between items-center"
         >
+          <Link href="/">
           <div className="w-[5em] h-[5em] object-cover object-bottom">
             <Image src={Logo} alt="zircon logo" className="w-full h-full" />
           </div>
+          </Link>
           <nav className="hidden lg:block capitalize text-sm font-montrealMedium">
             <ul className="flex items-center gap-5">
               {navigation.map((nav) => {
@@ -89,16 +91,18 @@ export function Navbar() {
       <motion.div
         className="lg:hidden py-4 px-5 flex flex-col fixed z-[210] top-0 right-0 w-4 h-4 bg-foreground origin-bottom-left"
         initial={{
-          width: isMenuClicked ? '0vw' : '100vw',
-          height: isMenuClicked ? '0vh' : '100vh',
-          visibility: isMenuClicked ? 'hidden' : 'visible',
-          borderBottomLeftRadius: isMenuClicked ? '100%' : '0%',
+          width: "50vw",
+          height: "50vh",
+          clipPath: "circle(141.4%% at 100% 0)",
+          visibility: "hidden",
+          // borderBottomLeftRadius: isMenuClicked ? '100%' : '0%',
         }}
         animate={{
-          width: isMenuClicked ? '100vw' : '0vw',
-          height: isMenuClicked ? '100vh' : '0vh',
+          width: isMenuClicked ? '100vw' : '50vw',
+          height: isMenuClicked ? '100vh' : '50vh',
+          clipPath: isMenuClicked ? "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)" : "circle(9.1% at 100% 0)",
           visibility: isMenuClicked ? 'visible' : 'hidden',
-          borderBottomLeftRadius: isMenuClicked ? '0%' : '100%',
+          // borderBottomLeftRadius: isMenuClicked ? '0%' : '100%',
         }}
         transition={{duration: 0.4, delay: isMenuClicked ? 0 : 0.5}}
       >
@@ -112,8 +116,8 @@ export function Navbar() {
             <X className="size-4" />
           </button>
         </div>
-        <div className="mt-auto relative">
-          <ul className="text-background font-serif text-[7vw] leading-none capitalize">
+        <div className="my-auto relative">
+          <ul className="text-background font-montrealBook text-[7vw] leading-none capitalize">
             {navigation.map((nav) => {
               return (
                 <div key={nav.title} className="overflow-hidden">
@@ -175,34 +179,35 @@ function DropDown({nav, isMenu, isMenuClicked, setIsMenuClicked}: Readonly<List>
           <li>
             <Link href={`/${nav.link}`}>{nav.title}</Link>
           </li>
-          <ChevronRight strokeWidth={1.5} className="size-4" />
+          <ChevronRight strokeWidth={1.5} className="size-5" />
         </span>
       </motion.button>
-      {/* {isHovered && ( */}
       <motion.span
-        initial={{visibility: isHovered ? 'hidden' : 'visible'}}
+        initial={{visibility: 'hidden'}}
         animate={{visibility: isHovered ? 'visible' : 'hidden'}}
         transition={{delay: isHovered ? 0.4 : 0}}
         className="absolute h-full top-0 left-1/2"
       >
-        <ul className="flex flex-col items-start gap-1 text-[6vw]">
+        <ul className="flex flex-col items-start gap-1 text-[5vw]">
           {nav.dropdown.map((items) => {
             return (
-              <button
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                key={items.title}
-                onClick={() => setIsMenuClicked?.(false)}
-              >
-                <li className="text-left">
-                  <Link href={`/${items.link}`}>{items.title}</Link>
-                </li>
-              </button>
+              <li key={items.title} className="text-left list-none whitespace-nowrap">
+                <Link
+                  href={`/${items.link}`}
+                  onClick={() => {
+                    setIsMenuClicked?.(false)
+                    console.log('clicked')
+                  }}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  {items.title}
+                </Link>
+              </li>
             )
           })}
         </ul>
       </motion.span>
-      {/* )} */}
     </>
   ) : (
     <button

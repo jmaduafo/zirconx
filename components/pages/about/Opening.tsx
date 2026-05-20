@@ -3,7 +3,6 @@ import Parallax from '@/components/animations/Parallax'
 import InfoContainer from '@/components/containers/InfoContainer'
 import Header2 from '@/components/headings/Header2'
 import Header3 from '@/components/headings/Header3'
-import SmallParagraph from '@/components/headings/SmallParagraph'
 import React from 'react'
 
 function Opening() {
@@ -19,10 +18,6 @@ function Opening() {
         <Header3
           className="max-w-4xl"
           text="We specialize incorporate events, dinner galas, brand openings, picnic parties, birthday celebrations and other intimate events."
-        />
-        <SmallParagraph
-          className="max-w-xs"
-          text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
         />
       </div>
     </InfoContainer>
