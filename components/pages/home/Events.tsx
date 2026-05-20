@@ -5,12 +5,14 @@ import EventCard from '@/components/cards/EventCard'
 import GridDisplay from '@/components/containers/GridDisplay'
 import Header4 from '@/components/headings/Header4'
 import Paragraph from '@/components/headings/Paragraph'
+import Decor from '@/public/images/decor.png'
 import {navigation} from '@/utils/data'
+import Image from 'next/image'
 import React, {Fragment} from 'react'
 
 function Events() {
   return (
-    <div className=''>
+    <div className="">
       <GridDisplay url="/images/home/events/event_opening.png" isTextRight>
         <div className="flex flex-col gap-6 justify-center h-full">
           <PopUp>
@@ -25,7 +27,14 @@ function Events() {
         </div>
       </GridDisplay>
       {/* border-t sm:border-b border-t-foreground sm:border-b-foreground  */}
-      <section className="mt-8 px-4 ">
+      <section className="px-4">
+        <div className="flex justify-center py-5">
+          <Appear>
+            <div className="w-[10em]">
+              <Image src={Decor} className="w-full h-full" alt="floral design" />
+            </div>
+          </Appear>
+        </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {navigation
             .find((item) => item.title.toLowerCase().includes('event'))
