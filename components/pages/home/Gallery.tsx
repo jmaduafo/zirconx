@@ -21,7 +21,7 @@ function Gallery({data}: {readonly data: SettingsQueryResult}) {
       <section className="overflow-hidden">
         <div className="">
           <Carousel
-            className="max-w-[70%] ml-auto"
+            className="w-full md:w-[85%] lg:max-w-[70%] ml-auto"
             plugins={[
               Autoplay({
                 delay: 4000,
@@ -32,7 +32,7 @@ function Gallery({data}: {readonly data: SettingsQueryResult}) {
               loop: true,
             }}
           >
-            <CarouselContent className='mb-5'>
+            <CarouselContent className='mb-5 '>
               {data?.gallery?.map((image, i) => (
                 <CarouselItem key={image.asset?._ref ?? i} className="basis-1/3 max-h-[60vh]">
                   <Image
