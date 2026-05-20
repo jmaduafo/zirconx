@@ -10,7 +10,7 @@ import React, {Fragment} from 'react'
 
 function Events() {
   return (
-    <div>
+    <div className=''>
       <GridDisplay url="/images/home/events/event_opening.png" isTextRight>
         <div className="flex flex-col gap-6 justify-center h-full">
           <PopUp>
@@ -24,8 +24,9 @@ function Events() {
           </Appear>
         </div>
       </GridDisplay>
-      <section className="border-t sm:border-b border-t-foreground sm:border-b-foreground">
-        <div className="grid sm:grid-cols-2 md:grid-cols-3">
+      {/* border-t sm:border-b border-t-foreground sm:border-b-foreground  */}
+      <section className="mt-4 px-4 ">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {navigation
             .find((item) => item.title.toLowerCase().includes('event'))
             ?.dropdown?.map((event, i) => {

@@ -3,9 +3,10 @@
 import {cn} from '@/lib/utils'
 import {motion} from 'framer-motion'
 import {ArrowUpRight} from 'lucide-react'
+import {useRouter} from 'next/navigation'
 import React from 'react'
+import PopUp from '../animations/PopUp'
 import Header6 from '../headings/Header6'
-import { useRouter } from 'next/navigation'
 
 type Event = {
   title: string
@@ -31,11 +32,11 @@ function EventCard({title, image, index, events, link, height}: Readonly<Event>)
   const imageVariant = {
     initial: {
       scale: 1,
-      opacity: 0,
+      // filter: "grayscale(100%)"
     },
     hover: {
       scale: 1.05,
-      opacity: 1,
+      // filter: "grayscale(0%)"
     },
   }
 
@@ -50,10 +51,10 @@ function EventCard({title, image, index, events, link, height}: Readonly<Event>)
 
   const iconVariant = {
     initial: {
-      opacity: 1,
+      x: 0,
     },
     hover: {
-      opacity: 0,
+      x: 5,
     },
   }
 
@@ -64,34 +65,40 @@ function EventCard({title, image, index, events, link, height}: Readonly<Event>)
       whileHover="hover"
       onClick={() => router.push(`/${link}`)}
       className={cn(
-        'relative h-[35vh] overflow-hidden w-full flex flex-col border-l border-b border-b-foreground md:border-b-0',
-        index !== events.length - 1 && 'border-l-foreground',
+        'relative overflow-hidden w-full flex flex-col border-foreground',
+        // index !== events.length - 1 && 'border-l-foreground',
         height,
-        title.toLowerCase().includes('social') && "sm:col-span-2 md:col-span-1 sm:border-b sm:border-b-foreground md:border-b-0"
+        title.toLowerCase().includes('social') && "sm:col-span-2 md:col-span-1"
       )}
-      >
-      <div className="absolute inset-0 overflow-hidden h-full w-full">
+    >
+      <div className="overflow-hidden h-[25vw] w-full">
         <motion.div
           variants={imageVariant}
           className="w-full h-full bg-cover bg-center bg-no-repeat"
           style={{backgroundImage: `url(${image})`}}
-          ></motion.div>
+          transition={{duration: 0.3}}
+        ></motion.div>
       </div>
-      <motion.div
+      {/* <motion.div
         variants={iconVariant}
         transition={{ease: 'easeOut'}}
         className="flex justify-end"
         >
         <ArrowUpRight strokeWidth={0.5} className="size-[4em]" />
-      </motion.div>
+      </motion.div> */}
 
-      <div className="p-4 mt-auto ">
-        <div className="overflow-hidden h-fit flex justify-start">
-          <motion.div variants={titleVariant} transition={{ease: 'easeOut'}}>
-            <Header6
-              className="capitalize"
-              text={title.toLowerCase().includes('wedding') ? title : `${title} events`}
+      <div className="py-2">
+        <div className="overflow-hidden">
+          <motion.div className='flex justify-between items-center'>
+            <PopUp>
+              <Header6
+                className="capitalize !leading-tight"
+                text={title.toLowerCase().includes('wedding') ? title : `${title} events`}
               />
+            </PopUp>
+            <motion.div variants={iconVariant} transition={{ duration: .4 }}>
+              <ArrowUpRight strokeWidth={0.5} className="size-5" />
+            </motion.div>
           </motion.div>
         </div>
       </div>
