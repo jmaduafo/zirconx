@@ -47,10 +47,12 @@ export const navigation = [
 
 export const hero = [
   '/images/home/hero/1.JPG',
-  '/images/home/hero/2.jpeg',
+  '/images/home/hero/6.jpeg',
   '/images/home/hero/3.JPG',
   '/images/home/hero/4.JPG',
   '/images/home/hero/5.jpg',
+  '/images/home/hero/7.jpeg',
+  '/images/home/hero/8.jpeg',
 ]
 
 export const services = [

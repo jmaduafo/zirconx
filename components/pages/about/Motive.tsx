@@ -38,11 +38,11 @@ function Motive() {
             <div className="flex flex-col gap-2">
               <Paragraph
                 className="max-w-sm"
-                text="We specialize in corporate events, dinner galas, brand activations, private celebrations, and intimate gatherings—each thoughtfully designed and expertly executed."
+                text="At Zircon, our goal is to become a world-leading event planning company known for delivering exceptional and high-quality experiences."
               />
               <Paragraph
                 className="max-w-sm"
-                text="Since 2019, we have helped clients bring their ideas to life through venue sourcing, vendor management, event design, budget planning, and full-service coordination."
+                text="We are passionate about creating unforgettable moments by combining creativity, professionalism, and attention to detail in every event we organize and believe every event should reflect the personality and desires of the people it is created for."
               />
             </div>
           </div>
