@@ -84,6 +84,19 @@
     @apply bg-background text-foreground;
   }
 
+  .verticalBar::-webkit-scrollbar {
+    width: 5px
+  }
+
+  .verticalBar::-webkit-scrollbar-thumb {
+    background-color: rgba(42, 27, 4, .7);
+    border-radius: 10px;
+  }
+
+  .verticalBar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
   ul {
     margin: 0px !important;
   }

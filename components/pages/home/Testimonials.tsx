@@ -1,14 +1,23 @@
 'use client'
 
-import { MotionCarousel } from '@/components/animate-ui/components/community/motion-carousel'
+import {MotionCarousel} from '@/components/animate-ui/components/community/motion-carousel'
+import TestimonialCard2 from '@/components/cards/TestimonialCard2'
+import {CardContent} from '@/components/lightswind/card'
+import MainHeader from '@/components/MainHeader'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/gallery'
 import {SettingsQueryResult} from '@/sanity.types'
-import { EmblaOptionsType } from 'embla-carousel'
+import {Card} from '@sanity/ui'
+import {EmblaOptionsType} from 'embla-carousel'
 import React from 'react'
 
 function Testimonials({data}: {readonly data: SettingsQueryResult}) {
-
-
-  const OPTIONS: EmblaOptionsType = { loop: true };
+  const OPTIONS: EmblaOptionsType = {loop: true}
 
   return (
     <section className="my-6">
@@ -35,6 +44,26 @@ function Testimonials({data}: {readonly data: SettingsQueryResult}) {
       <div className="relative w-full overflow-hidden flex justify-center mt-6">
         <MotionCarousel slides={data?.testimonials ?? []} options={OPTIONS} />
       </div>
+      {/* <div className="overflow-hidden">
+        <div className="w-[40%] mx-auto mt-6">
+          <div className=''>
+          <MainHeader title='Testimonials' subtitle='Lorem ipsum'/>
+        </div>
+          <div className="">
+            <Carousel opts={{loop: true, align: 'start'}} className="w-full">
+              <CarouselContent className="mb-5">
+                {data?.testimonials?.map((item) => (
+                  <CarouselItem key={item.client} className="w-full">
+                    <TestimonialCard2 testimonial={item} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+        </div>
+      </div> */}
     </section>
   )
 }

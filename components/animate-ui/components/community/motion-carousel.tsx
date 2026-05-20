@@ -91,7 +91,7 @@ function MotionCarousel(props: PropType) {
     useEmblaControls(emblaApi)
 
   return (
-    <div className="w-[80%] relative mx-auto space-y-4 [--slide-spacing:1.5rem] [--slide-size:55%]">
+    <div className="w-[95%] lg:w-[80%] 2xl:w-[70%] relative mx-auto space-y-4 [--slide-spacing:1.5rem] [--slide-size:90%] sm:[--slide-size:85%] md:[--slide-size:75%] lg:[--slide-size:65%] xl:[--slide-size:55%] 2xl:[--slide-size:55%]">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex touch-pan-y touch-pinch-zoom">
           {slides.map((item, index) => {
