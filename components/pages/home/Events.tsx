@@ -1,3 +1,4 @@
+"use client"
 import Appear from '@/components/animations/Appear'
 import PopUp from '@/components/animations/PopUp'
 import PrimaryButton from '@/components/buttons/PrimaryButton'
@@ -7,8 +8,9 @@ import Header4 from '@/components/headings/Header4'
 import Paragraph from '@/components/headings/Paragraph'
 import Decor from '@/public/images/decor.png'
 import {navigation} from '@/utils/data'
+import {motion} from 'framer-motion'
 import Image from 'next/image'
-import React, {Fragment} from 'react'
+import React from 'react'
 
 function Events() {
   return (
@@ -40,7 +42,12 @@ function Events() {
             .find((item) => item.title.toLowerCase().includes('event'))
             ?.dropdown?.map((event, i) => {
               return (
-                <Fragment key={event.title}>
+                <motion.div
+                  initial={{opacity: 0}}
+                  whileInView={{opacity: 1, transition: {delay: i * 0.2}}}
+                  viewport={{ once: true }}
+                  key={event.title}
+                >
                   <EventCard
                     events={
                       navigation.find((item) => item.title.toLowerCase().includes('event'))
@@ -52,7 +59,7 @@ function Events() {
                     image={event.image}
                     link={event.link}
                   />
-                </Fragment>
+                </motion.div>
               )
             })}
         </div>
