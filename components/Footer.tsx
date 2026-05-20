@@ -57,7 +57,7 @@ function Footer({data}: Readonly<Contacts>) {
             ? data.socialLinks?.map((social) => {
                 return (
                   <li key={social.platform}>
-                    <a href={social.url ?? ""}>{social.platform}</a>
+                    <a target="_blank" href={social.url ?? ""}>{social.platform}</a>
                   </li>
                 )
               })
