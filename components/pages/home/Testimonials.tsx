@@ -1,33 +1,14 @@
 'use client'
 
 import { MotionCarousel } from '@/components/animate-ui/components/community/motion-carousel'
-import {
-  type CarouselApi,
-} from '@/components/ui/carousel'
 import {SettingsQueryResult} from '@/sanity.types'
 import { EmblaOptionsType } from 'embla-carousel'
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 
 function Testimonials({data}: {readonly data: SettingsQueryResult}) {
-  const [api, setApi] = useState<CarouselApi>()
-  const [current, setCurrent] = useState(0)
-  const [count, setCount] = useState(0)
 
-  useEffect(() => {
-    if (!api) {
-      return
-    }
-
-    data?.testimonials && setCount(data.testimonials.length)
-    setCurrent(api.selectedScrollSnap() + 1)
-
-    api.on('select', () => {
-      setCurrent(api.selectedScrollSnap() + 1)
-    })
-  }, [api])
 
   const OPTIONS: EmblaOptionsType = { loop: true };
-  const SLIDE_COUNT = 6;
 
   return (
     <section className="my-6">

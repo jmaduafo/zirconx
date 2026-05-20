@@ -118,7 +118,7 @@ function EventSubcategory({
           })}
         </div>
       </InfoContainer>
-      <div className="grid grid-cols-2 border-t border-t-foreground">
+      <div className="grid grid-cols-2 gap-4 px-4 mb-5">
         {navigation
           .find((item) => item.title === 'events')
           ?.dropdown?.filter((item) => item.link !== `events/${title}`)

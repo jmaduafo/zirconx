@@ -33,11 +33,11 @@ function TestimonialCard({
         </div>
         <div className="mt-4">
           <p className="font-serif text-xl leading-snug">
-            {testimonial?.text && testimonial?.text?.length > 400
-              ? testimonial?.text.slice(0, 401) + '...'
+            {testimonial?.text && testimonial?.text?.length > 600
+              ? testimonial?.text.slice(0, 601) + '...'
               : testimonial?.text}
             <span className="font-montrealMedium text-sm ">
-              {testimonial?.text && testimonial?.text?.length > 400 && (
+              {testimonial?.text && testimonial?.text?.length > 600 && (
                 <Dialog>
                   <DialogTrigger>Read More</DialogTrigger>
                   <DialogContent aria-describedby={undefined}>

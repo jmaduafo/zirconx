@@ -25,7 +25,7 @@ function Events() {
         </div>
       </GridDisplay>
       {/* border-t sm:border-b border-t-foreground sm:border-b-foreground  */}
-      <section className="mt-4 px-4 ">
+      <section className="mt-8 px-4 ">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {navigation
             .find((item) => item.title.toLowerCase().includes('event'))
@@ -37,6 +37,7 @@ function Events() {
                       navigation.find((item) => item.title.toLowerCase().includes('event'))
                         ?.dropdown ?? []
                     }
+                    isHome
                     title={event.title}
                     index={i}
                     image={event.image}
