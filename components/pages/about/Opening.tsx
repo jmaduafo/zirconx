@@ -17,7 +17,8 @@ function Opening() {
       <div className="flex flex-col gap-4 items-end mt-6">
         <Header3
           className="max-w-4xl"
-          text="We specialize incorporate events, dinner galas, brand openings, picnic parties, birthday celebrations and other intimate events."
+          text="The Zircon Xperience is a full service professional event planning
+company located in Lagos, specializing in corporate events, dinner galas, brand openings, birthday celebrations, and other intimate events."
         />
       </div>
     </InfoContainer>

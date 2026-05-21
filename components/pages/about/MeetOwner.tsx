@@ -19,8 +19,9 @@ function MeetOwner({data}: {readonly data: SettingsQueryResult}) {
       <div className="h-full flex flex-col justify-center gap-6">
         <Header4 text="Meet the Owner" />
         <div className="flex flex-col gap-3">
-          <Paragraph text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim." />
-          <Paragraph text="Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus." />
+          <Paragraph text="Meet Seun Olawale, the creative force behind The Zircon Xperience.
+With over 8 years of experience and more than 200 successful events executed, Seun is known for creating luxurious, detail-oriented experiences that feel both personal and unforgettable." />
+          <Paragraph text="Her approach to event planning is centered on one thing; ensuring every client is fully present to enjoy their special moment without the stress of coordination behind the scenes." />
         </div>
       </div>
     </GridDisplay>
