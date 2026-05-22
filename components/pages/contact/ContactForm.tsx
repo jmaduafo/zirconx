@@ -68,7 +68,7 @@ function ContactForm() {
       const res = await sendEmail(contact as z.infer<typeof contactSchema>)
 
       if (res.status === 200) {
-        toast('Message sent successfully!', {
+        toast.success('Message sent successfully!', {
           description:
             'Your message has been sent to our team. Please allow 1 to 2 business days for us to get back to you.',
         })
@@ -79,7 +79,7 @@ function ContactForm() {
     } catch (err: any) {
       console.log(err.message)
       
-      toast('Whoops, something went wrong', {
+      toast.error('Whoops, something went wrong', {
         description: err.message || 'An unexpected error occurred.',
       })
     }

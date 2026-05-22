@@ -1,22 +1,37 @@
+'use client'
+
+import {SettingsQueryResult} from '@/sanity.types'
 import {navigation} from '@/utils/data'
 import Link from 'next/link'
 import React from 'react'
+import {toast} from 'sonner'
+import BlurText from './animations/BlurText'
 import PrimaryButton from './buttons/PrimaryButton'
 import Header2 from './headings/Header2'
-import { SettingsQueryResult } from '@/sanity.types'
-import BlurText from './animations/BlurText'
 
 type Contacts = {
   data: SettingsQueryResult
 }
 
 function Footer({data}: Readonly<Contacts>) {
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text)
+      toast.success(`Copied to clipboard!`)
+    } catch (err) {
+      toast.error('Failed to copy: ', err)
+    }
+  }
+
   return (
-    <footer id="contacts" className="bg-foreground text-background px-[4vw] py-10 flex flex-col md:flex-row justify-between items-start gap-6">
+    <footer
+      id="contacts"
+      className="bg-foreground text-background px-[4vw] py-10 flex flex-col md:flex-row justify-between items-start gap-6"
+    >
       {/* CALL TO ACTION TO CONTACT US PAGE */}
       <div className="flex flex-col gap-5">
         <Header2 className="italic w-[5em] !leading-[0.8]">
-          <BlurText text='Want to contact us?'/>
+          <BlurText text="Want to contact us?" />
         </Header2>
         <PrimaryButton text="Inquire now" href="/contact" isLight />
       </div>
@@ -27,7 +42,9 @@ function Footer({data}: Readonly<Contacts>) {
           {navigation.map((nav) => {
             return (
               <li key={nav.title} className="capitalize">
-                <Link href={`${nav.link.includes("#contact") ? "" : "/"}${nav.link}`}>{nav.title}</Link>
+                <Link href={`${nav.link.includes('#contact') ? '' : '/'}${nav.link}`}>
+                  {nav.title}
+                </Link>
               </li>
             )
           })}
@@ -50,6 +67,11 @@ function Footer({data}: Readonly<Contacts>) {
           <li>
             {data?.address?.city}, {data?.address?.country}
           </li>
+          <li className="mt-2">
+            <button onClick={() => copyToClipboard(data?.phone)}>
+              +{data?.phone}
+            </button>
+          </li>
         </FooterList>
         {/* CLIENT SOCIAL LINKS */}
         <FooterList title="Socials">
@@ -57,7 +79,9 @@ function Footer({data}: Readonly<Contacts>) {
             ? data.socialLinks?.map((social) => {
                 return (
                   <li key={social.platform}>
-                    <a target="_blank" href={social.url ?? ""}>{social.platform}</a>
+                    <a target="_blank" href={social.url ?? ''}>
+                      {social.platform}
+                    </a>
                   </li>
                 )
               })
@@ -65,6 +89,11 @@ function Footer({data}: Readonly<Contacts>) {
           <li>
             <a href={`mailto:${data?.email}`}>Email</a>
           </li>
+          {/* <li>
+            <button onClick={() => copyToClipboard(data?.phone)}>
+              +{data?.phone}
+            </button>
+          </li> */}
         </FooterList>
       </div>
     </footer>

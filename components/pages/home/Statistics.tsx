@@ -6,7 +6,7 @@ import React, {Fragment} from 'react'
 function Statistics({data}: {readonly data: SettingsQueryResult}) {
   return (
     <section className="bg-accent py-6">
-      <div className="flex items-center justify-evenly">
+      <div className="flex items-center flex-wrap justify-evenly">
         {data
           ? data.statistics?.map((stat, i) => {
               return (
