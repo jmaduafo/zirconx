@@ -14,7 +14,7 @@ type Contacts = {
 }
 
 function Footer({data}: Readonly<Contacts>) {
-  const copyToClipboard = async (text) => {
+  const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text)
       toast.success(`Copied to clipboard!`)
@@ -68,7 +68,7 @@ function Footer({data}: Readonly<Contacts>) {
             {data?.address?.city}, {data?.address?.country}
           </li>
           <li className="mt-2">
-            <button onClick={() => copyToClipboard(data?.phone)}>
+            <button onClick={() => data?.phone && copyToClipboard(data.phone.toString())}>
               +{data?.phone}
             </button>
           </li>
