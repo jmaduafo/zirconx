@@ -17,7 +17,7 @@ function Opening() {
       <Parallax image="/images/about/opening.JPG" height="lg:h-[80vh]" scale="scale-110" />
       <div className="flex flex-col gap-6 items-end mt-6">
         <Header3
-          className="max-w-4xl"
+          className="max-w-3xl xl:max-w-4xl"
           text="The Zircon Xperience is a full service professional event planning
 company located in Lagos."
         />

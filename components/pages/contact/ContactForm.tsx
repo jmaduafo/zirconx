@@ -224,6 +224,7 @@ function ContactForm() {
                             <Calendar
                               mode="single"
                               selected={field.value ? new Date(field.value) : undefined}
+                              disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
                               onSelect={(selectedDate) => {
                                 field.onChange(selectedDate ? format(selectedDate, 'PPP') : '')
                                 setDate(selectedDate)
