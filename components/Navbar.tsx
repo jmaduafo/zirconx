@@ -62,7 +62,7 @@ export function Navbar() {
                   <Fragment key={nav.title}>
                     {!nav.button && !nav.dropdown && (
                       <li>
-                        <Link href={`/${nav.link}`}>{nav.title}</Link>
+                        <Link href={`${nav.link.includes("#") ? "" : "/"}${nav.link}`}>{nav.title}</Link>
                       </li>
                     )}
                     {nav.dropdown && <DropDown nav={nav} />}
@@ -131,7 +131,7 @@ export function Navbar() {
                       transition={{delay: isMenuClicked ? 0.5 : 0, duration: 0.3}}
                       className="w-fit"
                     >
-                      <Link href={`/${nav.link}`}>{nav.title}</Link>
+                      <Link href={`${nav.link.includes("#") ? "" : "/"}${nav.link}`}>{nav.title}</Link>
                     </motion.li>
                   )}
                   {nav.dropdown && <DropDown isMenuClicked={isMenuClicked} nav={nav} isMenu />}

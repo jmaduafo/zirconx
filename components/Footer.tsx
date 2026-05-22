@@ -27,7 +27,7 @@ function Footer({data}: Readonly<Contacts>) {
           {navigation.map((nav) => {
             return (
               <li key={nav.title} className="capitalize">
-                <Link href={`/${nav.link}`}>{nav.title}</Link>
+                <Link href={`${nav.link.includes("#") ? "" : "/"}${nav.link}`}>{nav.title}</Link>
               </li>
             )
           })}
