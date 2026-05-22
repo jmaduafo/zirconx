@@ -62,7 +62,7 @@ export function Navbar() {
                   <Fragment key={nav.title}>
                     {!nav.button && !nav.dropdown && (
                       <li>
-                        <Link href={`${nav.link.includes('#') ? '' : '/'}${nav.link}`}>
+                        <Link href={`${nav.link.includes('#contact') ? '' : '/'}${nav.link}`}>
                           {nav.title}
                         </Link>
                       </li>
@@ -135,7 +135,7 @@ export function Navbar() {
                       transition={{delay: isMenuClicked ? 0.5 : 0, duration: 0.3}}
                       className="w-fit"
                     >
-                      <Link href={`${nav.link.includes('#') ? '' : '/'}${nav.link}`}>
+                      <Link href={`${nav.link.includes('#contact') ? '' : '/'}${nav.link}`}>
                         {nav.title}
                       </Link>
                     </motion.li>

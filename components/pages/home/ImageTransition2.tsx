@@ -1,11 +1,19 @@
-import Parallax from '@/components/animations/Parallax'
+// import Parallax from '@/components/animations/Parallax'
+import Image from 'next/image'
 import React from 'react'
 
 function ImageTransition2() {
   return (
-    <div>
-      <Parallax scale="scale-110" image="/images/home/transition.JPG" height='md:h-[75vh]' />
-    </div>
+    <section className='w-full'>
+      <Image
+        src="/images/home/transition.JPG"
+        alt="zircon event"
+        width={1920}
+        height={1080}
+        className={'w-full h-full'}
+        loading="eager"
+      />
+    </section>
   )
 }
 

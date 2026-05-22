@@ -31,7 +31,7 @@ function Parallax({
           alt={image}
           width={1920}
           height={1080}
-          className="w-full h-full scale-125"
+          className={cn("w-full h-full scale-125")}
           loading="eager"
         />
       </motion.div>
