@@ -51,9 +51,9 @@ export function Navbar() {
           className="flex justify-between items-center"
         >
           <Link href="/">
-          <div className="w-[5em] h-[5em] object-cover object-bottom">
-            <Image src={Logo} alt="zircon logo" className="w-full h-full" />
-          </div>
+            <div className="w-[5em] h-[5em] object-cover object-bottom">
+              <Image src={Logo} alt="zircon logo" className="w-full h-full" />
+            </div>
           </Link>
           <nav className="hidden lg:block capitalize text-sm font-montrealMedium">
             <ul className="flex items-center gap-5">
@@ -62,7 +62,9 @@ export function Navbar() {
                   <Fragment key={nav.title}>
                     {!nav.button && !nav.dropdown && (
                       <li>
-                        <Link href={`${nav.link.includes("#") ? "" : "/"}${nav.link}`}>{nav.title}</Link>
+                        <Link href={`${nav.link.includes('#') ? '' : '/'}${nav.link}`}>
+                          {nav.title}
+                        </Link>
                       </li>
                     )}
                     {nav.dropdown && <DropDown nav={nav} />}
@@ -91,16 +93,18 @@ export function Navbar() {
       <motion.div
         className="lg:hidden py-4 px-5 flex flex-col fixed z-[210] top-0 right-0 w-4 h-4 bg-foreground origin-bottom-left"
         initial={{
-          width: "50vw",
-          height: "50vh",
-          clipPath: "circle(141.4%% at 100% 0)",
-          visibility: "hidden",
+          width: '50vw',
+          height: '50vh',
+          clipPath: 'circle(141.4%% at 100% 0)',
+          visibility: 'hidden',
           // borderBottomLeftRadius: isMenuClicked ? '100%' : '0%',
         }}
         animate={{
           width: isMenuClicked ? '100vw' : '50vw',
           height: isMenuClicked ? '100vh' : '50vh',
-          clipPath: isMenuClicked ? "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)" : "circle(9.1% at 100% 0)",
+          clipPath: isMenuClicked
+            ? 'polygon(0 0, 100% 0%, 100% 100%, 0% 100%)'
+            : 'circle(9.1% at 100% 0)',
           visibility: isMenuClicked ? 'visible' : 'hidden',
           // borderBottomLeftRadius: isMenuClicked ? '0%' : '100%',
         }}
@@ -131,10 +135,19 @@ export function Navbar() {
                       transition={{delay: isMenuClicked ? 0.5 : 0, duration: 0.3}}
                       className="w-fit"
                     >
-                      <Link href={`${nav.link.includes("#") ? "" : "/"}${nav.link}`}>{nav.title}</Link>
+                      <Link href={`${nav.link.includes('#') ? '' : '/'}${nav.link}`}>
+                        {nav.title}
+                      </Link>
                     </motion.li>
                   )}
-                  {nav.dropdown && <DropDown isMenuClicked={isMenuClicked} nav={nav} isMenu />}
+                  {nav.dropdown && (
+                    <DropDown
+                      setIsMenuClicked={setIsMenuClicked}
+                      isMenuClicked={isMenuClicked}
+                      nav={nav}
+                      isMenu
+                    />
+                  )}
                 </div>
               )
             })}
