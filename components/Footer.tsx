@@ -19,7 +19,7 @@ function Footer({data}: Readonly<Contacts>) {
   return (
     <footer
       id="contacts"
-      className="bg-foreground text-background px-[4vw] py-10 flex flex-col md:flex-row justify-between items-start gap-6"
+      className="bg-foreground text-background px-[2vw] md:px-[4vw] py-10 flex flex-col md:flex-row justify-between items-start gap-6"
     >
       {/* CALL TO ACTION TO CONTACT US PAGE */}
       <div className="flex flex-col gap-5">
