@@ -36,14 +36,14 @@ function ClientMarquee() {
             return (
               <div
                 key={client.image}
-                className={cn('object-cover object-bottom mr-6 lg:mr-8', client.height)}
+                className={cn('mr-6 lg:mr-8', client.height)}
               >
                 <Image
                   src={client.image}
                   alt={client.image.split('/').pop() ?? client.image}
                   width={1920}
                   height={1680}
-                  className="w-full h-full"
+                  className="w-auto h-full"
                 />
               </div>
             )

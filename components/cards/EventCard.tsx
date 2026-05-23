@@ -72,7 +72,7 @@ function EventCard({title, image, index, events, link, isHome, height}: Readonly
         title.toLowerCase().includes('social') && isHome && "sm:col-span-2 md:col-span-1"
       )}
     >
-      <div className="overflow-hidden h-[25vw] w-full">
+      <div className="overflow-hidden h-[35vh] md:h-[25vw] w-full">
         <motion.div
           variants={imageVariant}
           className="w-full h-full bg-cover bg-center bg-no-repeat"
