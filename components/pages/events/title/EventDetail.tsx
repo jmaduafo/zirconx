@@ -52,8 +52,6 @@ function EventDetail({data, title}: {readonly data: EventsQueryResult; readonly 
                       width={1200}
                       height={1600}
                       className="object-cover object-center w-full h-auto"
-                      placeholder="blur"
-                      blurDataURL={shimmerBlurDataURL(1200, 1600)}
                     />
                   )}
                 </motion.div>

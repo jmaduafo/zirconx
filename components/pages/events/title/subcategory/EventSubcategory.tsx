@@ -108,8 +108,6 @@ function EventSubcategory({
                       width={1920}
                       height={1500}
                       className="object-cover object-center w-full h-auto"
-                      placeholder="blur"
-                      blurDataURL={shimmerBlurDataURL(1920, 1500)}
                     />
                   </div>
                 </TiltContent>
@@ -118,7 +116,7 @@ function EventSubcategory({
           })}
         </div>
       </InfoContainer>
-      <div className="grid grid-cols-2 gap-4 px-4 mb-5">
+      <div className="grid sm:grid-cols-2 gap-4 px-4 mb-5">
         {navigation
           .find((item) => item.title === 'events')
           ?.dropdown?.filter((item) => item.link !== `events/${title}`)
