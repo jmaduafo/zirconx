@@ -17,7 +17,8 @@ module.exports = {
     },
     colors: {
       background: "#FFFCF6",
-      foreground: "#2A1B04",
+      // foreground: "#2A1B04",
+      foreground: "#1B1B1B",
       accent: "#F7F4ED",
       transparent: "#00000000"
     },
