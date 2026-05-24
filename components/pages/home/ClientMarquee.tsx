@@ -34,7 +34,7 @@ function ClientMarquee() {
         <div className="z-[2] w-full h-full absolute inset-0 bg-gradient-to-r from-accent via-accent/0 to-accent">
         </div>
         <div className='z-[3] flex justify-center'>
-          <Header6 text="Brands we have served"/>
+          <Header6 text="Brands we've served:" className='capitalize'/>
         </div>
         <Marquee>
           {clientsImages.map((client) => {
