@@ -32,8 +32,8 @@ function EventsCarousel() {
               </CarouselItem>
             ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className='bg-transparent text-background border-none left-0'/>
+        <CarouselNext className='bg-transparent text-background border-none right-0'/>
       </Carousel>
     </section>
   )
