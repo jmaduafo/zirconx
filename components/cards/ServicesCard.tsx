@@ -13,7 +13,7 @@ function ServicesCard({item}: Readonly<Card>) {
     <div className="flex flex-col gap-4 max-w-60">
       <item.icon className="size-5" strokeWidth={1} />
       <div className="flex flex-col gap-2">
-        <Header6 className="capitalize italic font-medium whitespace-nowrap" text={item.title} />
+        <Header6 className="capitalize italic font-semibold whitespace-nowrap" text={item.title} />
         {/* <Paragraph text={item.desc} className="!leading-none text-sm"/> */}
         <p className="text-sm leading-none">{item.desc}</p>
       </div>
