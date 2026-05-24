@@ -23,7 +23,7 @@ function ServicesCard({item}: Readonly<Card>) {
         </DialogTrigger>
         <DialogContent aria-describedby={undefined}>
           <DialogHeader>
-            <DialogTitle className="capitalize flex items-start gap-2">
+            <DialogTitle className="capitalize flex items-start font-medium gap-2">
               <item.icon strokeWidth={1} className='size-4'/>
               {item.title}</DialogTitle>
           </DialogHeader>

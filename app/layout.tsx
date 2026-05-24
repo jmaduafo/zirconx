@@ -9,7 +9,7 @@ const serif = Cormorant_Garamond({
   variable: '--font-serif',
   style: ['normal', 'italic'],
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '600', '700'],
 })
 
 export default async function RootLayout({children}: {readonly children: React.ReactNode}) {
