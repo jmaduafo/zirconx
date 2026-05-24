@@ -120,12 +120,12 @@ function MotionCarousel(props: PropType) {
       </div>
 
       <div className="z-[30] w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-between">
-        <Button className='size-6 rounded-full' size="icon" variant={'outline'} onClick={onPrev} disabled={prevDisabled}>
+        <Button className='size-6 rounded-full' size="icon" variant={'ghost'} onClick={onPrev} disabled={prevDisabled}>
           <MoveLeft className="size-4" strokeWidth={1}/>
         </Button>
 
 
-        <Button className='size-6 rounded-full' size="icon" variant={'outline'} onClick={onNext} disabled={nextDisabled}>
+        <Button className='size-6 rounded-full' size="icon" variant={'ghost'} onClick={onNext} disabled={nextDisabled}>
           <MoveRight className="size-4" strokeWidth={1}/>
         </Button>
       </div>
