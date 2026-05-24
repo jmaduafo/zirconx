@@ -1,4 +1,4 @@
-import { defineType, defineField } from "sanity";
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'eventCategory',
@@ -18,6 +18,20 @@ export default defineType({
       title: 'Category Description',
       type: 'text',
       rows: 4,
+    }),
+
+    defineField({
+      name: 'img',
+      title: 'Image',
+      type: 'image',
+      description: 'Subcategory Image',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'string',
+      description: 'The link name (ex: /events/social, /events/weddings-proposals, etc.)',
     }),
 
     defineField({
