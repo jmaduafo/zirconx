@@ -1,4 +1,5 @@
 import Header6 from '@/components/headings/Header6'
+import Paragraph from '@/components/headings/Paragraph'
 import {cn} from '@/lib/utils'
 import Image from 'next/image'
 import React from 'react'
@@ -29,26 +30,27 @@ function ClientMarquee() {
   ]
 
   return (
-    <section className="bg-accent pt-2">
+    <section className="bg-accent pt-6">
       <div className="relative w-full md:w-[60%] mx-auto">
         <div className="z-[2] w-full h-full absolute inset-0 bg-gradient-to-r from-accent via-accent/0 to-accent">
         </div>
-        <div className='z-[3] flex justify-center'>
-          <Header6 text="Brands we've served:" className='capitalize'/>
+        <div className='z-[3] absolute top-0 w-full flex justify-center'>
+          {/* <Header6 text="Brands we've served:" className='capitalize'/> */}
+          <Paragraph text="Brands we've served:" className='capitalize font-montrealMedium'/>
         </div>
-        <Marquee>
+        <Marquee className='h-fit'>
           {clientsImages.map((client) => {
             return (
               <div
                 key={client.image}
-                className={cn('mr-6 lg:mr-8', client.height)}
+                className={cn('mr-6 lg:mr-8 w-[200px] h-[200px] flex justify-center items-center shrink-0', client.height)}
               >
                 <Image
                   src={client.image}
                   alt={client.image.split('/').pop() ?? client.image}
                   width={1920}
                   height={1680}
-                  className="w-auto h-full"
+                  className="max-w-full max-h-[90%] object-contain"
                 />
               </div>
             )

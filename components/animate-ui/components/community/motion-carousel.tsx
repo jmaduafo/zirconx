@@ -4,7 +4,7 @@ import {Button} from '@/components/animate-ui/components/buttons/button'
 import TestimonialCard from '@/components/cards/TestimonialCard'
 import {EmblaCarouselType, EmblaOptionsType} from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
-import {ChevronLeft, ChevronRight, MoveLeft, MoveRight} from 'lucide-react'
+import {MoveLeft, MoveRight} from 'lucide-react'
 import {motion, type Transition} from 'motion/react'
 import * as React from 'react'
 
