@@ -7,7 +7,7 @@ function TextTransition() {
     <SingleSummary>
       <Header3
         className="text-center"
-        text="We are committed to deliver fun with a touch of class through our excellent ideas and creativity."
+        text="With our ideas, attention to detail, and creativity, we bring your dream event to life because we take fun seriously."
       />
     </SingleSummary>
   )
