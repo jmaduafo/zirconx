@@ -24,9 +24,7 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'string',
-      options: {
-        list: ['events/social', 'events/wedding-proposals', 'events/corporate'],
-      },
+      description: 'The link name (ex: /events/social, /events/weddings-proposals, etc.)',
     }),
 
     defineField({
