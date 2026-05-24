@@ -170,7 +170,7 @@ export function Navbar() {
                               transition={{delay: isMenuClicked ? 0.5 : 0, duration: 0.3}}
                               className="w-fit over"
                             >
-                              <Link href={`${item.link}`}>{item.title}</Link>
+                              <Link href={`/${item.link}`}>{item.title}</Link>
                             </motion.li>
                           </div>
                         )
