@@ -13,19 +13,6 @@ export default defineType({
       description: 'Example: Bridal Shower, Product Launch, Proposal Dinner',
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: 'img',
-      title: 'Image',
-      type: 'image',
-      description: 'Subcategory Image',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'string',
-      description: 'The link name (ex: /events/social, /events/weddings-proposals, etc.)',
-    }),
 
     defineField({
       name: 'images',

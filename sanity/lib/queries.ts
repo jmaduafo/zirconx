@@ -96,11 +96,11 @@ export const eventsQuery = defineQuery(`
     categories[]{
       title,
       description,
+      img,
+      slug,
       subcategories[]{
         subcategory,
         images,
-        img,
-        slug
       }
     }
   }
