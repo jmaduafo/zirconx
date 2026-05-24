@@ -30,7 +30,7 @@ const buttonVariants = cva(
         "icon-xs":
           "size-5 rounded-full in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
         "icon-sm":
-          "size-[60px] rounded-full in-data-[slot=button-group]:rounded-lg",
+          "size-[40px] sm:size-[60px] rounded-full in-data-[slot=button-group]:rounded-lg",
         "icon-lg": "size-9 rounded-full",
       },
     },
