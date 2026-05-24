@@ -57,6 +57,106 @@ export default defineType({
         hotspot: true,
       },
     }),
+
+    // HOME PAGE
+    defineField({
+      name: 'homeServices',
+      title: 'Our Services',
+      type: 'image',
+      description: "The service's image to be displayed on the home page",
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'homeEvents',
+      title: 'Our Events',
+      type: 'image',
+      description: "The events's image to be displayed on the home page",
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'transition1',
+      title: 'First Transition Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'transition2',
+      title: 'Second Transition Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'transition3',
+      title: 'Third Transition Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    
+    // ABOUT PAGE
+    defineField({
+      name: 'aboutOpening',
+      title: 'About Opening Image',
+      type: 'image',
+      description: "The about opening image to be displayed on the about page",
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'aboutTransition',
+      title: 'About Page Transition Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'aboutMotive',
+      title: 'Motive Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+
+    // EVENTS PAGE
+    defineField({
+      name: 'eventOpening',
+      title: 'Event Opening Image',
+      type: 'image',
+      description: "The event opening image to be displayed on the event page",
+      options: {
+        hotspot: true,
+      },
+    }),
+
+    // HERO
+    defineField({
+      name: 'hero',
+      title: 'Hero Images',
+      type: 'array',
+      description: 'Images for hero section in home page',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
+    }),
+
+    // GALLERY
     defineField({
       name: 'gallery',
       title: 'Gallery Images',

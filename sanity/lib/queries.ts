@@ -70,6 +70,7 @@ export const settingsQuery = defineQuery(`
       text
     },
     gallery,
+    hero,
     address{
       street,
       city,
@@ -77,7 +78,16 @@ export const settingsQuery = defineQuery(`
     },
     phone,
     email,
-    owner
+    owner,
+    homeServices,
+    homeEvents,
+    transition1,
+    transition2,
+    transition3,
+    aboutOpening,
+    aboutTransition,
+    aboutMotive,
+    eventOpening
   }
 `)
 
@@ -88,7 +98,9 @@ export const eventsQuery = defineQuery(`
       description,
       subcategories[]{
         subcategory,
-        images
+        images,
+        img,
+        slug
       }
     }
   }
