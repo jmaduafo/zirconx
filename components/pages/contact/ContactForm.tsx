@@ -28,6 +28,7 @@ import {
 import {Textarea} from '@/components/ui/textarea'
 import {sendEmail} from '@/emailjs/actions'
 import Logo from '@/public/logo/zircon_logo.png'
+import { SettingsQueryResult } from '@/sanity.types'
 import {navigation, services} from '@/utils/data'
 import {contactSchema} from '@/zod/validation'
 import {zodResolver} from '@hookform/resolvers/zod'
@@ -39,7 +40,7 @@ import {Controller, useForm} from 'react-hook-form'
 import {toast} from 'sonner'
 import * as z from 'zod'
 
-function ContactForm() {
+function ContactForm({ data }: {readonly data: SettingsQueryResult}) {
   const [date, setDate] = useState<Date>()
 
   const form = useForm<z.infer<typeof contactSchema>>({

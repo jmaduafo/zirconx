@@ -71,6 +71,7 @@ export const settingsQuery = defineQuery(`
     },
     gallery,
     hero,
+    clients,
     address{
       street,
       city,
@@ -79,6 +80,7 @@ export const settingsQuery = defineQuery(`
     phone,
     email,
     owner,
+    logo,
     homeServices,
     homeEvents,
     transition1,

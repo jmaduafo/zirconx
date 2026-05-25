@@ -57,6 +57,15 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'logo',
+      title: 'Brand Logo',
+      type: 'image',
+      description: "The client's logo",
+      options: {
+        hotspot: true,
+      },
+    }),
 
     // HOME PAGE
     defineField({
@@ -146,6 +155,22 @@ export default defineType({
       title: 'Hero Images',
       type: 'array',
       description: 'Images for hero section in home page',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
+    }),
+
+    // CLIENT BRANDS
+    defineField({
+      name: 'clients',
+      title: 'Client Brand Logos',
+      type: 'array',
+      description: 'Remove background before inserting (use remove.bg)',
       of: [
         {
           type: 'image',
