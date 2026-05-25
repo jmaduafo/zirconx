@@ -2,10 +2,9 @@ import '@/styles/index.css'
 import Footer from '@/components/Footer'
 import {Navbar} from '@/components/Navbar'
 import {sanityFetch} from '@/sanity/lib/live'
-import {settingsQuery} from '@/sanity/lib/queries'
-import {urlForOpenGraphImage} from '@/sanity/lib/utils'
+import {eventsQuery, settingsQuery} from '@/sanity/lib/queries'
 import type {Viewport} from 'next'
-import {Suspense} from 'react'
+import React from 'react'
 import {Toaster} from 'sonner'
 
 export const viewport: Viewport = {
@@ -13,13 +12,15 @@ export const viewport: Viewport = {
 }
 
 export default async function IndexRoute({children}: {readonly children: React.ReactNode}) {
-  const {data} = await sanityFetch({query: settingsQuery})
+  const {data: settings} = await sanityFetch({query: settingsQuery})
+  const {data: events} = await sanityFetch({query: eventsQuery})
+ 
 
   return (
     <div className="font-montrealBook bg-background text-foreground">
-      <Navbar />
+      <Navbar events={events} />
       <main className="min-h-screen">{children}</main>
-      <Footer data={data}/>
+      <Footer events={events} data={settings}/>
       <Toaster />
     </div>
   )

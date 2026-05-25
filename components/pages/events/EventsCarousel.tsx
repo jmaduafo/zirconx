@@ -8,32 +8,34 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import {navigation} from '@/utils/data'
+import {EventsQueryResult} from '@/sanity.types'
+import {urlForImage} from '@/sanity/lib/utils'
 import React from 'react'
 
-function EventsCarousel() {
+function EventsCarousel({data}: {readonly data: EventsQueryResult}) {
   return (
     <section>
-      <Carousel opts={{
-        align: "start",
-        loop: true
-      }} className="w-full">
+      <Carousel
+        opts={{
+          align: 'start',
+          loop: true,
+        }}
+        className="w-full"
+      >
         <CarouselContent>
-          {navigation
-            .find((item) => item.title.toLowerCase().includes('event'))
-            ?.dropdown?.map((item, index) => (
-              <CarouselItem key={item.title}>
-                <GridDisplay url={item.image} orderLast>
-                  <div className='h-full flex flex-col justify-center items-center gap-4'>
-                    <Header4 className='capitalize' text={`${item.title}${item.title.toLowerCase().includes("wedding") ? "" : " Events"}`}/>
-                    <PrimaryButton text="View more" href={`/${item.link}`}/>
-                  </div>
-                </GridDisplay>
-              </CarouselItem>
-            ))}
+          {data?.categories?.map((item, index) => (
+            <CarouselItem key={item.title}>
+              <GridDisplay url={urlForImage(item?.img)?.width(1920).height(1900).url() ?? ''} orderLast>
+                <div className="h-full flex flex-col justify-center items-center gap-4">
+                  <Header4 className="capitalize" text={`${item.title}`} />
+                  <PrimaryButton text="View more" href={`/events/${item.slug}`} />
+                </div>
+              </GridDisplay>
+            </CarouselItem>
+          ))}
         </CarouselContent>
-        <CarouselPrevious className='bg-transparent text-background border-none left-0'/>
-        <CarouselNext className='bg-transparent text-background border-none right-0'/>
+        <CarouselPrevious className="bg-transparent text-background border-none left-0" />
+        <CarouselNext className="bg-transparent text-background border-none right-0" />
       </Carousel>
     </section>
   )

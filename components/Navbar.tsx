@@ -8,8 +8,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {Fragment, useState} from 'react'
 import {Button} from './ui/button'
+import { EventsQueryResult } from '@/sanity.types'
 
-export function Navbar() {
+export function Navbar({events}: { readonly events: EventsQueryResult}) {
   const [isMenuClicked, setIsMenuClicked] = useState(false)
 
   const headerVariant = {
@@ -67,7 +68,7 @@ export function Navbar() {
                         </Link>
                       </li>
                     )}
-                    {nav.dropdown && <DropDown nav={nav} />}
+                    {nav.dropdown && <DropDown nav={nav} events={events} />}
                     {nav.button && (
                       <Link href={`/${nav.link}`}>
                         <Button>{nav.title}</Button>
@@ -158,7 +159,7 @@ export function Navbar() {
                         </motion.li>
                       </div>
 
-                      {nav.dropdown.map((item) => {
+                      {events?.categories?.map((item) => {
                         return (
                           <div className="overflow-hidden" key={item.title}>
                             <motion.li
@@ -170,7 +171,7 @@ export function Navbar() {
                               transition={{delay: isMenuClicked ? 0.5 : 0, duration: 0.3}}
                               className="w-fit over"
                             >
-                              <Link href={`/${item.link}`}>{item.title}</Link>
+                              <Link href={`/${item.slug}`}>{item.title}</Link>
                             </motion.li>
                           </div>
                         )
@@ -191,6 +192,7 @@ type List = {
   isMenu?: boolean
   isMenuClicked?: boolean
   setIsMenuClicked?: React.Dispatch<React.SetStateAction<boolean>>
+  events: EventsQueryResult;
   nav: {
     title: string
     link: string
@@ -201,7 +203,7 @@ type List = {
   }
 }
 
-function DropDown({nav, isMenu, isMenuClicked, setIsMenuClicked}: Readonly<List>) {
+function DropDown({events, nav, isMenu, isMenuClicked, setIsMenuClicked}: Readonly<List>) {
   const [isHovered, setIsHovered] = useState(false)
 
   return isMenu ? (
@@ -231,19 +233,18 @@ function DropDown({nav, isMenu, isMenuClicked, setIsMenuClicked}: Readonly<List>
         className="absolute h-full top-0 left-1/2"
       >
         <ul className="flex flex-col items-start gap-1 text-[5vw]">
-          {nav.dropdown.map((items) => {
+          {events?.categories?.map((item) => {
             return (
-              <li key={items.title} className="text-left list-none whitespace-nowrap">
+              <li key={item.title} className="text-left list-none whitespace-nowrap">
                 <Link
-                  href={`/${items.link}`}
+                  href={`/events/${item.slug}`}
                   onClick={() => {
                     setIsMenuClicked?.(false)
-                    console.log('clicked')
                   }}
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
-                  {items.title}
+                  {item.title}
                 </Link>
               </li>
             )
@@ -266,10 +267,10 @@ function DropDown({nav, isMenu, isMenuClicked, setIsMenuClicked}: Readonly<List>
       {isHovered && (
         <span className="py-2 px-3 rounded-md shadow-md bg-background absolute top-full left-0 z-[210]">
           <ul className="flex flex-col items-start gap-1 font-montrealBook">
-            {nav.dropdown.map((items) => {
+            {events?.categories?.map((items) => {
               return (
                 <li key={items.title} className="whitespace-nowrap py-1">
-                  <Link href={`/${items.link}`}>{items.title}</Link>
+                  <Link href={`/events/${items.slug}`}>{items.title}</Link>
                 </li>
               )
             })}

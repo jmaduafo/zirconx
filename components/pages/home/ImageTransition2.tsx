@@ -1,12 +1,14 @@
 // import Parallax from '@/components/animations/Parallax'
+import {SettingsQueryResult} from '@/sanity.types'
+import {urlForImage} from '@/sanity/lib/utils'
 import Image from 'next/image'
 import React from 'react'
 
-function ImageTransition2() {
+function ImageTransition2({data}: {readonly data: SettingsQueryResult}) {
   return (
-    <section className='w-full'>
+    <section className="w-full">
       <Image
-        src="/images/home/transition.JPG"
+        src={urlForImage(data?.transition2)?.width(1920).height(1200).url() ?? ''}
         alt="zircon event"
         width={1920}
         height={1080}

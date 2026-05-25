@@ -1,10 +1,12 @@
 import ZoomIn from '@/components/animations/ZoomIn'
 import Header4 from '@/components/headings/Header4'
 import Paragraph from '@/components/headings/Paragraph'
+import {SettingsQueryResult} from '@/sanity.types'
+import { urlForImage } from '@/sanity/lib/utils'
 import Image from 'next/image'
 import React from 'react'
 
-function Motive() {
+function Motive({data}: {readonly data: SettingsQueryResult}) {
   return (
     <section className="px-[6vw] mt-[8vh] mb-[15vh]">
       <div className="flex flex-col-reverse lg:flex-row lg:items-center gap-x-5 gap-y-[10vh]">
@@ -12,7 +14,7 @@ function Motive() {
           <ZoomIn>
             <div className="w-full">
               <Image
-                src="/images/about/motive1.JPG"
+                src={urlForImage(data?.aboutMotive)?.width(1920).height(1200).url() ?? ''}
                 width={1920}
                 height={1080}
                 alt="ceramic bowls display"

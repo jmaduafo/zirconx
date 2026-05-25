@@ -1,19 +1,19 @@
 'use client'
 
-import {SettingsQueryResult} from '@/sanity.types'
+import {EventsQueryResult, SettingsQueryResult} from '@/sanity.types'
 import {navigation} from '@/utils/data'
 import Link from 'next/link'
 import React from 'react'
-import {toast} from 'sonner'
 import BlurText from './animations/BlurText'
 import PrimaryButton from './buttons/PrimaryButton'
 import Header2 from './headings/Header2'
 
 type Contacts = {
-  data: SettingsQueryResult
+  data: SettingsQueryResult;
+  events: EventsQueryResult;
 }
 
-function Footer({data}: Readonly<Contacts>) {
+function Footer({data, events}: Readonly<Contacts>) {
 
 
   return (
@@ -44,12 +44,10 @@ function Footer({data}: Readonly<Contacts>) {
         </FooterList>
         {/* EVENTS LINKS */}
         <FooterList title="Events">
-          {navigation
-            .find((item) => item.title.toLowerCase().includes('event'))
-            ?.dropdown?.map((nav) => {
+          {events?.categories?.map((nav) => {
               return (
                 <li key={nav.title} className="capitalize">
-                  <Link href={`/${nav.link}`}>{nav.title}</Link>
+                  <Link href={`/events/${nav.slug}`}>{nav.title}</Link>
                 </li>
               )
             })}

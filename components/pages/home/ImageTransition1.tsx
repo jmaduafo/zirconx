@@ -1,10 +1,15 @@
 import Parallax from '@/components/animations/Parallax'
+import {SettingsQueryResult} from '@/sanity.types'
+import {urlForImage} from '@/sanity/lib/utils'
 import React from 'react'
 
-function ImageTransition1() {
+function ImageTransition1({data}: {readonly data: SettingsQueryResult}) {
   return (
     <section>
-      <Parallax image="/images/home/transition1.JPG" scale="scale-150" />
+      <Parallax
+        image={urlForImage(data?.transition1)?.width(1920).height(1200).url() ?? ''}
+        scale="scale-150"
+      />
     </section>
   )
 }

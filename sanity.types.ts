@@ -18,22 +18,30 @@ import '@sanity/client'
 export declare const internalGroqTypeReferenceTo: unique symbol
 
 // Source: schema.json
-export type EventCategory = {
-  _type: 'eventCategory'
-  title?: string
-  description?: string
-  subcategories?: Array<
-    {
-      _key: string
-    } & EventGallery
-  >
-}
-
 export type SanityImageAssetReference = {
   _ref: string
   _type: 'reference'
   _weak?: boolean
   [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+}
+
+export type EventCategory = {
+  _type: 'eventCategory'
+  title?: string
+  description?: string
+  img?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  slug?: string
+  subcategories?: Array<
+    {
+      _key: string
+    } & EventGallery
+  >
 }
 
 export type EventGallery = {
@@ -347,6 +355,77 @@ export type Settings = {
     crop?: SanityImageCrop
     _type: 'image'
   }
+  homeServices?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  homeEvents?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  transition1?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  transition2?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  transition3?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  aboutOpening?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  aboutTransition?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  aboutMotive?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  eventOpening?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  hero?: Array<{
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+    _key: string
+  }>
   gallery?: Array<{
     asset?: SanityImageAssetReference
     media?: unknown
@@ -455,8 +534,8 @@ export type Geopoint = {
 }
 
 export type AllSanitySchemaTypes =
-  | EventCategory
   | SanityImageAssetReference
+  | EventCategory
   | EventGallery
   | Testimonial
   | Faq
@@ -666,7 +745,7 @@ export type ProjectBySlugQueryResult = {
 
 // Source: sanity/lib/queries.ts
 // Variable: settingsQuery
-// Query: *[_type == "settings"][0]{    _id,    _type,    socialLinks[]{      platform,      url    },    statistics[]{      title,      statistic    },    faqs[]{      question,      answer    },    testimonials[]{      client,      text    },    gallery,    address{      street,      city,      country    },    phone,    email,    owner  }
+// Query: *[_type == "settings"][0]{    _id,    _type,    socialLinks[]{      platform,      url    },    statistics[]{      title,      statistic    },    faqs[]{      question,      answer    },    testimonials[]{      client,      text    },    gallery,    hero,    address{      street,      city,      country    },    phone,    email,    owner,    homeServices,    homeEvents,    transition1,    transition2,    transition3,    aboutOpening,    aboutTransition,    aboutMotive,    eventOpening  }
 export type SettingsQueryResult = {
   _id: string
   _type: 'settings'
@@ -694,6 +773,14 @@ export type SettingsQueryResult = {
     _type: 'image'
     _key: string
   }> | null
+  hero: Array<{
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+    _key: string
+  }> | null
   address: {
     street: string | null
     city: string | null
@@ -708,15 +795,86 @@ export type SettingsQueryResult = {
     crop?: SanityImageCrop
     _type: 'image'
   } | null
+  homeServices: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  } | null
+  homeEvents: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  } | null
+  transition1: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  } | null
+  transition2: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  } | null
+  transition3: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  } | null
+  aboutOpening: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  } | null
+  aboutTransition: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  } | null
+  aboutMotive: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  } | null
+  eventOpening: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  } | null
 } | null
 
 // Source: sanity/lib/queries.ts
 // Variable: eventsQuery
-// Query: *[_type == "events"][0]{    categories[]{      title,      description,      subcategories[]{        subcategory,        images      }    }  }
+// Query: *[_type == "events"][0]{    categories[]{      title,      description,      img,      slug,      subcategories[]{        subcategory,        images,      }    }  }
 export type EventsQueryResult = {
   categories: Array<{
     title: string | null
     description: string | null
+    img: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    slug: string | null
     subcategories: Array<{
       subcategory: string | null
       images: Array<{
@@ -743,8 +901,8 @@ declare module '@sanity/client' {
     '\n  *[_type == "home"][0]{\n    _id,\n    _type,\n    overview,\n    showcaseProjects[]{\n      _key,\n      ...@->{\n        _id,\n        _type,\n        coverImage,\n        overview,\n        "slug": slug.current,\n        tags,\n        title,\n      }\n    },\n    title,\n  }\n': HomePageQueryResult
     '\n  *[_type == "page" && slug.current == $slug][0] {\n    _id,\n    _type,\n    body,\n    overview,\n    title,\n    "slug": slug.current,\n  }\n': PagesBySlugQueryResult
     '\n  *[_type == "project" && slug.current == $slug][0] {\n    _id,\n    _type,\n    client,\n    coverImage,\n    description,\n    duration,\n    overview,\n    site,\n    "slug": slug.current,\n    tags,\n    title,\n  }\n': ProjectBySlugQueryResult
-    '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    socialLinks[]{\n      platform,\n      url\n    },\n    statistics[]{\n      title,\n      statistic\n    },\n    faqs[]{\n      question,\n      answer\n    },\n    testimonials[]{\n      client,\n      text\n    },\n    gallery,\n    address{\n      street,\n      city,\n      country\n    },\n    phone,\n    email,\n    owner\n  }\n': SettingsQueryResult
-    '\n  *[_type == "events"][0]{\n    categories[]{\n      title,\n      description,\n      subcategories[]{\n        subcategory,\n        images\n      }\n    }\n  }\n': EventsQueryResult
+    '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    socialLinks[]{\n      platform,\n      url\n    },\n    statistics[]{\n      title,\n      statistic\n    },\n    faqs[]{\n      question,\n      answer\n    },\n    testimonials[]{\n      client,\n      text\n    },\n    gallery,\n    hero,\n    address{\n      street,\n      city,\n      country\n    },\n    phone,\n    email,\n    owner,\n    homeServices,\n    homeEvents,\n    transition1,\n    transition2,\n    transition3,\n    aboutOpening,\n    aboutTransition,\n    aboutMotive,\n    eventOpening\n  }\n': SettingsQueryResult
+    '\n  *[_type == "events"][0]{\n    categories[]{\n      title,\n      description,\n      img,\n      slug,\n      subcategories[]{\n        subcategory,\n        images,\n      }\n    }\n  }\n': EventsQueryResult
     '\n  *[_type == $type && defined(slug.current)]{"slug": slug.current}\n': SlugsByTypeQueryResult
   }
 }

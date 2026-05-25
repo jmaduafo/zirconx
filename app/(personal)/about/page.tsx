@@ -13,12 +13,12 @@ async function page() {
   const {data} = await sanityFetch({query: settingsQuery})
   return (
     <>
-      <Opening />
+      <Opening data={data} />
       <MeetOwner data={data}/>
       <TeamSummary/>
-      <ImageTransition/>
+      <ImageTransition data={data}/>
       <ClientMarquee/>
-      <Motive/>
+      <Motive data={data}/>
       <Gallery data={data}/>
     </>
   )

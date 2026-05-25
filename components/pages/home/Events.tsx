@@ -1,4 +1,5 @@
-"use client"
+'use client'
+
 import Appear from '@/components/animations/Appear'
 import PopUp from '@/components/animations/PopUp'
 import PrimaryButton from '@/components/buttons/PrimaryButton'
@@ -7,15 +8,26 @@ import GridDisplay from '@/components/containers/GridDisplay'
 import Header4 from '@/components/headings/Header4'
 import Paragraph from '@/components/headings/Paragraph'
 import Decor from '@/public/images/decor.png'
+import {EventsQueryResult, SettingsQueryResult} from '@/sanity.types'
+import {urlForImage} from '@/sanity/lib/utils'
 import {navigation} from '@/utils/data'
 import {motion} from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
 
-function Events() {
+function Events({
+  eventData,
+  settingData,
+}: {
+  readonly eventData: EventsQueryResult
+  readonly settingData: SettingsQueryResult
+}) {
   return (
     <div className="">
-      <GridDisplay url="/images/home/events/event_opening.png" isTextRight>
+      <GridDisplay
+        url={urlForImage(settingData?.homeEvents)?.width(1920).height(1920).url() ?? ''}
+        isTextRight
+      >
         <div className="flex flex-col gap-6 justify-center h-full">
           <PopUp>
             <Header4 text="Our Events" />
@@ -38,14 +50,12 @@ function Events() {
           </Appear>
         </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {navigation
-            .find((item) => item.title.toLowerCase().includes('event'))
-            ?.dropdown?.map((event, i) => {
+          {eventData?.categories?.map((event, i) => {
               return (
                 <motion.div
                   initial={{opacity: 0}}
                   whileInView={{opacity: 1, transition: {delay: i * 0.2}}}
-                  viewport={{ once: true }}
+                  viewport={{once: true}}
                   key={event.title}
                 >
                   <EventCard
@@ -54,10 +64,10 @@ function Events() {
                         ?.dropdown ?? []
                     }
                     isHome
-                    title={event.title}
+                    title={event.title ?? ""}
                     index={i}
-                    image={event.image}
-                    link={event.link}
+                    image={urlForImage(event?.img)?.width(1920).height(1920).url() ?? ''}
+                    link={event.slug ?? ""}
                   />
                 </motion.div>
               )

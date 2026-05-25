@@ -64,7 +64,7 @@ function EventCard({title, image, index, events, link, isHome, height}: Readonly
       variants={containerVariant}
       initial="initial"
       whileHover="hover"
-      onClick={() => router.push(`/${link}`)}
+      onClick={() => router.push(`/events/${link}`)}
       className={cn(
         'relative overflow-hidden w-full flex flex-col border-foreground',
         // index !== events.length - 1 && 'border-l-foreground',
@@ -94,7 +94,7 @@ function EventCard({title, image, index, events, link, isHome, height}: Readonly
             <PopUp>
               <Header6
                 className="capitalize !leading-tight"
-                text={title.toLowerCase().includes('wedding') ? title : `${title} events`}
+                text={title}
               />
             </PopUp>
             <motion.div variants={iconVariant} transition={{ duration: .4 }}>

@@ -4,14 +4,19 @@ import ServicesCard from '@/components/cards/ServicesCard'
 import GridDisplay from '@/components/containers/GridDisplay'
 import Header4 from '@/components/headings/Header4'
 import Paragraph from '@/components/headings/Paragraph'
+import {SettingsQueryResult} from '@/sanity.types'
+import {urlForImage} from '@/sanity/lib/utils'
 import {services} from '@/utils/data'
 import {motion} from 'framer-motion'
 import React from 'react'
 
-function Services() {
+function Services({data}: {readonly data: SettingsQueryResult}) {
   return (
     <div>
-      <GridDisplay url="/images/home/services/service.jpeg" orderLast>
+      <GridDisplay
+        url={urlForImage(data?.homeServices)?.width(1920).height(1920).url() ?? ''}
+        orderLast
+      >
         <div className="h-full flex flex-col justify-center gap-6">
           <Header4 text="Our Services" />
           <div className="grid gap-4">
