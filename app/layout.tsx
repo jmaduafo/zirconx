@@ -28,6 +28,11 @@ export const metadata: Metadata = {
       },
     ],
   },
+  icons: {
+    apple: [
+      { url: '/logo/full_zircon_image.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 export default async function RootLayout({children}: {readonly children: React.ReactNode}) {
