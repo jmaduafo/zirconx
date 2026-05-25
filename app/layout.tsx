@@ -13,11 +13,22 @@ const serif = Cormorant_Garamond({
   weight: ['400', '500', '600', '700'],
 })
 
-// export const metadata: Metadata = {
-//   title: 'Zircon Xperience',
-//   description: 'The official Next.js Course Dashboard, built with App Router.',
-//   metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
-// };
+export const metadata: Metadata = {
+  title: 'Zircon Xperience',
+  description: 'Zircon Xperience is a Lagos-based luxury event planning company specializing in unforgettable social celebrations, corporate events, weddings, and curated experiences with a touch of class.',
+  openGraph: {
+    title: 'Zircon Xperience',
+    description:
+      'Luxury event planning and curated experiences with a touch of class.',
+    images: [
+      {
+        url: '/full_zircon_image.png',
+        width: 1200,
+        height: 1200,
+      },
+    ],
+  },
+};
 
 export default async function RootLayout({children}: {readonly children: React.ReactNode}) {
   return (
