@@ -22,7 +22,7 @@ export const metadata: Metadata = {
       'Luxury event planning and curated experiences with a touch of class.',
     images: [
       {
-        url: '/full_zircon_image.png',
+        url: '/logo/full_zircon_image.png',
         width: 1200,
         height: 630,
       },
