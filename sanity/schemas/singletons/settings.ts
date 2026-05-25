@@ -170,7 +170,7 @@ export default defineType({
       name: 'clients',
       title: 'Client Brand Logos',
       type: 'array',
-      description: 'Remove background before inserting (use remove.bg)',
+      description: 'Remove background before inserting (use remove.bg); must be 16:9 ratio',
       of: [
         {
           type: 'image',
