@@ -12,13 +12,13 @@ type Event = {
   title: string
   image?: string
   index: number
-  events: any[]
+  // events: any[]
   link: string
   height?: string
   isHome?: boolean
 }
 
-function EventCard({title, image, index, events, link, isHome, height}: Readonly<Event>) {
+function EventCard({title, image, index, link, isHome, height}: Readonly<Event>) {
   const router = useRouter()
 
   const containerVariant = {

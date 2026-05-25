@@ -28,6 +28,8 @@ function EventSubcategory({
     item.title?.toLowerCase().includes((title as string)?.split('-')[0]),
   )
 
+  data?.categories && console.log(title, data?.categories[0]?.slug === title)
+
   const currentEvent = category?.subcategories?.find(
     (sub) => sub.subcategory?.toLowerCase() === subcategory.split('%20').join(' '),
   )
@@ -115,22 +117,19 @@ function EventSubcategory({
         </div>
       </InfoContainer>
       <div className="grid sm:grid-cols-2 gap-4 px-4 mb-5">
-        {data?.categories?.map((event, i) => {
-            return (
-              <Fragment key={event.title}>
-                <EventCard
-                  title={event.title ?? ""}
-                  image={urlForImage(event?.img)?.width(1920).height(1200).url() ?? ''}
-                  index={i}
-                  events={
-                    data?.categories?.filter((item) => title && !item.slug?.includes(title as string)) ?? []
-                  }
-                  link={event.slug ?? ""}
-                  height="h-[40vh]"
-                />
-              </Fragment>
-            )
-          })}
+        {data?.categories?.filter((item) => item?.slug !== title).map((event, i) => {
+          return (
+            <Fragment key={event.title}>
+              <EventCard
+                title={event.title ?? ''}
+                image={urlForImage(event?.img)?.width(1920).height(1200).url() ?? ''}
+                index={i}
+                link={event.slug ?? ''}
+                height="h-[40vh]"
+              />
+            </Fragment>
+          )
+        })}
       </div>
     </>
   ) : null
