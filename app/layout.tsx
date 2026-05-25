@@ -2,7 +2,7 @@ import './globals.css'
 import {montrealBook, montrealMedium} from '@/font/fonts'
 import {cn} from '@/lib/utils'
 import {Cormorant_Garamond, Geist} from 'next/font/google'
-import { Metadata, Viewport } from 'next';
+import { Metadata } from 'next';
 
 const geist = Geist({subsets: ['latin'], variable: '--font-sans'})
 
@@ -22,24 +22,22 @@ export const metadata: Metadata = {
       'Luxury event planning and curated experiences with a touch of class.',
     images: [
       {
-        url: '/zircon_blue.png',
+        url: '/icon.png',
         width: 1200,
         height: 630,
       },
     ],
   },
-  appleWebApp: {
-    title: 'Zircon Xperience', // This name shows under Safari suggestions
-    statusBarStyle: 'black-translucent',
-    capable: true,
-  },
+  // appleWebApp: {
+  //   title: 'Zircon Xperience', // This name shows under Safari suggestions
+  //   statusBarStyle: 'black-translucent',
+  //   capable: true,
+  // },
   icons: {
     icon: '/favicon.ico',
-    apple: [
-      { url: '/full_zircon_image.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: '/apple-icon.png',
   },
-  themeColor: '#b1d4df'
+  // themeColor: '#b1d4df'
 };
 
 
