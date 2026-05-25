@@ -28,11 +28,17 @@ export const metadata: Metadata = {
       },
     ],
   },
+  appleWebApp: {
+    title: 'Zircon Xperience', // This name shows under Safari suggestions
+    statusBarStyle: 'black-translucent',
+    capable: true,
+  },
   icons: {
     apple: [
       { url: '/logo/full_zircon_image.png', sizes: '180x180', type: 'image/png' },
     ],
   },
+  themeColor: '#b1d4df',
 };
 
 export default async function RootLayout({children}: {readonly children: React.ReactNode}) {
