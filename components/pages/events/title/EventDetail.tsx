@@ -34,7 +34,7 @@ function EventDetail({data, title}: {readonly data: EventsQueryResult; readonly 
           subtitle={event?.description ? event.description.split('.')[0] + '.' : ''}
         />
       </div>
-      <div className="flex-[2] grid grid-cols-2 gap-3 md:gap-5">
+      <div className="flex-[2] grid grid-cols-2 gap-3 gap-y-5 md:gap-5">
         {event?.subcategories?.map((item) => {
           return (
             <Link href={`/${link?.link}/${item.subcategory?.toLowerCase()}`} key={item.subcategory}>
