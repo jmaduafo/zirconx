@@ -2,7 +2,7 @@ import './globals.css'
 import {montrealBook, montrealMedium} from '@/font/fonts'
 import {cn} from '@/lib/utils'
 import {Cormorant_Garamond, Geist} from 'next/font/google'
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 
 const geist = Geist({subsets: ['latin'], variable: '--font-sans'})
 
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
       'Luxury event planning and curated experiences with a touch of class.',
     images: [
       {
-        url: '/logo/full_zircon_image.png',
+        url: '/zircon_blue.png',
         width: 1200,
         height: 630,
       },
@@ -34,12 +34,15 @@ export const metadata: Metadata = {
     capable: true,
   },
   icons: {
+    icon: '/favicon.ico',
     apple: [
-      { url: '/logo/full_zircon_image.png', sizes: '180x180', type: 'image/png' },
+      { url: '/full_zircon_image.png', sizes: '180x180', type: 'image/png' },
     ],
   },
-  themeColor: '#b1d4df',
+  themeColor: '#b1d4df'
 };
+
+
 
 export default async function RootLayout({children}: {readonly children: React.ReactNode}) {
   return (
