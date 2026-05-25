@@ -47,7 +47,7 @@ export function Navbar({
         transition={{
           ease: 'easeOut',
         }}
-        className="z-[200] fixed top-0 w-full pt-4 px-3 sm:px-10 bg-background"
+        className="z-[200] fixed top-0 w-full py-3 px-3 sm:px-10 bg-background"
       >
         <motion.div
           variants={navVariant}
