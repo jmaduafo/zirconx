@@ -1,6 +1,8 @@
 'use client'
 
 import Logo from '@/public/logo/zircon_logo.png'
+import {EventsQueryResult, SettingsQueryResult} from '@/sanity.types'
+import {urlForImage} from '@/sanity/lib/utils'
 import {navigation} from '@/utils/data'
 import {motion} from 'framer-motion'
 import {ChevronDown, ChevronRight, Menu, X} from 'lucide-react'
@@ -8,9 +10,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {Fragment, useState} from 'react'
 import {Button} from './ui/button'
-import { EventsQueryResult } from '@/sanity.types'
 
-export function Navbar({events}: { readonly events: EventsQueryResult}) {
+export function Navbar({
+  settings,
+  events,
+}: {
+  readonly settings: SettingsQueryResult
+  readonly events: EventsQueryResult
+}) {
   const [isMenuClicked, setIsMenuClicked] = useState(false)
 
   const headerVariant = {
@@ -53,7 +60,13 @@ export function Navbar({events}: { readonly events: EventsQueryResult}) {
         >
           <Link href="/">
             <div className="w-[5em] h-[5em] object-cover object-bottom">
-              <Image src={Logo} alt="zircon logo" className="w-full h-full" />
+              <Image
+                src={urlForImage(settings?.logo)?.width(1000).height(1000).url() ?? ''}
+                width={1000}
+                height={1000}
+                alt="zircon logo"
+                className="w-full h-full"
+              />
             </div>
           </Link>
           <nav className="hidden lg:block capitalize text-sm font-montrealMedium">
@@ -192,7 +205,7 @@ type List = {
   isMenu?: boolean
   isMenuClicked?: boolean
   setIsMenuClicked?: React.Dispatch<React.SetStateAction<boolean>>
-  events: EventsQueryResult;
+  events: EventsQueryResult
   nav: {
     title: string
     link: string

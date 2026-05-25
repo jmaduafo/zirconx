@@ -28,7 +28,8 @@ import {
 import {Textarea} from '@/components/ui/textarea'
 import {sendEmail} from '@/emailjs/actions'
 import Logo from '@/public/logo/zircon_logo.png'
-import { SettingsQueryResult } from '@/sanity.types'
+import {SettingsQueryResult} from '@/sanity.types'
+import {urlForImage} from '@/sanity/lib/utils'
 import {navigation, services} from '@/utils/data'
 import {contactSchema} from '@/zod/validation'
 import {zodResolver} from '@hookform/resolvers/zod'
@@ -40,9 +41,10 @@ import {Controller, useForm} from 'react-hook-form'
 import {toast} from 'sonner'
 import * as z from 'zod'
 
-function ContactForm({ data }: {readonly data: SettingsQueryResult}) {
+function ContactForm({data}: {readonly data: SettingsQueryResult}) {
   const [date, setDate] = useState<Date>()
 
+  console.log(data)
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -76,10 +78,9 @@ function ContactForm({ data }: {readonly data: SettingsQueryResult}) {
 
         form.reset()
       }
-
     } catch (err: any) {
       console.log(err.message)
-      
+
       toast.error('Whoops, something went wrong', {
         description: err.message || 'An unexpected error occurred.',
       })
@@ -372,8 +373,14 @@ function ContactForm({ data }: {readonly data: SettingsQueryResult}) {
                   </Field>
                 </FieldGroup>
               </FieldSet>
-              <div className="flex-1 object-cover object-top">
-                <Image src={Logo} alt="logo" className="w-full h-full" />
+              <div className="flex-1">
+                <Image
+                  src={urlForImage(data?.logo)?.width(1600).height(1600).url() ?? ''}
+                  alt="logo"
+                  className="w-full h-full"
+                  width={1600}
+                  height={1600}
+                />
               </div>
             </div>
           </FieldGroup>

@@ -28,7 +28,7 @@ export default async function IndexRoute() {
       <TextTransition />
       <Events eventData={events} settingData={settings} />
       <Gallery data={settings} />
-      <ClientMarquee />
+      <ClientMarquee data={settings} />
       <ImageTransition2 data={settings} />
       <Testimonials data={settings} />
       <ImageTransition3 data={settings} />

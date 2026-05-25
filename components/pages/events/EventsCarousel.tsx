@@ -25,7 +25,7 @@ function EventsCarousel({data}: {readonly data: EventsQueryResult}) {
         <CarouselContent>
           {data?.categories?.map((item, index) => (
             <CarouselItem key={item.title}>
-              <GridDisplay url={urlForImage(item?.img)?.width(1920).height(1900).url() ?? ''} orderLast>
+              <GridDisplay url={urlForImage(item?.img)?.width(1900).height(1900).url() ?? ''} orderLast>
                 <div className="h-full flex flex-col justify-center items-center gap-4">
                   <Header4 className="capitalize" text={`${item.title}`} />
                   <PrimaryButton text="View more" href={`/events/${item.slug}`} />

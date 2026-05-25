@@ -10,7 +10,7 @@ function Gallery({data}: {readonly data: SettingsQueryResult}) {
     <section className='py-20'>
       <Marquee>
         {data?.gallery?.map((image, i) => (
-          <div key={image.asset?._ref ?? i} className="w-[40vw] md:w-[25vw] max-h-[60vh] mr-4">
+          <div key={image.asset?._ref ?? i + 1} className="w-[40vw] md:w-[25vw] max-h-[60vh] mr-4">
             <Image
               src={
                 urlForImage(image)

@@ -18,7 +18,7 @@ export default async function IndexRoute({children}: {readonly children: React.R
 
   return (
     <div className="font-montrealBook bg-background text-foreground">
-      <Navbar events={events} />
+      <Navbar settings={settings} events={events} />
       <main className="min-h-screen">{children}</main>
       <Footer events={events} data={settings}/>
       <Toaster />

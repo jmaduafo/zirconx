@@ -9,7 +9,6 @@ import {Button} from '@/components/ui/button'
 import {HoverCard, HoverCardContent, HoverCardTrigger} from '@/components/ui/hover-card'
 import {EventsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
-import {navigation} from '@/utils/data'
 import {MoveLeft, MoveRight} from 'lucide-react'
 import Image from 'next/image'
 import {useParams, useRouter} from 'next/navigation'
@@ -116,22 +115,17 @@ function EventSubcategory({
         </div>
       </InfoContainer>
       <div className="grid sm:grid-cols-2 gap-4 px-4 mb-5">
-        {navigation
-          .find((item) => item.title === 'events')
-          ?.dropdown?.filter((item) => item.link !== `events/${title}`)
-          ?.map((event, i) => {
+        {data?.categories?.map((event, i) => {
             return (
               <Fragment key={event.title}>
                 <EventCard
-                  title={event.title}
-                  image={event.image}
+                  title={event.title ?? ""}
+                  image={urlForImage(event?.img)?.width(1920).height(1200).url() ?? ''}
                   index={i}
                   events={
-                    navigation
-                      .find((item) => item.title === 'events')
-                      ?.dropdown?.filter((item) => item.link !== `events/${title}`) ?? []
+                    data?.categories?.filter((item) => title && !item.slug?.includes(title as string)) ?? []
                   }
-                  link={event.link}
+                  link={event.slug ?? ""}
                   height="h-[40vh]"
                 />
               </Fragment>

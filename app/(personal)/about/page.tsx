@@ -17,7 +17,7 @@ async function page() {
       <MeetOwner data={data}/>
       <TeamSummary/>
       <ImageTransition data={data}/>
-      <ClientMarquee/>
+      <ClientMarquee data={data}/>
       <Motive data={data}/>
       <Gallery data={data}/>
     </>
