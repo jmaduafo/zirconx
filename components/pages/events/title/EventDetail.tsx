@@ -25,7 +25,7 @@ function EventDetail({data, title}: {readonly data: EventsQueryResult; readonly 
     ?.dropdown?.find((event) => pathname.includes(event.link))
 
   return (
-    <InfoContainer isMarginTop className="relative flex flex-col items-center md:items-baseline md:flex-row gap-3 md:gap-5">
+    <InfoContainer isMarginTop className="relative flex flex-col items-center md:items-baseline md:flex-row gap-5">
       <div className="md:self-start md:sticky md:top-28 flex-1 bg-background">
         <MainHeader
           title={event?.title ?? ''}
@@ -34,7 +34,7 @@ function EventDetail({data, title}: {readonly data: EventsQueryResult; readonly 
           subtitle={event?.description ? event.description.split('.')[0] + '.' : ''}
         />
       </div>
-      <div className="flex-[2] grid grid-cols-2 gap-5">
+      <div className="flex-[2] grid grid-cols-2 gap-3 md:gap-5">
         {event?.subcategories?.map((item) => {
           return (
             <Link href={`/${link?.link}/${item.subcategory?.toLowerCase()}`} key={item.subcategory}>
