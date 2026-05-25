@@ -49,6 +49,7 @@ function Events({
             </div>
           </Appear>
         </div>
+        {/* flex flex-wrap justify-center */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {eventData?.categories?.map((event, i) => {
               return (
@@ -59,10 +60,6 @@ function Events({
                   key={event.title}
                 >
                   <EventCard
-                    events={
-                      navigation.find((item) => item.title.toLowerCase().includes('event'))
-                        ?.dropdown ?? []
-                    }
                     isHome
                     title={event.title ?? ""}
                     index={i}

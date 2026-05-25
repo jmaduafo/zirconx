@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       {
         url: '/full_zircon_image.png',
         width: 1200,
-        height: 1200,
+        height: 630,
       },
     ],
   },
