@@ -18,10 +18,10 @@ function EventDetail({data, title}: {readonly data: EventsQueryResult; readonly 
 
   return (
     <InfoContainer isMarginTop className="relative flex flex-col items-center md:items-baseline md:flex-row gap-5">
-      <div className="md:self-start md:sticky md:top-28 flex-1 bg-background">
+      <div className="md:self-start md:sticky md:top-28 2xl:top-40 flex-1 bg-background">
         <MainHeader
           title={event?.title ?? ''}
-          titleClassname='text-center md:text-left max-w-full md:max-w-xs'
+          titleClassname='text-center md:text-left max-w-full md:max-w-xs 2xl:max-w-md'
           subtitleClassname='text-center md:text-left max-w-sm md:max-w-xs'
           subtitle={event?.description ? event.description.split('.')[0] + '.' : ''}
         />
