@@ -17,13 +17,13 @@ import React from 'react'
 function Faq({data}: {readonly data: SettingsQueryResult}) {
   return (
     <section className="my-6 px-4 lg:px-8">
-      <div className="flex flex-col lg:flex-row justify-between gap-4">
+      <div className="flex flex-col lg:flex-row justify-between gap-6">
         <MainHeader
           title="FAQ"
           subtitle="Everything you need to know about working with us, from planning to execution."
         />
         <div className="flex-1 flex justify-end">
-          <Accordion type="single" collapsible defaultValue={undefined} className="lg:max-w-3xl">
+          <Accordion type="single" collapsible defaultValue={undefined} className="lg:max-w-3xl 2xl:max-w-[90rem]">
             {data
               ? data.faqs?.map((item, i) => {
                   return (

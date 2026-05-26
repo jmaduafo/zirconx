@@ -10,7 +10,7 @@ type Card = {
 
 function ServicesCard({item}: Readonly<Card>) {
   return (
-    <div className="flex flex-col gap-4 max-w-60">
+    <div className="flex flex-col gap-4 max-w-60 2xl:max-w-96">
       <item.icon className="size-5" strokeWidth={1} />
       <div className="flex flex-col gap-2">
         <Header6 className="capitalize italic font-medium whitespace-nowrap" text={item.title} />

@@ -5,7 +5,7 @@ function Header2({children, className}: {readonly children: React.ReactNode; rea
   return (
     <h2
       className={cn(
-        'text-5xl sm:text-6xl xl:text-7xl font-serif !leading-none',
+        'text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl font-serif !leading-none',
         className,
       )}
     >

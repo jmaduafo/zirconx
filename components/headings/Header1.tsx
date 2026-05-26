@@ -6,7 +6,7 @@ function Header1({text, className}: {readonly text: string; readonly className?:
   return (
     <h1
       className={cn(
-        'text-[14vw] md:text-[10vw] font-serif tracking-tighter leading-[0.9]',
+        'text-[14vw] md:text-[10vw] 2xl:text-[9vw] font-serif tracking-tighter leading-[0.9]',
         className,
       )}
     >

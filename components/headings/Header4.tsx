@@ -6,7 +6,7 @@ function Header4({text, className}: {readonly text: string; readonly className?:
   return (
     <PopUp>
       <h4
-        className={cn('leading-none text-3xl sm:text-4xl xl:text-5xl font-serif italic', className)}
+        className={cn('leading-none text-3xl sm:text-4xl xl:text-5xl 2xl:text-7xl font-serif italic', className)}
       >
         {text}
       </h4>
