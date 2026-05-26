@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   //   capable: true,
   // },
   icons: {
-    icon: '/favicon.ico',
+    icon: '/icon.png',
     apple: '/apple-icon.png',
   },
   // themeColor: '#b1d4df'
