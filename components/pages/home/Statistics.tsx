@@ -23,7 +23,7 @@ function Statistics({data}: {readonly data: SettingsQueryResult}) {
                       </Header2>
                     )}
                     {/* <Header2 text={stat.statistic ?? ''} /> */}
-                    <p className="uppercase text-[10px] md:text-sm font-montrealMedium opacity-60">{stat.title}</p>
+                    <p className="uppercase text-[10px] md:text-sm 2xl:text-lg font-montrealMedium opacity-60">{stat.title}</p>
                   </div>
                   {data.statistics && i !== data.statistics?.length - 1 && (
                     <div className="hidden sm:block bg-gradient-to-b from-foreground/0 via-foreground/40 to-foreground/0 h-[30px] sm:h-[60px] w-[1px]"></div>

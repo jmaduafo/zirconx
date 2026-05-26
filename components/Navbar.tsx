@@ -59,7 +59,7 @@ export function Navbar({
           className="flex justify-between items-center"
         >
           <Link href="/">
-            <div className="w-[5em] h-[5em] object-cover object-bottom">
+            <div className="size-[5em] 2xl:size-[8em] object-cover object-bottom">
               <Image
                 src={urlForImage(settings?.logo)?.width(1000).height(1000).url() ?? ''}
                 width={1000}
@@ -69,7 +69,7 @@ export function Navbar({
               />
             </div>
           </Link>
-          <nav className="hidden lg:block capitalize text-sm font-montrealMedium">
+          <nav className="hidden lg:block capitalize text-sm 2xl:text-xl font-montrealMedium">
             <ul className="flex items-center gap-5">
               {navigation.map((nav) => {
                 return (

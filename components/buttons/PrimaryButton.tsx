@@ -81,7 +81,7 @@ function PrimaryButton({
           <motion.button
             type={type ?? 'button'}
             variants={textVariant}
-            className={'pl-3 pr-4 capitalize'}
+            className={'pl-3 pr-4 capitalize 2xl:text-xl'}
           >
             {text}
           </motion.button>

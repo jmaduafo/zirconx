@@ -3,6 +3,7 @@ import React from 'react'
 import Header6 from '../headings/Header6'
 import {Button} from '../ui/button'
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from '../ui/dialog'
+import SmallParagraph from '../headings/SmallParagraph'
 
 type Card = {
   item: Service
@@ -14,8 +15,7 @@ function ServicesCard({item}: Readonly<Card>) {
       <item.icon className="size-5" strokeWidth={1} />
       <div className="flex flex-col gap-2">
         <Header6 className="capitalize italic font-medium whitespace-nowrap" text={item.title} />
-        {/* <Paragraph text={item.desc} className="!leading-none text-sm"/> */}
-        <p className="text-sm leading-none">{item.desc}</p>
+        <p className={'text-sm md:text-base 2xl:text-xl !leading-[1]'}>{item.desc}</p>
       </div>
       <Dialog>
         <DialogTrigger asChild>

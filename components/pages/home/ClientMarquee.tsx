@@ -31,7 +31,7 @@ function ClientMarquee({data}: {readonly data: SettingsQueryResult}) {
   ]
 
   return (
-    <section className="relative bg-accent pt-7 pb-2">
+    <section className="relative bg-accent pt-7 pb-2 2xl:pb-5">
       <div className="z-[3] absolute top-[20%] w-full flex justify-center">
         <Paragraph text="Brands we've served:" className="capitalize font-montrealMedium" />
       </div>

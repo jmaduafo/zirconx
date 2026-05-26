@@ -59,7 +59,6 @@ function Footer({data, events}: Readonly<Contacts>) {
             {data?.address?.city}, {data?.address?.country}
           </li>
           <li className="mt-2">
-            {/* onClick={() => data?.phone && copyToClipboard(data.phone.toString())} */}
             <button >
               +{data?.phone}
             </button>
@@ -103,8 +102,8 @@ function FooterList({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <p className="text-sm uppercase opacity-60 leading-none">{title}</p>
-      <ul className="grid text-sm">{children}</ul>
+      <p className="text-sm 2xl:text-xl uppercase opacity-60 leading-none">{title}</p>
+      <ul className="grid text-sm 2xl:text-xl">{children}</ul>
     </div>
   )
 }
