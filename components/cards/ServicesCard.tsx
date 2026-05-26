@@ -3,7 +3,6 @@ import React from 'react'
 import Header6 from '../headings/Header6'
 import {Button} from '../ui/button'
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from '../ui/dialog'
-import SmallParagraph from '../headings/SmallParagraph'
 
 type Card = {
   item: Service
@@ -24,10 +23,10 @@ function ServicesCard({item}: Readonly<Card>) {
         <DialogContent aria-describedby={undefined}>
           <DialogHeader>
             <DialogTitle className="capitalize flex items-start font-medium gap-2">
-              <item.icon strokeWidth={1} className='size-4'/>
+              <item.icon strokeWidth={1} className='size-4 2xl:size-5'/>
               {item.title}</DialogTitle>
           </DialogHeader>
-          <ul className="pl-5 flex flex-col">
+          <ul className="pl-5 flex flex-col 2xl:text-xl">
             {item.details.map((text) => {
               return (
                 <li key={text} className="list-disc">
@@ -36,10 +35,10 @@ function ServicesCard({item}: Readonly<Card>) {
               )
             })}
           </ul>
-          <div className='mt-3S'>
+          <div className='mt-3 2xl:text-lg'>
             {item.note && (
               <p>
-                <span className="font-montrealMedium">Note:</span> {item.note[0]}
+                <span className="font-montrealMedium ">Note:</span> {item.note[0]}
               </p>
             )}
           </div>

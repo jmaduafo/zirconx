@@ -23,11 +23,11 @@ function Opening({data}: {readonly data: SettingsQueryResult}) {
       />
       <div className="flex flex-col gap-6 items-end mt-6">
         <Header3
-          className="max-w-3xl xl:max-w-4xl"
+          className="max-w-3xl xl:max-w-4xl 2xl:max-w-7xl"
           text="The Zircon Xperience is a full service professional event planning
 company located in Lagos."
         />
-        <div className="flex justify-end flex-wrap flex-row items-start gap-4">
+        <div className="flex justify-end flex-wrap flex-row items-start gap-4 2xl:gap-6">
           <SmallParagraph
             className="max-w-xs"
             text="At The Zircon Xperience, we are a full-service event planning company based in Lagos, creating intimate celebrations, corporate galas, brand openings, birthday parties, and memorable experiences tailored to each client."

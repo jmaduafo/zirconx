@@ -9,7 +9,7 @@ import React from 'react'
 function Motive({data}: {readonly data: SettingsQueryResult}) {
   return (
     <section className="px-[6vw] mt-[8vh] mb-[15vh]">
-      <div className="flex flex-col-reverse lg:flex-row lg:items-center gap-x-5 gap-y-[10vh]">
+      <div className="flex flex-col-reverse lg:flex-row lg:items-center gap-x-5 gap-y-[10vh] 2xl:gap-y-[6vh]">
         <div className="flex-1 relative">
           <ZoomIn>
             <div className="w-full">
@@ -37,13 +37,13 @@ function Motive({data}: {readonly data: SettingsQueryResult}) {
         <div className="flex-1 flex justify-center items-center">
           <div className="flex flex-col gap-4">
             <Header4 text="Our Motive" />
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 max-w-sm 2xl:max-w-lg">
               <Paragraph
-                className="max-w-sm"
+                className=""
                 text="At Zircon, our goal is to become a world-leading event planning company known for delivering exceptional and high-quality experiences."
               />
               <Paragraph
-                className="max-w-sm"
+                className=""
                 text="We are passionate about creating unforgettable moments by combining creativity, professionalism, and attention to detail in every event we organize and believe every event should reflect the personality and desires of the people it is created for."
               />
             </div>
