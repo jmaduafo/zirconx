@@ -69,7 +69,6 @@ function EventCard({title, image, index, link, isHome, height}: Readonly<Event>)
         'relative overflow-hidden w-full flex flex-col border-foreground',
         // index !== events.length - 1 && 'border-l-foreground',
         // height,
-        title.toLowerCase().includes('social') && isHome && "sm:col-span-2 md:col-span-1"
       )}
     >
       <div className="overflow-hidden h-[35vh] md:h-[25vw] w-full">

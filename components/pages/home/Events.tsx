@@ -7,6 +7,7 @@ import EventCard from '@/components/cards/EventCard'
 import GridDisplay from '@/components/containers/GridDisplay'
 import Header4 from '@/components/headings/Header4'
 import Paragraph from '@/components/headings/Paragraph'
+import { cn } from '@/lib/utils'
 import Decor from '@/public/images/decor.png'
 import {EventsQueryResult, SettingsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
@@ -58,6 +59,7 @@ function Events({
                   whileInView={{opacity: 1, transition: {delay: i * 0.2}}}
                   viewport={{once: true}}
                   key={event.title}
+                  className={cn(event?.title?.toLowerCase().includes('social') && "sm:col-span-2 md:col-span-1")}
                 >
                   <EventCard
                     isHome

@@ -52,7 +52,7 @@ function EventSubcategory({
 
   return currentEvent ? (
     <>
-      <InfoContainer isMarginTop>
+      <InfoContainer isMarginTop className='relative'>
         <div className="">
           <Header2 className="text-center italic">
             <TextGenerateEffect words={currentEvent?.subcategory ?? ''} />
