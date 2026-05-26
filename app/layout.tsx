@@ -2,7 +2,7 @@ import './globals.css'
 import {montrealBook, montrealMedium} from '@/font/fonts'
 import {cn} from '@/lib/utils'
 import {Cormorant_Garamond, Geist} from 'next/font/google'
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 
 const geist = Geist({subsets: ['latin'], variable: '--font-sans'})
 
@@ -12,6 +12,13 @@ const serif = Cormorant_Garamond({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
 })
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#b1d4df' },
+    { media: '(prefers-color-scheme: dark)', color: '#b1d4df' },
+  ],
+}
 
 export const metadata: Metadata = {
   title: 'Zircon Xperience',
@@ -38,7 +45,7 @@ export const metadata: Metadata = {
     icon: '/icon.png',
     apple: '/apple-icon.png',
   },
-  // themeColor: '#b1d4df'
+  themeColor: '#b1d4df'
 };
 
 
