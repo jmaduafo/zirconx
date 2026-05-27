@@ -27,7 +27,7 @@ function Hero({data}: {readonly data: SettingsQueryResult}) {
         className="h-full w-full"
       >
         <CarouselContent className="gap-0">
-          {data?.hero?.map((image, i) => {
+          {data?.home?.hero?.map((image, i) => {
             return (
               <CarouselItem key={`hero_carousel${i + 1}`} className="h-screen">
                 <div

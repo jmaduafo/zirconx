@@ -7,7 +7,7 @@ function ImageTransition({data}: {readonly data: SettingsQueryResult}) {
   return (
     <Parallax
       scale="scale-150 md:scale-110"
-      image={urlForImage(data?.aboutTransition)?.width(1920).height(1200).url() ?? ''}
+      image={urlForImage(data?.about?.transition)?.width(1920).height(1200).url() ?? ''}
       height="h-auto md:h-[80vh]"
     />
   )

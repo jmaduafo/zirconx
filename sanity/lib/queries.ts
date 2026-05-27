@@ -65,12 +65,34 @@ export const settingsQuery = defineQuery(`
       question,
       answer
     },
+    services[] {
+      title,
+      desc,
+      icon,
+      details,
+      note
+    },
     testimonials[]{
       client,
       text
     },
     gallery,
-    hero,
+    home{
+      hero,
+      services,
+      events,
+      transition1,
+      transition2,
+      transition3
+    },
+    about{
+      opening,
+      transition,
+      closing
+    },
+    events{
+      opening
+    },
     clients,
     address{
       street,
@@ -104,6 +126,67 @@ export const eventsQuery = defineQuery(`
         subcategory,
         images,
       }
+    }
+  }
+`)
+
+export const paragraphsQuery = defineQuery(`
+  *[_type == "paragraphs"][0]{
+    _id,
+    _type,
+
+    home {
+      aboutSummary,
+      aboutButton,
+      servicesTitle,
+      servicesParagraph1,
+      servicesParagraph2,
+      eventsTransition,
+      eventsTitle,
+      eventsParagraph,
+      eventButton,
+      galleryTransition,
+      brandsMarquee,
+      faqTitle,
+      faqSubtitle
+    },
+
+    about {
+      mainTitle,
+      introSummary,
+      introParagraph1,
+      introParagraph2,
+      meetOwnerTitle,
+      ownerParagraph1,
+      ownerParagraph2,
+      teamSummary,
+      closingTitle,
+      closingParagraph1,
+      closingParagraph2
+    },
+
+    events {
+      mainTitle,
+      paragraph1,
+      paragraph2,
+      marquee
+    },
+
+    contact {
+      title,
+      subtitle,
+      overviewContact,
+      servicesLegend,
+      submit
+    },
+
+    footer {
+      title,
+      button
+    },
+
+    client {
+      marqueeHeader
     }
   }
 `)

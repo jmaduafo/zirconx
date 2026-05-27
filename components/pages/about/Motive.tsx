@@ -14,7 +14,7 @@ function Motive({data}: {readonly data: SettingsQueryResult}) {
           <ZoomIn>
             <div className="w-full">
               <Image
-                src={urlForImage(data?.aboutMotive)?.width(1920).height(1200).url() ?? ''}
+                src={urlForImage(data?.about?.closing)?.width(1920).height(1200).url() ?? ''}
                 width={1920}
                 height={1080}
                 alt="ceramic bowls display"

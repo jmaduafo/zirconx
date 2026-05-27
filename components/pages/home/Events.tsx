@@ -25,7 +25,7 @@ function Events({
   return (
     <div className="">
       <GridDisplay
-        url={urlForImage(settingData?.homeEvents)?.width(1920).height(1920).url() ?? ''}
+        url={urlForImage(settingData?.home?.events)?.width(1920).height(1920).url() ?? ''}
         isTextRight
       >
         <div className="flex flex-col gap-6 justify-center h-full">

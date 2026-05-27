@@ -14,7 +14,7 @@ function Services({data}: {readonly data: SettingsQueryResult}) {
   return (
     <div>
       <GridDisplay
-        url={urlForImage(data?.homeServices)?.width(1920).height(1920).url() ?? ''}
+        url={urlForImage(data?.home?.services)?.width(1920).height(1920).url() ?? ''}
         orderLast
       >
         <div className="h-full flex flex-col justify-center gap-6">
@@ -27,7 +27,7 @@ function Services({data}: {readonly data: SettingsQueryResult}) {
       </GridDisplay>
       <section className="py-[12vh]">
         <div className="w-full sm:w-[85%] xl:w-[80%] 2xl:[50%] mx-auto flex flex-wrap justify-center gap-x-7 gap-y-7">
-          {services.map((service, i) => {
+          {data?.services?.map((service, i) => {
             return (
               <motion.div
                 initial={{opacity: 0}}

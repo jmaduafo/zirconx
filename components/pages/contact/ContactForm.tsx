@@ -27,7 +27,6 @@ import {
 } from '@/components/ui/select'
 import {Textarea} from '@/components/ui/textarea'
 import {sendEmail} from '@/emailjs/actions'
-import Logo from '@/public/logo/zircon_logo.png'
 import {SettingsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
 import {navigation, services} from '@/utils/data'
@@ -44,7 +43,6 @@ import * as z from 'zod'
 function ContactForm({data}: {readonly data: SettingsQueryResult}) {
   const [date, setDate] = useState<Date>()
 
-  console.log(data)
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -314,35 +312,35 @@ function ContactForm({data}: {readonly data: SettingsQueryResult}) {
             </FieldSet>
             <div className="flex flex-row items-start gap-4">
               <FieldSet className="flex-1 sm:flex-[2]">
+                <FieldLegend variant="label">Services Needed</FieldLegend>
                 <Controller
                   name="services"
                   control={form.control}
                   render={({field, fieldState}) => (
                     <>
-                      <FieldLegend variant="label">Services Needed</FieldLegend>
                       <FieldGroup
                         data-slot="checkbox-group"
                         className="grid sm:grid-cols-2 gap-y-3 gap-x-6"
                       >
-                        {services.map((service) => (
+                        {data?.services?.map((service) => (
                           <Field
                             key={service.title}
                             orientation="horizontal"
                             data-invalid={fieldState.invalid}
                           >
                             <Checkbox
-                              id={service.title
+                              id={service.title ?
+                                service.title.toLowerCase()
+                                .replace('-', ' ')
+                                .split(' ')
+                                .join('_') : ""}
+                              name={service.title ? service.title
                                 .toLowerCase()
                                 .replace('-', ' ')
                                 .split(' ')
-                                .join('_')}
-                              name={service.title
-                                .toLowerCase()
-                                .replace('-', ' ')
-                                .split(' ')
-                                .join('_')}
+                                .join('_') : ""}
                               aria-invalid={fieldState.invalid}
-                              checked={field.value.includes(service.title)}
+                              checked={field.value.includes(service.title as string)}
                               onCheckedChange={(checked) => {
                                 const newValue = checked
                                   ? [...field.value, service.title]
@@ -351,11 +349,11 @@ function ContactForm({data}: {readonly data: SettingsQueryResult}) {
                               }}
                             />
                             <FieldLabel
-                              htmlFor={service.title
+                              htmlFor={service?.title ? service.title
                                 .toLowerCase()
                                 .replace('-', ' ')
                                 .split(' ')
-                                .join('_')}
+                                .join('_') : ""}
                               className="capitalize"
                             >
                               {service.title}

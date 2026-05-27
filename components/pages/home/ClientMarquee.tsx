@@ -1,5 +1,4 @@
 import Paragraph from '@/components/headings/Paragraph'
-import {cn} from '@/lib/utils'
 import {SettingsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
 import Image from 'next/image'
@@ -7,28 +6,6 @@ import React from 'react'
 import Marquee from 'react-fast-marquee'
 
 function ClientMarquee({data}: {readonly data: SettingsQueryResult}) {
-  const clientsImages = [
-    {
-      height: 'h-[120px] lg:h-[200px]',
-      image: '/images/clients/bono.png',
-    },
-    {
-      height: 'h-[90px] lg:h-[120px]',
-      image: '/images/clients/busha.png',
-    },
-    {
-      height: 'h-[160px] lg:h-[230px]',
-      image: '/images/clients/interswitch.png',
-    },
-    {
-      height: 'h-[60px] lg:h-[100px]',
-      image: '/images/clients/lafarge.png',
-    },
-    {
-      height: 'h-[50px] lg:h-[90px]',
-      image: '/images/clients/netflix.png',
-    },
-  ]
 
   return (
     <section className="relative bg-accent pt-7 pb-2 2xl:pb-5">

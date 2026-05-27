@@ -1,14 +1,14 @@
 import SmallParagraph from '@/components/headings/SmallParagraph'
 import Decor from '@/public/images/decor.png'
-import {eventMarquee} from '@/utils/data'
+import { ParagraphsQueryResult } from '@/sanity.types'
 import Image from 'next/image'
 import React from 'react'
 import Marquee from 'react-fast-marquee'
 
-function TextMarquee() {
+function TextMarquee({ data }: { readonly data: ParagraphsQueryResult}) {
   return (
     <Marquee className="border-t border-b border-t-foreground border-b-foreground">
-      {eventMarquee.map((text) => {
+      {data?.events?.marquee?.map((text) => {
         return (
           <div key={text} className="h-full mx-[6vw] flex items-center gap-5">
             <div className='h-full'>

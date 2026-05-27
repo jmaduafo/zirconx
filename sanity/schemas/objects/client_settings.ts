@@ -38,9 +38,6 @@ export const statistics = {
       name: 'title',
       title: 'Title',
       type: 'string',
-      options: {
-        list: ['Years Active', 'Events', 'Specialties', 'Clients'],
-      },
     },
     {
       name: 'statistic',

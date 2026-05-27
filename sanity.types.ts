@@ -63,6 +63,15 @@ export type Testimonial = {
   text?: string
 }
 
+export type Service = {
+  _type: 'service'
+  title?: string
+  desc?: string
+  icon?: LucideIcon
+  details?: Array<string>
+  note?: Array<string>
+}
+
 export type Faq = {
   _type: 'faq'
   question?: string
@@ -71,7 +80,7 @@ export type Faq = {
 
 export type Statistic = {
   _type: 'statistic'
-  title?: 'Years Active' | 'Events' | 'Specialties' | 'Clients'
+  title?: string
   statistic?: string
 }
 
@@ -276,43 +285,294 @@ export type Events = {
   >
 }
 
-export type ProjectReference = {
-  _ref: string
-  _type: 'reference'
-  _weak?: boolean
-  [internalGroqTypeReferenceTo]?: 'project'
-}
-
-export type Home = {
+export type Paragraphs = {
   _id: string
-  _type: 'home'
+  _type: 'paragraphs'
   _createdAt: string
   _updatedAt: string
   _rev: string
-  title?: string
-  overview?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
+  home?: {
+    aboutSummary?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
       _key: string
     }>
-    style?: 'normal'
-    listItem?: never
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
+    aboutButton?: string
+    servicesTitle?: string
+    servicesParagraph1?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
       _key: string
     }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }>
-  showcaseProjects?: Array<
-    {
+    servicesParagraph2?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
       _key: string
-    } & ProjectReference
-  >
+    }>
+    eventsTransition?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }>
+    eventsTitle?: string
+    eventsParagraph?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }>
+    eventButton?: string
+    galleryTransition?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }>
+    brandsMarquee?: string
+    faqTitle?: string
+    faqSubtitle?: string
+  }
+  about?: {
+    mainTitle?: string
+    introSummary?: string
+    introParagraph1?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }>
+    introParagraph2?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }>
+    meetOwnerTitle?: string
+    ownerParagraph1?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }>
+    ownerParagraph2?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }>
+    closingTitle?: string
+    closingParagraph1?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }>
+    closingParagraph2?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }>
+  }
+  events?: {
+    mainTitle?: string
+    paragraph1?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }>
+    paragraph2?: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }>
+    marquee?: Array<string>
+  }
+  contact?: {
+    title?: string
+    subtitle?: string
+    overviewContact?: string
+    servicesLegend?: string
+    submit?: string
+  }
+  footer?: {
+    title?: string
+    button?: string
+  }
 }
 
 export type Settings = {
@@ -341,6 +601,27 @@ export type Settings = {
       _key: string
     } & Testimonial
   >
+  services?: Array<
+    {
+      _key: string
+    } & Service
+  >
+  clients?: Array<{
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+    _key: string
+  }>
+  gallery?: Array<{
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+    _key: string
+  }>
   address?: {
     street?: string
     city?: string
@@ -362,94 +643,86 @@ export type Settings = {
     crop?: SanityImageCrop
     _type: 'image'
   }
-  homeServices?: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
+  home?: {
+    hero?: Array<{
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+      _key: string
+    }>
+    services?: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    transition1?: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    events?: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    transition2?: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    transition3?: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
   }
-  homeEvents?: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
+  about?: {
+    opening?: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    transition?: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    closing?: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
   }
-  transition1?: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
+  events?: {
+    opening?: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
   }
-  transition2?: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  }
-  transition3?: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  }
-  aboutOpening?: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  }
-  aboutTransition?: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  }
-  aboutMotive?: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  }
-  eventOpening?: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  }
-  hero?: Array<{
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-    _key: string
-  }>
-  clients?: Array<{
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-    _key: string
-  }>
-  gallery?: Array<{
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-    _key: string
-  }>
 }
+
+export type LucideIcon = string
 
 export type SanityImagePaletteSwatch = {
   _type: 'sanity.imagePaletteSwatch'
@@ -553,6 +826,7 @@ export type AllSanitySchemaTypes =
   | EventCategory
   | EventGallery
   | Testimonial
+  | Service
   | Faq
   | Statistic
   | SocialLink
@@ -565,9 +839,9 @@ export type AllSanitySchemaTypes =
   | Slug
   | Page
   | Events
-  | ProjectReference
-  | Home
+  | Paragraphs
   | Settings
+  | LucideIcon
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
@@ -580,58 +854,7 @@ export type AllSanitySchemaTypes =
 // Source: sanity/lib/queries.ts
 // Variable: homePageQuery
 // Query: *[_type == "home"][0]{    _id,    _type,    overview,    showcaseProjects[]{      _key,      ...@->{        _id,        _type,        coverImage,        overview,        "slug": slug.current,        tags,        title,      }    },    title,  }
-export type HomePageQueryResult = {
-  _id: string
-  _type: 'home'
-  overview: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
-      _key: string
-    }>
-    style?: 'normal'
-    listItem?: never
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
-      _key: string
-    }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }> | null
-  showcaseProjects: Array<{
-    _key: string
-    _id: string
-    _type: 'project'
-    coverImage: {
-      asset?: SanityImageAssetReference
-      media?: unknown
-      hotspot?: SanityImageHotspot
-      crop?: SanityImageCrop
-      _type: 'image'
-    } | null
-    overview: Array<{
-      children?: Array<{
-        marks?: Array<string>
-        text?: string
-        _type: 'span'
-        _key: string
-      }>
-      style?: 'normal'
-      listItem?: never
-      markDefs?: null
-      level?: number
-      _type: 'block'
-      _key: string
-    }> | null
-    slug: string | null
-    tags: Array<string> | null
-    title: string | null
-  }> | null
-  title: string | null
-} | null
+export type HomePageQueryResult = null
 
 // Source: sanity/lib/queries.ts
 // Variable: pagesBySlugQuery
@@ -760,7 +983,7 @@ export type ProjectBySlugQueryResult = {
 
 // Source: sanity/lib/queries.ts
 // Variable: settingsQuery
-// Query: *[_type == "settings"][0]{    _id,    _type,    socialLinks[]{      platform,      url    },    statistics[]{      title,      statistic    },    faqs[]{      question,      answer    },    testimonials[]{      client,      text    },    gallery,    hero,    clients,    address{      street,      city,      country    },    phone,    email,    owner,    logo,    homeServices,    homeEvents,    transition1,    transition2,    transition3,    aboutOpening,    aboutTransition,    aboutMotive,    eventOpening  }
+// Query: *[_type == "settings"][0]{    _id,    _type,    socialLinks[]{      platform,      url    },    statistics[]{      title,      statistic    },    faqs[]{      question,      answer    },    services[] {      title,      desc,      icon,      details,      note    },    testimonials[]{      client,      text    },    gallery,    home{      hero,      services,      events,      transition1,      transition2,      transition3    },    about{      opening,      transition,      closing    },    events{      opening    },    clients,    address{      street,      city,      country    },    phone,    email,    owner,    logo,    homeServices,    homeEvents,    transition1,    transition2,    transition3,    aboutOpening,    aboutTransition,    aboutMotive,    eventOpening  }
 export type SettingsQueryResult = {
   _id: string
   _type: 'settings'
@@ -769,12 +992,19 @@ export type SettingsQueryResult = {
     url: string | null
   }> | null
   statistics: Array<{
-    title: 'Clients' | 'Events' | 'Specialties' | 'Years Active' | null
+    title: string | null
     statistic: string | null
   }> | null
   faqs: Array<{
     question: string | null
     answer: string | null
+  }> | null
+  services: Array<{
+    title: string | null
+    desc: string | null
+    icon: LucideIcon | null
+    details: Array<string> | null
+    note: Array<string> | null
   }> | null
   testimonials: Array<{
     client: string | null
@@ -788,14 +1018,83 @@ export type SettingsQueryResult = {
     _type: 'image'
     _key: string
   }> | null
-  hero: Array<{
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-    _key: string
-  }> | null
+  home: {
+    hero: Array<{
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+      _key: string
+    }> | null
+    services: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    events: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    transition1: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    transition2: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    transition3: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+  } | null
+  about: {
+    opening: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    transition: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+    closing: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+  } | null
+  events: {
+    opening: {
+      asset?: SanityImageAssetReference
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+  } | null
   clients: Array<{
     asset?: SanityImageAssetReference
     media?: unknown
@@ -825,69 +1124,15 @@ export type SettingsQueryResult = {
     crop?: SanityImageCrop
     _type: 'image'
   } | null
-  homeServices: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  } | null
-  homeEvents: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  } | null
-  transition1: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  } | null
-  transition2: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  } | null
-  transition3: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  } | null
-  aboutOpening: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  } | null
-  aboutTransition: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  } | null
-  aboutMotive: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  } | null
-  eventOpening: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  } | null
+  homeServices: null
+  homeEvents: null
+  transition1: null
+  transition2: null
+  transition3: null
+  aboutOpening: null
+  aboutTransition: null
+  aboutMotive: null
+  eventOpening: null
 } | null
 
 // Source: sanity/lib/queries.ts
@@ -920,6 +1165,296 @@ export type EventsQueryResult = {
 } | null
 
 // Source: sanity/lib/queries.ts
+// Variable: paragraphsQuery
+// Query: *[_type == "paragraphs"][0]{    _id,    _type,    home {      aboutSummary,      aboutButton,      servicesTitle,      servicesParagraph1,      servicesParagraph2,      eventsTransition,      eventsTitle,      eventsParagraph,      eventButton,      galleryTransition,      brandsMarquee,      faqTitle,      faqSubtitle    },    about {      mainTitle,      introSummary,      introParagraph1,      introParagraph2,      meetOwnerTitle,      ownerParagraph1,      ownerParagraph2,      closingTitle,      closingParagraph1,      closingParagraph2    },    events {      mainTitle,      paragraph1,      paragraph2,      marquee    },    contact {      title,      subtitle,      overviewContact,      servicesLegend,      submit    },    footer {      title,      button    }  }
+export type ParagraphsQueryResult = {
+  _id: string
+  _type: 'paragraphs'
+  home: {
+    aboutSummary: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    aboutButton: string | null
+    servicesTitle: string | null
+    servicesParagraph1: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    servicesParagraph2: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    eventsTransition: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    eventsTitle: string | null
+    eventsParagraph: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    eventButton: string | null
+    galleryTransition: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    brandsMarquee: string | null
+    faqTitle: string | null
+    faqSubtitle: string | null
+  } | null
+  about: {
+    mainTitle: string | null
+    introSummary: string | null
+    introParagraph1: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    introParagraph2: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    meetOwnerTitle: string | null
+    ownerParagraph1: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    ownerParagraph2: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    closingTitle: string | null
+    closingParagraph1: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    closingParagraph2: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+  } | null
+  events: {
+    mainTitle: string | null
+    paragraph1: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    paragraph2: Array<{
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'h1' | 'h2' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }> | null
+    marquee: Array<string> | null
+  } | null
+  contact: {
+    title: string | null
+    subtitle: string | null
+    overviewContact: string | null
+    servicesLegend: string | null
+    submit: string | null
+  } | null
+  footer: {
+    title: string | null
+    button: string | null
+  } | null
+} | null
+
+// Source: sanity/lib/queries.ts
 // Variable: slugsByTypeQuery
 // Query: *[_type == $type && defined(slug.current)]{"slug": slug.current}
 export type SlugsByTypeQueryResult = Array<{
@@ -931,8 +1466,9 @@ declare module '@sanity/client' {
     '\n  *[_type == "home"][0]{\n    _id,\n    _type,\n    overview,\n    showcaseProjects[]{\n      _key,\n      ...@->{\n        _id,\n        _type,\n        coverImage,\n        overview,\n        "slug": slug.current,\n        tags,\n        title,\n      }\n    },\n    title,\n  }\n': HomePageQueryResult
     '\n  *[_type == "page" && slug.current == $slug][0] {\n    _id,\n    _type,\n    body,\n    overview,\n    title,\n    "slug": slug.current,\n  }\n': PagesBySlugQueryResult
     '\n  *[_type == "project" && slug.current == $slug][0] {\n    _id,\n    _type,\n    client,\n    coverImage,\n    description,\n    duration,\n    overview,\n    site,\n    "slug": slug.current,\n    tags,\n    title,\n  }\n': ProjectBySlugQueryResult
-    '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    socialLinks[]{\n      platform,\n      url\n    },\n    statistics[]{\n      title,\n      statistic\n    },\n    faqs[]{\n      question,\n      answer\n    },\n    testimonials[]{\n      client,\n      text\n    },\n    gallery,\n    hero,\n    clients,\n    address{\n      street,\n      city,\n      country\n    },\n    phone,\n    email,\n    owner,\n    logo,\n    homeServices,\n    homeEvents,\n    transition1,\n    transition2,\n    transition3,\n    aboutOpening,\n    aboutTransition,\n    aboutMotive,\n    eventOpening\n  }\n': SettingsQueryResult
+    '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    socialLinks[]{\n      platform,\n      url\n    },\n    statistics[]{\n      title,\n      statistic\n    },\n    faqs[]{\n      question,\n      answer\n    },\n    services[] {\n      title,\n      desc,\n      icon,\n      details,\n      note\n    },\n    testimonials[]{\n      client,\n      text\n    },\n    gallery,\n    home{\n      hero,\n      services,\n      events,\n      transition1,\n      transition2,\n      transition3\n    },\n    about{\n      opening,\n      transition,\n      closing\n    },\n    events{\n      opening\n    },\n    clients,\n    address{\n      street,\n      city,\n      country\n    },\n    phone,\n    email,\n    owner,\n    logo,\n    homeServices,\n    homeEvents,\n    transition1,\n    transition2,\n    transition3,\n    aboutOpening,\n    aboutTransition,\n    aboutMotive,\n    eventOpening\n  }\n': SettingsQueryResult
     '\n  *[_type == "events"][0]{\n    categories[]{\n      title,\n      description,\n      img,\n      slug,\n      subcategories[]{\n        subcategory,\n        images,\n      }\n    }\n  }\n': EventsQueryResult
+    '\n  *[_type == "paragraphs"][0]{\n    _id,\n    _type,\n\n    home {\n      aboutSummary,\n      aboutButton,\n      servicesTitle,\n      servicesParagraph1,\n      servicesParagraph2,\n      eventsTransition,\n      eventsTitle,\n      eventsParagraph,\n      eventButton,\n      galleryTransition,\n      brandsMarquee,\n      faqTitle,\n      faqSubtitle\n    },\n\n    about {\n      mainTitle,\n      introSummary,\n      introParagraph1,\n      introParagraph2,\n      meetOwnerTitle,\n      ownerParagraph1,\n      ownerParagraph2,\n      closingTitle,\n      closingParagraph1,\n      closingParagraph2\n    },\n\n    events {\n      mainTitle,\n      paragraph1,\n      paragraph2,\n      marquee\n    },\n\n    contact {\n      title,\n      subtitle,\n      overviewContact,\n      servicesLegend,\n      submit\n    },\n\n    footer {\n      title,\n      button\n    }\n  }\n': ParagraphsQueryResult
     '\n  *[_type == $type && defined(slug.current)]{"slug": slug.current}\n': SlugsByTypeQueryResult
   }
 }

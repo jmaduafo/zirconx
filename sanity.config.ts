@@ -11,9 +11,11 @@ import project from '@/sanity/schemas/documents/project'
 import duration from '@/sanity/schemas/objects/duration'
 import milestone from '@/sanity/schemas/objects/milestone'
 import timeline from '@/sanity/schemas/objects/timeline'
+import service from '@/sanity/schemas/objects/client_services'
 import settings from '@/sanity/schemas/singletons/settings'
-import home from '@/sanity/schemas/singletons/home'
 import events from './sanity/schemas/singletons/events'
+import paragraphs from './sanity/schemas/singletons/paragraphs'
+import { lucideIconPicker } from 'sanity-plugin-lucide-icon-picker';
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
@@ -38,7 +40,8 @@ export default defineConfig({
     types: [
       // Singletons
       settings,
-      home,
+      // home,
+      paragraphs,
       events,
       // Documents
       duration,
@@ -50,6 +53,7 @@ export default defineConfig({
       socials,
       statistics,
       faqs,
+      service,
       testimonials,
       eventGallery,
       eventCategory
@@ -57,16 +61,17 @@ export default defineConfig({
   },
   plugins: [
     structureTool({
-      structure: pageStructure([settings, home, events]),
+      structure: pageStructure([settings, events, paragraphs]),
     }),
     presentationTool({
       resolve,
       previewUrl: {previewMode: {enable: '/api/draft-mode/enable'}},
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([settings.name, home.name, events.name]),
+    singletonPlugin([settings.name, events.name, paragraphs.name]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
+    lucideIconPicker(),
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),

@@ -17,7 +17,7 @@ function Opening({data}: {readonly data: SettingsQueryResult}) {
         </Header2>
       </div>
       <Parallax
-        image={urlForImage(data?.aboutOpening)?.width(1920).height(1200).url() ?? ''}
+        image={urlForImage(data?.about?.opening)?.width(1920).height(1200).url() ?? ''}
         height="lg:h-[80vh]"
         scale="scale-110"
       />
