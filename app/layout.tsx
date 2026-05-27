@@ -14,10 +14,7 @@ const serif = Cormorant_Garamond({
 })
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#b1d4df' },
-    { media: '(prefers-color-scheme: dark)', color: '#b1d4df' },
-  ],
+  themeColor: '#b1d4df'
 }
 
 export const metadata: Metadata = {
@@ -41,10 +38,10 @@ export const metadata: Metadata = {
   //   statusBarStyle: 'black-translucent',
   //   capable: true,
   // },
-  icons: {
-    icon: '/icon.png',
-    apple: '/apple-icon.png',
-  },
+  // icons: {
+  //   icon: '/icon.png',
+  //   apple: '/apple-icon.png',
+  // },
   themeColor: '#b1d4df'
 };
 
