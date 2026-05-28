@@ -34,11 +34,11 @@ function Opening({
         />
         <div className="flex justify-end flex-wrap flex-row items-start gap-4 2xl:gap-6">
           <SmallParagraph
-            className="max-w-xs"
+            className="max-w-md lg:max-w-xs"
             text={paragraphs?.about?.introParagraph1?.[0]?.children?.[0]?.text ?? ''}
           />
           <SmallParagraph
-            className="max-w-xs"
+            className="max-w-md lg:max-w-xs"
             text={paragraphs?.about?.introParagraph2?.[0]?.children?.[0]?.text ?? ''}
           />
         </div>

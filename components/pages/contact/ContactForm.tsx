@@ -39,6 +39,7 @@ import {urlForImage} from '@/sanity/lib/utils'
 import {navigation, services} from '@/utils/data'
 import {contactSchema} from '@/zod/validation'
 import {zodResolver} from '@hookform/resolvers/zod'
+import { Icon } from '@iconify/react'
 import {format} from 'date-fns'
 import {ChevronDownIcon} from 'lucide-react'
 import Image from 'next/image'
@@ -118,7 +119,9 @@ function ContactForm({
                     control={form.control}
                     render={({field, fieldState}) => (
                       <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor={field.name}>{paragraphs?.contact?.firstName} *</FieldLabel>
+                        <FieldLabel htmlFor={field.name}>
+                          {paragraphs?.contact?.firstName} *
+                        </FieldLabel>
                         <Input
                           {...field}
                           aria-invalid={fieldState.invalid}
@@ -134,7 +137,9 @@ function ContactForm({
                     control={form.control}
                     render={({field, fieldState}) => (
                       <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor={field.name}>{paragraphs?.contact?.lastName} *</FieldLabel>
+                        <FieldLabel htmlFor={field.name}>
+                          {paragraphs?.contact?.lastName} *
+                        </FieldLabel>
                         <Input
                           {...field}
                           aria-invalid={fieldState.invalid}
@@ -183,7 +188,9 @@ function ContactForm({
                     control={form.control}
                     render={({field, fieldState}) => (
                       <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor={field.name}>{paragraphs?.contact?.eventType} *</FieldLabel>
+                        <FieldLabel htmlFor={field.name}>
+                          {paragraphs?.contact?.eventType} *
+                        </FieldLabel>
                         <Select
                           name={field.name}
                           value={field.value}
@@ -224,7 +231,9 @@ function ContactForm({
                     control={form.control}
                     render={({field, fieldState}) => (
                       <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor={field.name}>{paragraphs?.contact?.eventDate} *</FieldLabel>
+                        <FieldLabel htmlFor={field.name}>
+                          {paragraphs?.contact?.eventDate} *
+                        </FieldLabel>
                         <Popover>
                           <PopoverTrigger asChild>
                             <Button
@@ -257,7 +266,9 @@ function ContactForm({
                     control={form.control}
                     render={({field, fieldState}) => (
                       <Field data-invalid={fieldState.invalid} className="sm:col-span-2">
-                        <FieldLabel htmlFor={field.name}>{paragraphs?.contact?.eventLocation} *</FieldLabel>
+                        <FieldLabel htmlFor={field.name}>
+                          {paragraphs?.contact?.eventLocation} *
+                        </FieldLabel>
                         <Input
                           {...field}
                           aria-invalid={fieldState.invalid}
@@ -273,7 +284,9 @@ function ContactForm({
                     control={form.control}
                     render={({field, fieldState}) => (
                       <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor={field.name}>{paragraphs?.contact?.eventBudget} *</FieldLabel>
+                        <FieldLabel htmlFor={field.name}>
+                          {paragraphs?.contact?.eventBudget} *
+                        </FieldLabel>
                         <Input
                           {...field}
                           aria-invalid={fieldState.invalid}
@@ -291,7 +304,9 @@ function ContactForm({
                     control={form.control}
                     render={({field, fieldState}) => (
                       <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor={field.name}>{paragraphs?.contact?.eventGuests} *</FieldLabel>
+                        <FieldLabel htmlFor={field.name}>
+                          {paragraphs?.contact?.eventGuests} *
+                        </FieldLabel>
                         <Input
                           {...field}
                           aria-invalid={fieldState.invalid}
@@ -309,7 +324,9 @@ function ContactForm({
                     control={form.control}
                     render={({field, fieldState}) => (
                       <Field data-invalid={fieldState.invalid} className="sm:col-span-2">
-                        <FieldLabel htmlFor={field.name}>{paragraphs?.contact?.eventDesc} *</FieldLabel>
+                        <FieldLabel htmlFor={field.name}>
+                          {paragraphs?.contact?.eventDesc} *
+                        </FieldLabel>
                         <Textarea
                           {...field}
                           aria-invalid={fieldState.invalid}
@@ -391,7 +408,15 @@ function ContactForm({
                                 </DialogTrigger>
                                 <DialogContent aria-describedby={undefined}>
                                   <DialogHeader>
-                                    <DialogTitle>{service.title}</DialogTitle>
+                                    <DialogTitle className="capitalize flex items-start font-medium gap-2">
+                                      {service.icon && (
+                                        <Icon
+                                          icon={`${service?.icon?.name}`}
+                                          className="[&_*]:stroke-[1] size-4 2xl:size-5"
+                                        />
+                                      )}
+                                      {service.title}
+                                    </DialogTitle>
                                   </DialogHeader>
                                   <ul className="pl-5 flex flex-col 2xl:text-xl">
                                     {service?.details?.map((text) => {
