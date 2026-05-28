@@ -33,6 +33,12 @@ export default defineType({
       title: 'Testimonials',
       of: [{type: 'testimonial'}],
     },
+    {
+      name: 'navigations',
+      type: 'array',
+      title: 'Navigations',
+      of: [{type: 'navigation'}],
+    },
     defineField({
       name: 'services',
       title: 'Services',

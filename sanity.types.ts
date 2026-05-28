@@ -67,8 +67,14 @@ export type Service = {
   _type: 'service'
   title?: string
   desc?: string
+  icon?: Icon
   details?: Array<string>
   note?: Array<string>
+}
+
+export type Navigation = {
+  _type: 'navigation'
+  name?: string
 }
 
 export type Faq = {
@@ -616,6 +622,11 @@ export type Settings = {
       _key: string
     } & Testimonial
   >
+  navigations?: Array<
+    {
+      _key: string
+    } & Navigation
+  >
   services?: Array<
     {
       _key: string
@@ -737,6 +748,11 @@ export type Settings = {
   }
 }
 
+export type Icon = {
+  _type: 'icon'
+  name?: string
+}
+
 export type SanityImagePaletteSwatch = {
   _type: 'sanity.imagePaletteSwatch'
   background?: string
@@ -840,6 +856,7 @@ export type AllSanitySchemaTypes =
   | EventGallery
   | Testimonial
   | Service
+  | Navigation
   | Faq
   | Statistic
   | SocialLink
@@ -854,6 +871,7 @@ export type AllSanitySchemaTypes =
   | Events
   | Paragraphs
   | Settings
+  | Icon
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
@@ -1014,7 +1032,7 @@ export type SettingsQueryResult = {
   services: Array<{
     title: string | null
     desc: string | null
-    icon: null
+    icon: Icon | null
     details: Array<string> | null
     note: Array<string> | null
   }> | null

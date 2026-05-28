@@ -384,7 +384,7 @@ function ContactForm({
                               className="capitalize"
                             >
                               <Dialog>
-                                <DialogTrigger className="hover:underline" asChild>
+                                <DialogTrigger className="hover:underline text-foreground" asChild>
                                   <Button variant={'ghost'} className="p-0" type="button">
                                     {service.title}
                                   </Button>

@@ -9,14 +9,12 @@ import PrimaryButton from './buttons/PrimaryButton'
 import Header2 from './headings/Header2'
 
 type Contacts = {
-  data: SettingsQueryResult;
-  events: EventsQueryResult;
+  data: SettingsQueryResult
+  events: EventsQueryResult
   paragraphs: ParagraphsQueryResult
 }
 
 function Footer({data, events, paragraphs}: Readonly<Contacts>) {
-
-
   return (
     <footer
       id="contacts"
@@ -25,9 +23,9 @@ function Footer({data, events, paragraphs}: Readonly<Contacts>) {
       {/* CALL TO ACTION TO CONTACT US PAGE */}
       <div className="flex flex-col gap-5">
         <Header2 className="italic w-[5em] !leading-[0.8]">
-          <BlurText text={paragraphs?.footer?.title ?? ""} />
+          <BlurText text={paragraphs?.footer?.title ?? ''} />
         </Header2>
-        <PrimaryButton text={paragraphs?.footer?.button ?? ""} href="/contact" isLight />
+        <PrimaryButton text={paragraphs?.footer?.button ?? ''} href="/contact" isLight />
       </div>
       {/* FOOTER LINK LIST BY SECTION */}
       <div className="w-full md:w-auto grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4">
@@ -46,12 +44,12 @@ function Footer({data, events, paragraphs}: Readonly<Contacts>) {
         {/* EVENTS LINKS */}
         <FooterList title="Events">
           {events?.categories?.map((nav) => {
-              return (
-                <li key={nav.title} className="capitalize">
-                  <Link href={`/events/${nav.slug}`}>{nav.title}</Link>
-                </li>
-              )
-            })}
+            return (
+              <li key={nav.title} className="capitalize">
+                <Link href={`/events/${nav.slug}`}>{nav.title}</Link>
+              </li>
+            )
+          })}
         </FooterList>
         {/* LOCATION DISPLAY */}
         <FooterList title="Location">
@@ -59,11 +57,7 @@ function Footer({data, events, paragraphs}: Readonly<Contacts>) {
           <li>
             {data?.address?.city}, {data?.address?.country}
           </li>
-          <li className="mt-2">
-            <button >
-              +{data?.phone}
-            </button>
-          </li>
+          <li className="mt-2">+{data?.phone}</li>
         </FooterList>
         {/* CLIENT SOCIAL LINKS */}
         <FooterList title="Socials">

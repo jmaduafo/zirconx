@@ -82,3 +82,16 @@ export const testimonials = {
     },
   ],
 }
+
+export const navigations = {
+  name: 'navigation',
+  title: 'Navigation',
+  type: 'object',
+  fields: [
+    {
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+    }
+  ],
+}

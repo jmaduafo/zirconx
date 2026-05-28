@@ -20,8 +20,8 @@ import {defineConfig} from 'sanity'
 import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
 import {presentationTool} from 'sanity/presentation'
 import {structureTool} from 'sanity/structure'
-
-import { socials, statistics, faqs, testimonials } from './sanity/schemas/objects/client_settings'
+import {iconify} from 'sanity-plugin-iconify'
+import { socials, statistics, faqs, testimonials, navigations } from './sanity/schemas/objects/client_settings'
 import eventGallery from "@/sanity/schemas/objects/client_events"
 import eventCategory from './sanity/schemas/objects/eventCategory'
 
@@ -52,10 +52,12 @@ export default defineConfig({
       socials,
       statistics,
       faqs,
+      navigations,
       service,
       testimonials,
       eventGallery,
-      eventCategory
+      eventCategory,
+      
     ],
   },
   plugins: [
@@ -73,5 +75,9 @@ export default defineConfig({
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
+    iconify({
+      // Optional: limit to just Lucide icons to keep it clean for editors
+      collections: ['lucide'] 
+    }),
   ],
 })

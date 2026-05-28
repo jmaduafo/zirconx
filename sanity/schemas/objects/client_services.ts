@@ -21,12 +21,11 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
 
-    // defineField({
-    //   name: 'icon',
-    //   title: 'Select Icon',
-    //   type: 'lucide-icon',
-    //   validation: (Rule) => Rule.required(),
-    // }),
+    defineField({
+      name: 'icon',
+      title: 'Icon',
+      type: 'icon',
+    }),
 
     defineField({
       name: 'details',
