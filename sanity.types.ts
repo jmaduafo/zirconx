@@ -521,6 +521,7 @@ export type Paragraphs = {
       _type: 'block'
       _key: string
     }>
+    galleryButton?: string
   }
   events?: {
     mainTitle?: string
@@ -561,12 +562,23 @@ export type Paragraphs = {
       _key: string
     }>
     marquee?: Array<string>
+    carouselButton?: string
   }
   contact?: {
     title?: string
     subtitle?: string
     overviewContact?: string
     servicesLegend?: string
+    firstName?: string
+    lastName?: string
+    email?: string
+    phone?: string
+    eventType?: string
+    eventDate?: string
+    eventLocation?: string
+    eventBudget?: string
+    eventGuests?: string
+    eventDesc?: string
     submit?: string
   }
   footer?: {
@@ -1166,7 +1178,7 @@ export type EventsQueryResult = {
 
 // Source: sanity/lib/queries.ts
 // Variable: paragraphsQuery
-// Query: *[_type == "paragraphs"][0]{    _id,    _type,    home {      mainTitle,      aboutSummary,      aboutButton,      servicesTitle,      servicesParagraph1,      servicesParagraph2,      eventsTransition,      eventsTitle,      eventsParagraph,      eventButton,      galleryTransition,      brandsMarquee,      faqTitle,      faqSubtitle    },    about {      mainTitle,      introSummary,      introParagraph1,      introParagraph2,      meetOwnerTitle,      ownerParagraph1,      ownerParagraph2,      teamSummary,      closingTitle,      closingParagraph1,      closingParagraph2    },    events {      mainTitle,      paragraph1,      paragraph2,      marquee    },    contact {      title,      subtitle,      overviewContact,      servicesLegend,      submit    },    footer {      title,      button    },    client {      marqueeHeader    }  }
+// Query: *[_type == "paragraphs"][0]{    _id,    _type,    home {      mainTitle,      aboutSummary,      aboutButton,      servicesTitle,      servicesParagraph1,      servicesParagraph2,      eventsTransition,      eventsTitle,      eventsParagraph,      eventButton,      galleryTransition,      brandsMarquee,      faqTitle,      faqSubtitle    },    about {      mainTitle,      introSummary,      introParagraph1,      introParagraph2,      meetOwnerTitle,      ownerParagraph1,      ownerParagraph2,      teamSummary,      closingTitle,      closingParagraph1,      closingParagraph2,      galleryButton    },    events {      mainTitle,      paragraph1,      paragraph2,      marquee,      carouselButton    },    contact {      title,      subtitle,      overviewContact,      servicesLegend,      firstName,      lastName,      email,      phone,      eventType,      eventDate,      eventLocation,      eventBudget,      eventGuests,      eventDesc,      submit    },    footer {      title,      button    },    client {      marqueeHeader    }  }
 export type ParagraphsQueryResult = {
   _id: string
   _type: 'paragraphs'
@@ -1402,6 +1414,7 @@ export type ParagraphsQueryResult = {
       _type: 'block'
       _key: string
     }> | null
+    galleryButton: string | null
   } | null
   events: {
     mainTitle: string | null
@@ -1442,12 +1455,23 @@ export type ParagraphsQueryResult = {
       _key: string
     }> | null
     marquee: Array<string> | null
+    carouselButton: string | null
   } | null
   contact: {
     title: string | null
     subtitle: string | null
     overviewContact: string | null
     servicesLegend: string | null
+    firstName: string | null
+    lastName: string | null
+    email: string | null
+    phone: string | null
+    eventType: string | null
+    eventDate: string | null
+    eventLocation: string | null
+    eventBudget: string | null
+    eventGuests: string | null
+    eventDesc: string | null
     submit: string | null
   } | null
   footer: {
@@ -1473,7 +1497,7 @@ declare module '@sanity/client' {
     '\n  *[_type == "project" && slug.current == $slug][0] {\n    _id,\n    _type,\n    client,\n    coverImage,\n    description,\n    duration,\n    overview,\n    site,\n    "slug": slug.current,\n    tags,\n    title,\n  }\n': ProjectBySlugQueryResult
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    socialLinks[]{\n      platform,\n      url\n    },\n    statistics[]{\n      title,\n      statistic\n    },\n    faqs[]{\n      question,\n      answer\n    },\n    services[] {\n      title,\n      desc,\n      icon,\n      details,\n      note\n    },\n    testimonials[]{\n      client,\n      text\n    },\n    gallery,\n    home{\n      hero,\n      services,\n      events,\n      transition1,\n      transition2,\n      transition3\n    },\n    about{\n      opening,\n      transition,\n      closing\n    },\n    events{\n      opening\n    },\n    clients,\n    address{\n      street,\n      city,\n      country\n    },\n    phone,\n    email,\n    owner,\n    logo,\n    homeServices,\n    homeEvents,\n    transition1,\n    transition2,\n    transition3,\n    aboutOpening,\n    aboutTransition,\n    aboutMotive,\n    eventOpening\n  }\n': SettingsQueryResult
     '\n  *[_type == "events"][0]{\n    categories[]{\n      title,\n      description,\n      img,\n      slug,\n      subcategories[]{\n        subcategory,\n        images,\n      }\n    }\n  }\n': EventsQueryResult
-    '\n  *[_type == "paragraphs"][0]{\n    _id,\n    _type,\n\n    home {\n      mainTitle,\n      aboutSummary,\n      aboutButton,\n      servicesTitle,\n      servicesParagraph1,\n      servicesParagraph2,\n      eventsTransition,\n      eventsTitle,\n      eventsParagraph,\n      eventButton,\n      galleryTransition,\n      brandsMarquee,\n      faqTitle,\n      faqSubtitle\n    },\n\n    about {\n      mainTitle,\n      introSummary,\n      introParagraph1,\n      introParagraph2,\n      meetOwnerTitle,\n      ownerParagraph1,\n      ownerParagraph2,\n      teamSummary,\n      closingTitle,\n      closingParagraph1,\n      closingParagraph2\n    },\n\n    events {\n      mainTitle,\n      paragraph1,\n      paragraph2,\n      marquee\n    },\n\n    contact {\n      title,\n      subtitle,\n      overviewContact,\n      servicesLegend,\n      submit\n    },\n\n    footer {\n      title,\n      button\n    },\n\n    client {\n      marqueeHeader\n    }\n  }\n': ParagraphsQueryResult
+    '\n  *[_type == "paragraphs"][0]{\n    _id,\n    _type,\n\n    home {\n      mainTitle,\n      aboutSummary,\n      aboutButton,\n      servicesTitle,\n      servicesParagraph1,\n      servicesParagraph2,\n      eventsTransition,\n      eventsTitle,\n      eventsParagraph,\n      eventButton,\n      galleryTransition,\n      brandsMarquee,\n      faqTitle,\n      faqSubtitle\n    },\n\n    about {\n      mainTitle,\n      introSummary,\n      introParagraph1,\n      introParagraph2,\n      meetOwnerTitle,\n      ownerParagraph1,\n      ownerParagraph2,\n      teamSummary,\n      closingTitle,\n      closingParagraph1,\n      closingParagraph2,\n      galleryButton\n    },\n\n    events {\n      mainTitle,\n      paragraph1,\n      paragraph2,\n      marquee,\n      carouselButton\n    },\n\n    contact {\n      title,\n      subtitle,\n      overviewContact,\n      servicesLegend,\n      firstName,\n      lastName,\n      email,\n      phone,\n      eventType,\n      eventDate,\n      eventLocation,\n      eventBudget,\n      eventGuests,\n      eventDesc,\n      submit\n    },\n\n    footer {\n      title,\n      button\n    },\n\n    client {\n      marqueeHeader\n    }\n  }\n': ParagraphsQueryResult
     '\n  *[_type == $type && defined(slug.current)]{"slug": slug.current}\n': SlugsByTypeQueryResult
   }
 }

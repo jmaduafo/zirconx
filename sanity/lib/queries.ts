@@ -180,6 +180,16 @@ export const paragraphsQuery = defineQuery(`
       subtitle,
       overviewContact,
       servicesLegend,
+      firstName,
+      lastName,
+      email,
+      phone,
+      eventType,
+      eventDate,
+      eventLocation,
+      eventBudget,
+      eventGuests,
+      eventDesc,
       submit
     },
 

@@ -132,26 +132,4 @@ export const eventMarquee = [
   "Timeless Events"
 ]
 
-export const clientsImages = [
-  {
-    height: "200px",
-    image: "/images/clients/bono.png"
-  },
-  {
-    height: "120px",
-    image: "/images/clients/busha.png"
-  },
-  {
-    height: "230px",
-    image: "/images/clients/interswitch.png"
-  },
-  {
-    height: "100px",
-    image: "/images/clients/lafarge.png"
-  },
-  {
-    height: "90px",
-    image: "/images/clients/netflix.png"
-  },
 
-]
