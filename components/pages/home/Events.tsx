@@ -9,7 +9,7 @@ import Header4 from '@/components/headings/Header4'
 import Paragraph from '@/components/headings/Paragraph'
 import { cn } from '@/lib/utils'
 import Decor from '@/public/images/decor.png'
-import {EventsQueryResult, SettingsQueryResult} from '@/sanity.types'
+import {EventsQueryResult, ParagraphsQueryResult, SettingsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
 import {motion} from 'framer-motion'
 import Image from 'next/image'
@@ -18,9 +18,11 @@ import React from 'react'
 function Events({
   eventData,
   settingData,
+  paragraphs
 }: {
   readonly eventData: EventsQueryResult
   readonly settingData: SettingsQueryResult
+  readonly paragraphs: ParagraphsQueryResult
 }) {
   return (
     <div className="">
@@ -30,12 +32,12 @@ function Events({
       >
         <div className="flex flex-col gap-6 justify-center h-full">
           <PopUp>
-            <Header4 text="Our Events" />
+            <Header4 text={paragraphs?.home?.eventsTitle ?? ""} />
           </PopUp>
           <Appear>
             <div className="grid gap-4">
-              <Paragraph text="From intimate gatherings to large-scale celebrations, every event we plan is thoughtfully designed to reflect your vision and leave a lasting impression. We believe that no detail is too small when it comes to creating meaningful experiences." />
-              <PrimaryButton text="Discover more" href="/events" />
+              <Paragraph text={paragraphs?.home?.eventsParagraph?.[0].children?.[0].text ?? ""} />
+              <PrimaryButton text={paragraphs?.home?.eventButton ?? ""} href="/events" />
             </div>
           </Appear>
         </div>

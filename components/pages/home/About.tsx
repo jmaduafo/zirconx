@@ -3,10 +3,11 @@ import PrimaryButton from '@/components/buttons/PrimaryButton'
 import SingleSummary from '@/components/containers/SingleSummary'
 import Header3 from '@/components/headings/Header3'
 import Decor from '@/public/images/decor.png'
+import { ParagraphsQueryResult } from '@/sanity.types'
 import Image from 'next/image'
 import React from 'react'
 
-function About() {
+function About({ paragraphs }: { readonly paragraphs: ParagraphsQueryResult}) {
   return (
     <SingleSummary>
       <div className="flex items-center flex-col gap-6">
@@ -18,7 +19,7 @@ function About() {
           </Appear>
           <Header3
             className="text-center"
-            text="The Zircon Xperience is a full-service event planning company based in Lagos, dedicated to creating refined and unforgettable experiences."
+            text={paragraphs?.home?.aboutSummary?.[0].children?.[0].text ?? ""}
           />
         </div>
         <div>

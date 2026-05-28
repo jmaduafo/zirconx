@@ -1,8 +1,9 @@
 import SingleSummary from '@/components/containers/SingleSummary'
 import Header3 from '@/components/headings/Header3'
+import { ParagraphsQueryResult } from '@/sanity.types'
 import React from 'react'
 
-function TextTransition() {
+function TextTransition({paragraphs}: { readonly paragraphs: ParagraphsQueryResult}) {
   return (
     <SingleSummary>
       <Header3

@@ -4,13 +4,13 @@ import ServicesCard from '@/components/cards/ServicesCard'
 import GridDisplay from '@/components/containers/GridDisplay'
 import Header4 from '@/components/headings/Header4'
 import Paragraph from '@/components/headings/Paragraph'
-import {SettingsQueryResult} from '@/sanity.types'
+import {ParagraphsQueryResult, SettingsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
 import {services} from '@/utils/data'
 import {motion} from 'framer-motion'
 import React from 'react'
 
-function Services({data}: {readonly data: SettingsQueryResult}) {
+function Services({data, paragraphs}: {readonly data: SettingsQueryResult; readonly paragraphs: ParagraphsQueryResult}) {
   return (
     <div>
       <GridDisplay

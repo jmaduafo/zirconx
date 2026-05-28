@@ -163,24 +163,7 @@ export default defineType({
           title: 'Transition summary before gallery',
           description:
             'This is the transition paragraph before the gallery section of the home page',
-          type: 'array',
-          of: [
-            {
-              title: 'Block',
-              type: 'block',
-              styles: [
-                {title: 'Normal', value: 'normal'},
-                {title: 'H1', value: 'h1'},
-                {title: 'H2', value: 'h2'},
-              ],
-              marks: {
-                decorators: [
-                  {title: 'Strong', value: 'strong'},
-                  {title: 'Emphasis', value: 'em'},
-                ],
-              },
-            },
-          ],
+          type: "string"
         },
         {
           name: 'faqTitle',

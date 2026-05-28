@@ -15,7 +15,6 @@ import service from '@/sanity/schemas/objects/client_services'
 import settings from '@/sanity/schemas/singletons/settings'
 import events from './sanity/schemas/singletons/events'
 import paragraphs from './sanity/schemas/singletons/paragraphs'
-import { lucideIconPicker } from 'sanity-plugin-lucide-icon-picker';
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
@@ -71,7 +70,6 @@ export default defineConfig({
     singletonPlugin([settings.name, events.name, paragraphs.name]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
-    lucideIconPicker(),
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
