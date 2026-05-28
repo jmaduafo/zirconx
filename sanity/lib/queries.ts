@@ -65,6 +65,9 @@ export const settingsQuery = defineQuery(`
       question,
       answer
     },
+    navigations[]{
+      name
+    },
     services[] {
       title,
       desc,

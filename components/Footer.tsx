@@ -31,11 +31,11 @@ function Footer({data, events, paragraphs}: Readonly<Contacts>) {
       <div className="w-full md:w-auto grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4">
         {/* PAGES LIST */}
         <FooterList title="Pages">
-          {navigation.map((nav) => {
+          {navigation.map((nav, i) => {
             return (
               <li key={nav.title} className="capitalize">
                 <Link href={`${nav.link.includes('#contact') ? '' : '/'}${nav.link}`}>
-                  {nav.title}
+                  {data?.navigations?.[i]?.name}
                 </Link>
               </li>
             )

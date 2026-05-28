@@ -1,6 +1,5 @@
 'use client'
 
-import Logo from '@/public/logo/zircon_logo.png'
 import {EventsQueryResult, SettingsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
 import {navigation} from '@/utils/data'
@@ -71,20 +70,22 @@ export function Navbar({
           </Link>
           <nav className="hidden lg:block capitalize text-sm 2xl:text-xl font-montrealMedium">
             <ul className="flex items-center gap-5">
-              {navigation.map((nav) => {
+              {navigation.map((nav, i) => {
                 return (
                   <Fragment key={nav.title}>
                     {!nav.button && !nav.dropdown && (
                       <li>
                         <Link href={`${nav.link.includes('#contact') ? '' : '/'}${nav.link}`}>
-                          {nav.title}
+                          {settings?.navigations?.[i]?.name}
                         </Link>
                       </li>
                     )}
-                    {nav.dropdown && <DropDown nav={nav} events={events} />}
+                    {nav.dropdown && (
+                      <DropDown settings={settings} i={i} nav={nav} events={events} />
+                    )}
                     {nav.button && (
                       <Link href={`/${nav.link}`}>
-                        <Button>{nav.title}</Button>
+                        <Button>{settings?.navigations?.[i]?.name}</Button>
                       </Link>
                     )}
                   </Fragment>
@@ -136,7 +137,7 @@ export function Navbar({
         </div>
         <div className="my-auto relative">
           <ul className="text-background font-montrealBook text-[7vw] leading-none capitalize">
-            {navigation.map((nav) => {
+            {navigation.map((nav, i) => {
               return (
                 <div key={nav.title} className="overflow-hidden">
                   {!nav.dropdown && (
@@ -150,7 +151,7 @@ export function Navbar({
                       className="w-fit"
                     >
                       <Link href={`${nav.link.includes('#contact') ? '' : '/'}${nav.link}`}>
-                        {nav.title}
+                        {settings?.navigations?.[i]?.name}
                       </Link>
                     </motion.li>
                   )}
@@ -167,7 +168,7 @@ export function Navbar({
                           className="w-fit"
                         >
                           <Link href={`${nav.link.includes('#contact') ? '' : '/'}${nav.link}`}>
-                            {nav.title}
+                            {settings?.navigations?.[i]?.name}
                           </Link>
                         </motion.li>
                       </div>
@@ -206,6 +207,8 @@ type List = {
   isMenuClicked?: boolean
   setIsMenuClicked?: React.Dispatch<React.SetStateAction<boolean>>
   events: EventsQueryResult
+  settings: SettingsQueryResult
+  i: number
   nav: {
     title: string
     link: string
@@ -216,7 +219,15 @@ type List = {
   }
 }
 
-function DropDown({events, nav, isMenu, isMenuClicked, setIsMenuClicked}: Readonly<List>) {
+function DropDown({
+  settings,
+  events,
+  i,
+  nav,
+  isMenu,
+  isMenuClicked,
+  setIsMenuClicked,
+}: Readonly<List>) {
   const [isHovered, setIsHovered] = useState(false)
 
   return isMenu ? (
@@ -234,7 +245,7 @@ function DropDown({events, nav, isMenu, isMenuClicked, setIsMenuClicked}: Readon
       >
         <span className="flex items-center justify-between gap-2">
           <li>
-            <Link href={`/${nav.link}`}>{nav.title}</Link>
+            <Link href={`/${nav.link}`}>{settings?.navigations?.[i]?.name}</Link>
           </li>
           <ChevronRight strokeWidth={1.5} className="size-5" />
         </span>
