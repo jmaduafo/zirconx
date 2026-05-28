@@ -1,11 +1,15 @@
 import SingleSummary from '@/components/containers/SingleSummary'
 import Header3 from '@/components/headings/Header3'
+import {ParagraphsQueryResult} from '@/sanity.types'
 import React from 'react'
 
-function TeamSummary() {
+function TeamSummary({paragraphs}: {readonly paragraphs: ParagraphsQueryResult}) {
   return (
     <SingleSummary>
-      <Header3 className='text-center' text="Our team is made up of dedicated event professionals who work behind the scenes to bring every detail together seamlessly." />
+      <Header3
+        className="text-center"
+        text={paragraphs?.about?.teamSummary?.[0]?.children?.[0]?.text ?? ''}
+      />
     </SingleSummary>
   )
 }

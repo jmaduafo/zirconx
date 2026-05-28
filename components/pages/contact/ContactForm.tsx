@@ -27,7 +27,7 @@ import {
 } from '@/components/ui/select'
 import {Textarea} from '@/components/ui/textarea'
 import {sendEmail} from '@/emailjs/actions'
-import {SettingsQueryResult} from '@/sanity.types'
+import {ParagraphsQueryResult, SettingsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
 import {navigation, services} from '@/utils/data'
 import {contactSchema} from '@/zod/validation'
@@ -40,7 +40,13 @@ import {Controller, useForm} from 'react-hook-form'
 import {toast} from 'sonner'
 import * as z from 'zod'
 
-function ContactForm({data}: {readonly data: SettingsQueryResult}) {
+function ContactForm({
+  data,
+  paragraphs,
+}: {
+  readonly data: SettingsQueryResult
+  readonly paragraphs: ParagraphsQueryResult
+}) {
   const [date, setDate] = useState<Date>()
 
   const form = useForm<z.infer<typeof contactSchema>>({
@@ -90,14 +96,14 @@ function ContactForm({data}: {readonly data: SettingsQueryResult}) {
       <div className="flex flex-col md:flex-row justify-between items-start gap-6">
         <div className="md:flex-1">
           <MainHeader
-            title="Contact us"
-            subtitle="From intimate gatherings to grand celebrations, we are here to create an event tailored to you."
+            title={paragraphs?.contact?.title ?? ''}
+            subtitle={paragraphs?.contact?.subtitle ?? ''}
           />
         </div>
         <form className="w-full md:flex-[2]" onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup className="">
             <FieldSet>
-              <FieldLegend>Event Overview</FieldLegend>
+              <FieldLegend>{paragraphs?.contact?.overviewContact ?? ''}</FieldLegend>
               <FieldGroup>
                 <div className="grid sm:grid-cols-2 gap-x-3 gap-y-4">
                   <Controller
@@ -312,7 +318,9 @@ function ContactForm({data}: {readonly data: SettingsQueryResult}) {
             </FieldSet>
             <div className="flex flex-row items-start gap-4">
               <FieldSet className="flex-1 sm:flex-[2]">
-                <FieldLegend variant="label">Services Needed</FieldLegend>
+                <FieldLegend variant="label">
+                  {paragraphs?.contact?.servicesLegend ?? ''}
+                </FieldLegend>
                 <Controller
                   name="services"
                   control={form.control}
@@ -329,16 +337,24 @@ function ContactForm({data}: {readonly data: SettingsQueryResult}) {
                             data-invalid={fieldState.invalid}
                           >
                             <Checkbox
-                              id={service.title ?
-                                service.title.toLowerCase()
-                                .replace('-', ' ')
-                                .split(' ')
-                                .join('_') : ""}
-                              name={service.title ? service.title
-                                .toLowerCase()
-                                .replace('-', ' ')
-                                .split(' ')
-                                .join('_') : ""}
+                              id={
+                                service.title
+                                  ? service.title
+                                      .toLowerCase()
+                                      .replace('-', ' ')
+                                      .split(' ')
+                                      .join('_')
+                                  : ''
+                              }
+                              name={
+                                service.title
+                                  ? service.title
+                                      .toLowerCase()
+                                      .replace('-', ' ')
+                                      .split(' ')
+                                      .join('_')
+                                  : ''
+                              }
                               aria-invalid={fieldState.invalid}
                               checked={field.value.includes(service.title as string)}
                               onCheckedChange={(checked) => {
@@ -349,11 +365,15 @@ function ContactForm({data}: {readonly data: SettingsQueryResult}) {
                               }}
                             />
                             <FieldLabel
-                              htmlFor={service?.title ? service.title
-                                .toLowerCase()
-                                .replace('-', ' ')
-                                .split(' ')
-                                .join('_') : ""}
+                              htmlFor={
+                                service?.title
+                                  ? service.title
+                                      .toLowerCase()
+                                      .replace('-', ' ')
+                                      .split(' ')
+                                      .join('_')
+                                  : ''
+                              }
                               className="capitalize"
                             >
                               {service.title}
@@ -367,7 +387,11 @@ function ContactForm({data}: {readonly data: SettingsQueryResult}) {
                 />
                 <FieldGroup className="mt-5">
                   <Field className="w-fit">
-                    <PrimaryButton className="scale-90" text="Submit" type="submit" />
+                    <PrimaryButton
+                      className="scale-90"
+                      text={paragraphs?.contact?.submit ?? ''}
+                      type="submit"
+                    />
                   </Field>
                 </FieldGroup>
               </FieldSet>

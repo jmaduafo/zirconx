@@ -1,6 +1,6 @@
 'use client'
 
-import {EventsQueryResult, SettingsQueryResult} from '@/sanity.types'
+import {EventsQueryResult, ParagraphsQueryResult, SettingsQueryResult} from '@/sanity.types'
 import {navigation} from '@/utils/data'
 import Link from 'next/link'
 import React from 'react'
@@ -11,9 +11,10 @@ import Header2 from './headings/Header2'
 type Contacts = {
   data: SettingsQueryResult;
   events: EventsQueryResult;
+  paragraphs: ParagraphsQueryResult
 }
 
-function Footer({data, events}: Readonly<Contacts>) {
+function Footer({data, events, paragraphs}: Readonly<Contacts>) {
 
 
   return (
@@ -24,9 +25,9 @@ function Footer({data, events}: Readonly<Contacts>) {
       {/* CALL TO ACTION TO CONTACT US PAGE */}
       <div className="flex flex-col gap-5">
         <Header2 className="italic w-[5em] !leading-[0.8]">
-          <BlurText text="Want to contact us?" />
+          <BlurText text={paragraphs?.footer?.title ?? ""} />
         </Header2>
-        <PrimaryButton text="Inquire now" href="/contact" isLight />
+        <PrimaryButton text={paragraphs?.footer?.button ?? ""} href="/contact" isLight />
       </div>
       {/* FOOTER LINK LIST BY SECTION */}
       <div className="w-full md:w-auto grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4">

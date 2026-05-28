@@ -8,11 +8,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import {EventsQueryResult} from '@/sanity.types'
+import {EventsQueryResult, ParagraphsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
 import React from 'react'
 
-function EventsCarousel({data}: {readonly data: EventsQueryResult}) {
+function EventsCarousel({data, paragraphs}: {readonly data: EventsQueryResult; readonly paragraphs: ParagraphsQueryResult}) {
   return (
     <section>
       <Carousel

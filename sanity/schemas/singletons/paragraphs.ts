@@ -373,6 +373,13 @@ export default defineType({
             },
           ],
         },
+        {
+          name: 'galleryButton',
+          title: 'Gallery button text as link to events page',
+          description: 'This field is the text of the button under the gallery in the about page',
+          type: 'string',
+          validation: (rule) => rule.required(),
+        },
       ],
     }),
     defineField({
@@ -436,6 +443,13 @@ export default defineType({
           description: 'This is a collection of texts for the text marquee in the events page',
           type: 'array',
           of: [{type: 'string'}],
+        },
+        {
+          name: 'carouselButton',
+          title: 'Button for events carousel',
+          description: 'This field is the text of the button within the events carousel in the events page',
+          type: 'string',
+          validation: (rule) => rule.required(),
         },
       ],
     }),

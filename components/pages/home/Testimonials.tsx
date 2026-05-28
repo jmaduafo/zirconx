@@ -12,7 +12,6 @@ import {
   CarouselPrevious,
 } from '@/components/ui/gallery'
 import {SettingsQueryResult} from '@/sanity.types'
-import {Card} from '@sanity/ui'
 import {EmblaOptionsType} from 'embla-carousel'
 import React from 'react'
 

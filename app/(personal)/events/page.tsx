@@ -13,10 +13,10 @@ async function page() {
 
   return (
     <>
-      <ImageTransition data={settings}/>
-      <EventInfo/>
+      <ImageTransition data={settings} />
+      <EventInfo paragraphs={paragraphs}/>
       <TextMarquee data={paragraphs}/>
-      <EventsCarousel data={events}/>
+      <EventsCarousel data={events} paragraphs={paragraphs}/>
     </>
   )
 }

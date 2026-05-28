@@ -163,14 +163,16 @@ export const paragraphsQuery = defineQuery(`
       teamSummary,
       closingTitle,
       closingParagraph1,
-      closingParagraph2
+      closingParagraph2,
+      galleryButton
     },
 
     events {
       mainTitle,
       paragraph1,
       paragraph2,
-      marquee
+      marquee,
+      carouselButton
     },
 
     contact {

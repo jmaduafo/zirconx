@@ -6,20 +6,21 @@ import Opening from '@/components/pages/about/Opening'
 import TeamSummary from '@/components/pages/about/TeamSummary'
 import ClientMarquee from '@/components/pages/home/ClientMarquee'
 import { sanityFetch } from '@/sanity/lib/live'
-import { settingsQuery } from '@/sanity/lib/queries'
+import { paragraphsQuery, settingsQuery } from '@/sanity/lib/queries'
 import React from 'react'
 
 async function page() {
-  const {data} = await sanityFetch({query: settingsQuery})
+  const {data: settings} = await sanityFetch({query: settingsQuery})
+  const {data: paragraphs} = await sanityFetch({query: paragraphsQuery})
   return (
     <>
-      <Opening data={data} />
-      <MeetOwner data={data}/>
-      <TeamSummary/>
-      <ImageTransition data={data}/>
-      <ClientMarquee data={data}/>
-      <Motive data={data}/>
-      <Gallery data={data}/>
+      <Opening data={settings} paragraphs={paragraphs}/>
+      <MeetOwner data={settings} paragraphs={paragraphs}/>
+      <TeamSummary paragraphs={paragraphs}/>
+      <ImageTransition data={settings}/>
+      <ClientMarquee data={settings} paragraphs={paragraphs}/>
+      <Motive data={settings} paragraphs={paragraphs}/>
+      <Gallery data={settings} paragraphs={paragraphs}/>
     </>
   )
 }
