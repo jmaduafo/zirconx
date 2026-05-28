@@ -1,11 +1,11 @@
-import {CogIcon} from '@sanity/icons'
+import {TextIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'paragraphs',
   title: 'Paragraphs',
   type: 'document',
-  icon: CogIcon,
+  icon: TextIcon,
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
   fields: [
@@ -170,7 +170,7 @@ export default defineType({
           title: 'Transition summary before gallery',
           description:
             'This is the transition paragraph before the gallery section of the home page',
-          type: "string"
+          type: 'string',
         },
         {
           name: 'faqTitle',
@@ -447,7 +447,8 @@ export default defineType({
         {
           name: 'carouselButton',
           title: 'Button for events carousel',
-          description: 'This field is the text of the button within the events carousel in the events page',
+          description:
+            'This field is the text of the button within the events carousel in the events page',
           type: 'string',
           validation: (rule) => rule.required(),
         },
