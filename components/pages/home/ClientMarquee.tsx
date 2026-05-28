@@ -1,16 +1,21 @@
 import Paragraph from '@/components/headings/Paragraph'
-import {SettingsQueryResult} from '@/sanity.types'
+import {ParagraphsQueryResult, SettingsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
 import Image from 'next/image'
 import React from 'react'
 import Marquee from 'react-fast-marquee'
 
-function ClientMarquee({data}: {readonly data: SettingsQueryResult}) {
-
+function ClientMarquee({
+  data,
+  paragraphs,
+}: {
+  readonly data: SettingsQueryResult
+  readonly paragraphs: ParagraphsQueryResult
+}) {
   return (
     <section className="relative bg-accent pt-7 pb-2 2xl:pb-5">
       <div className="z-[3] absolute top-[20%] w-full flex justify-center">
-        <Paragraph text="Brands we've served:" className="capitalize font-montrealMedium" />
+        <Paragraph text={paragraphs?.client?.marqueeHeader ?? ""} className="capitalize font-montrealMedium" />
       </div>
       <div className="relative w-full md:w-[60%] mx-auto">
         <div className="z-[2] w-full h-full absolute inset-0 bg-gradient-to-r from-accent via-accent/0 to-accent"></div>

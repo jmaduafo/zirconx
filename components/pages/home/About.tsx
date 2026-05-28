@@ -23,7 +23,7 @@ function About({ paragraphs }: { readonly paragraphs: ParagraphsQueryResult}) {
           />
         </div>
         <div>
-          <PrimaryButton text="Discover more" href="/about" id="services" />
+          <PrimaryButton text={paragraphs?.home?.aboutButton ?? ""} href="/about" id="services" />
         </div>
       </div>
     </SingleSummary>

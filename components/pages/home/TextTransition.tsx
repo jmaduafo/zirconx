@@ -8,7 +8,7 @@ function TextTransition({paragraphs}: { readonly paragraphs: ParagraphsQueryResu
     <SingleSummary>
       <Header3
         className="text-center"
-        text="With our ideas, attention to detail, and creativity, we bring your dream event to life because we take fun seriously."
+        text={paragraphs?.home?.eventsTransition?.[0]?.children?.[0]?.text ?? ""}
       />
     </SingleSummary>
   )

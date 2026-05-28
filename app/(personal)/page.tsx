@@ -21,7 +21,7 @@ export default async function IndexRoute() {
 
   return (
     <>
-      <Hero data={settings} />
+      <Hero data={settings} paragraphs={paragraphs} />
       <About paragraphs={paragraphs}/>
       <Services data={settings} paragraphs={paragraphs}/>
       <Statistics data={settings} />
@@ -29,7 +29,7 @@ export default async function IndexRoute() {
       <TextTransition paragraphs={paragraphs}/>
       <Events eventData={events} settingData={settings} paragraphs={paragraphs}/>
       <Gallery data={settings} paragraphs={paragraphs}/>
-      <ClientMarquee data={settings} />
+      <ClientMarquee data={settings} paragraphs={paragraphs}/>
       <ImageTransition2 data={settings} />
       <Testimonials data={settings} />
       <ImageTransition3 data={settings} />

@@ -15,6 +15,13 @@ export default defineType({
       type: 'object',
       fields: [
         {
+          name: 'mainTitle',
+          title: 'Main title',
+          description: 'This is the main title in the hero section of the home page',
+          type: 'string',
+          validation: (rule) => rule.required(),
+        },
+        {
           name: 'aboutSummary',
           title: 'About summary',
           description: 'This is the about summary of the home page',

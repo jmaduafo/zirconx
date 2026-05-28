@@ -136,6 +136,7 @@ export const paragraphsQuery = defineQuery(`
     _type,
 
     home {
+      mainTitle,
       aboutSummary,
       aboutButton,
       servicesTitle,

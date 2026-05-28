@@ -18,10 +18,10 @@ function Services({data, paragraphs}: {readonly data: SettingsQueryResult; reado
         orderLast
       >
         <div className="h-full flex flex-col justify-center gap-6">
-          <Header4 text="Our Services" />
+          <Header4 text={paragraphs?.home?.servicesTitle ?? ""} />
           <div className="grid gap-4">
-            <Paragraph text="We specialize in corporate events, dinner galas, brand activations, private celebrations, and intimate gatherings—each thoughtfully designed and expertly executed." />
-            <Paragraph text="Since 2019, we have helped clients bring their ideas to life through venue sourcing, vendor management, event design, budget planning, and full-service coordination." />
+            <Paragraph text={paragraphs?.home?.servicesParagraph1?.[0]?.children?.[0]?.text ?? ""} />
+            <Paragraph text={paragraphs?.home?.servicesParagraph2?.[0]?.children?.[0]?.text ?? ""} />
           </div>
         </div>
       </GridDisplay>

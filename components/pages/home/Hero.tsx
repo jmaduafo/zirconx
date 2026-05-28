@@ -2,17 +2,17 @@
 
 import Header1 from '@/components/headings/Header1'
 import {Carousel, CarouselContent, CarouselItem} from '@/components/ui/carousel'
-import {SettingsQueryResult} from '@/sanity.types'
+import {ParagraphsQueryResult, SettingsQueryResult} from '@/sanity.types'
 import {urlForImage} from '@/sanity/lib/utils'
 import {hero} from '@/utils/data'
 import Autoplay from 'embla-carousel-autoplay'
 import React from 'react'
 
-function Hero({data}: {readonly data: SettingsQueryResult}) {
+function Hero({data, paragraphs}: {readonly data: SettingsQueryResult; readonly paragraphs: ParagraphsQueryResult}) {
   return (
     <div className="h-screen relative">
       <div className="py-[8vh] font-serif text-background absolute w-full h-full inset-0 bg-foreground/50 z-20 flex justify-center items-center">
-        <Header1 className="uppercase text-center w-[90%]" text="The Zircon Xperience" />
+        <Header1 className="text-center w-[90%]" text={paragraphs?.home?.mainTitle ?? ""} />
       </div>
       <Carousel
         opts={{

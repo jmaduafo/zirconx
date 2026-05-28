@@ -27,7 +27,7 @@ function Gallery({
       <InfoContainer>
         <Header3
           className="max-w-2xl 2xl:max-w-5xl"
-          text="No matter the occasion, we design experiences that leave a lasting impression."
+          text={paragraphs?.home?.galleryTransition ?? ""}
         />
       </InfoContainer>
       <section className="overflow-hidden">
