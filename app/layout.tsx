@@ -1,8 +1,9 @@
 import './globals.css'
 import {montrealBook, montrealMedium} from '@/font/fonts'
 import {cn} from '@/lib/utils'
+import {SanityLive} from '@/sanity/lib/live'
+import {Metadata, Viewport} from 'next'
 import {Cormorant_Garamond, Geist} from 'next/font/google'
-import { Metadata, Viewport } from 'next';
 
 const geist = Geist({subsets: ['latin'], variable: '--font-sans'})
 
@@ -14,22 +15,22 @@ const serif = Cormorant_Garamond({
 })
 
 export const viewport: Viewport = {
-  themeColor: '#b1d4df'
+  themeColor: '#b1d4df',
 }
 
 export const metadata: Metadata = {
   title: 'Zircon Xperience',
-  description: 'Zircon Xperience is a Lagos-based luxury event planning company specializing in unforgettable social celebrations, corporate events, weddings, and curated experiences with a touch of class.',
+  description:
+    'Zircon Xperience is a Lagos-based luxury event planning company specializing in unforgettable social celebrations, corporate events, weddings, and curated experiences with a touch of class.',
   openGraph: {
     title: 'Zircon Xperience',
-    description:
-      'Luxury event planning and curated experiences with a touch of class.',
+    description: 'Luxury event planning and curated experiences with a touch of class.',
     images: [
       {
         url: 'https://zirconxperience.com',
         width: 1200,
         height: 630,
-        alt: "website preview"
+        alt: 'website preview',
       },
     ],
   },
@@ -42,10 +43,7 @@ export const metadata: Metadata = {
   //   icon: '/icon.png',
   //   apple: '/apple-icon.png',
   // },
-  themeColor: '#b1d4df'
-};
-
-
+}
 
 export default async function RootLayout({children}: {readonly children: React.ReactNode}) {
   return (
@@ -61,7 +59,10 @@ export default async function RootLayout({children}: {readonly children: React.R
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <SanityLive />
+      </body>
     </html>
   )
 }
