@@ -19,11 +19,11 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Zircon Xperience',
+  title: 'The Zircon Xperience',
   description:
-    'Zircon Xperience is a Lagos-based luxury event planning company specializing in unforgettable social celebrations, corporate events, weddings, and curated experiences with a touch of class.',
+    'The Zircon Xperience is a Lagos-based luxury event planning company specializing in unforgettable social celebrations, corporate events, weddings, and curated experiences with a touch of class.',
   openGraph: {
-    title: 'Zircon Xperience',
+    title: 'The Zircon Xperience',
     description: 'Luxury event planning and curated experiences with a touch of class.',
     images: [
       {
